@@ -1,0 +1,2 @@
+class Coworking < ApplicationRecord
+end
