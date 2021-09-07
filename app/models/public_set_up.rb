@@ -1,0 +1,2 @@
+class PublicSetUp < ApplicationRecord
+end
