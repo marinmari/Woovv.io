@@ -62,7 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # added gems for Woov project
 gem 'table_print'
 gem 'devise'
-gem 'rubocop', '~> 1.20', require: false
+gem 'rubocop-rails', require: false
 gem 'dotenv-rails'
 gem 'stripe'
 gem 'aws-sdk-s3'
