@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_144154) do
+ActiveRecord::Schema.define(version: 2021_09_08_232315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 2021_09_08_144154) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
-    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_companies_on_manager_id"
+    t.bigint "company_manager_id"
+    t.index ["company_manager_id"], name: "index_companies_on_company_manager_id"
   end
 
   create_table "coworkings", force: :cascade do |t|
@@ -83,11 +83,11 @@ ActiveRecord::Schema.define(version: 2021_09_08_144154) do
     t.string "email"
     t.boolean "is_operational?"
     t.bigint "managing_company_id"
-    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "coworking_manager_id"
     t.boolean "is_from_scrapping?", default: false
-    t.index ["manager_id"], name: "index_coworkings_on_manager_id"
+    t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"
     t.index ["managing_company_id"], name: "index_coworkings_on_managing_company_id"
   end
 
@@ -132,9 +132,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_144154) do
     t.datetime "birth_date"
     t.string "phone_number"
     t.string "gender"
-    t.boolean "is_independent?"
-    t.boolean "is_validated?"
     t.bigint "company_id"
+    t.boolean "is_independant?"
+    t.boolean "is_validated?"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_144154) do
   add_foreign_key "bookings", "booking_statuses"
   add_foreign_key "bookings", "coworkings"
   add_foreign_key "bookings", "users", column: "coworker_id"
-  add_foreign_key "companies", "users", column: "manager_id"
+  add_foreign_key "companies", "users", column: "company_manager_id"
   add_foreign_key "coworkings", "companies", column: "managing_company_id"
-  add_foreign_key "coworkings", "users", column: "manager_id"
+  add_foreign_key "coworkings", "users", column: "coworking_manager_id"
   add_foreign_key "private_set_ups", "coworkings"
   add_foreign_key "public_set_ups", "coworkings"
   add_foreign_key "public_set_ups", "public_set_up_accesses", column: "bike_storage_id"
