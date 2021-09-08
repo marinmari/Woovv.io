@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_232315) do
+ActiveRecord::Schema.define(version: 2021_09_08_234535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2021_09_08_232315) do
     t.bigint "coworking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_open_monday?", default: true
-    t.boolean "is_open_tuesday?", default: true
-    t.boolean "is_open_wednesday?", default: true
-    t.boolean "is_open_thursday?", default: true
-    t.boolean "is_open_friday?", default: true
-    t.boolean "is_open_saturday?", default: true
-    t.boolean "is_open_sunday?", default: true
+    t.boolean "is_open_monday", default: true
+    t.boolean "is_open_tuesday", default: true
+    t.boolean "is_open_wednesday", default: true
+    t.boolean "is_open_thursday", default: true
+    t.boolean "is_open_friday", default: true
+    t.boolean "is_open_saturday", default: true
+    t.boolean "is_open_sunday", default: true
     t.index ["coworking_id"], name: "index_availabilities_on_coworking_id"
   end
 
