@@ -12,6 +12,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :legal_state
       t.string :siret
       t.string :email
+      t.belongs_to :manager, foreign_key: { to_table: :users }, index: true
 
       t.timestamps
     end

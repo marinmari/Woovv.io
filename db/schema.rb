@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_104358) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
+    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "manager_id"
     t.index ["manager_id"], name: "index_companies_on_manager_id"
   end
 
@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_104358) do
     t.string "email"
     t.boolean "is_operational?"
     t.bigint "managing_company_id"
+    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "manager_id"
     t.boolean "is_from_scrapping?", default: false
     t.index ["manager_id"], name: "index_coworkings_on_manager_id"
     t.index ["managing_company_id"], name: "index_coworkings_on_managing_company_id"
@@ -132,9 +132,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_104358) do
     t.datetime "birth_date"
     t.string "phone_number"
     t.string "gender"
-    t.bigint "company_id"
-    t.boolean "is_independant?"
+    t.boolean "is_independent?"
     t.boolean "is_validated?"
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

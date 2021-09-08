@@ -14,6 +14,7 @@ class CreateCoworkings < ActiveRecord::Migration[5.2]
       t.string :email
       t.boolean :is_operational?
       t.belongs_to :managing_company, foreign_key: { to_table: :companies }, index: true
+      t.belongs_to :manager, foreign_key: { to_table: :users }, index: true
 
       t.timestamps
     end
