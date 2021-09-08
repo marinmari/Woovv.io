@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: woovv_production
-  username: woovv
-  password: <%= ENV['WOOVV_DATABASE_PASSWORD'] %>
+  database: woovv_development

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -41,8 +43,8 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -60,11 +62,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # added gems for Woov project
-gem 'table_print'
-gem 'devise'
-gem 'rubocop', '~> 1.20', require: false
-gem 'dotenv-rails'
-gem 'stripe'
 gem 'aws-sdk-s3'
-gem 'forest_liana'
+gem 'devise'
+gem 'dotenv-rails'
 gem 'faker'
+gem 'forest_liana'
+gem 'rubocop-rails', require: false
+gem 'stripe'
+gem 'table_print'

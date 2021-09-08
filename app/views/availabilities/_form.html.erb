@@ -1,0 +1,17 @@
+<%= form_with(model: availability, local: true) do |form| %>
+  <% if availability.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
+
+      <ul>
+      <% availability.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
