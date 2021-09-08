@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_114611) do
+ActiveRecord::Schema.define(version: 2021_09_08_104358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_09_07_114611) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "manager_id"
+    t.boolean "is_from_scrapping?", default: false
     t.index ["manager_id"], name: "index_coworkings_on_manager_id"
     t.index ["managing_company_id"], name: "index_coworkings_on_managing_company_id"
   end
