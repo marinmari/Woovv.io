@@ -9,4 +9,5 @@ class User < ApplicationRecord
   belongs_to :company, optional: true
   has_many :attended_coworkings, through: :bookings, source: :coworking
   has_many :managed_coworkings, class_name: "Coworking", foreign_key: "manager_id", dependent: :destroy, inverse_of: 'manager'
+  has_one :managed_company, class_name:"Company", foreign_key: "manager_id", dependent: :nullify, inverse_of: 'manager'
 end
