@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class AvailabilitiesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class AvailabilitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create availability" do
     assert_difference('Availability.count') do
-      post availabilities_url, params: { availability: {  } }
+      post availabilities_url, params: { availability: {} }
     end
 
     assert_redirected_to availability_url(Availability.last)
@@ -34,7 +36,7 @@ class AvailabilitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update availability" do
-    patch availability_url(@availability), params: { availability: {  } }
+    patch availability_url(@availability), params: { availability: {} }
     assert_redirected_to availability_url(@availability)
   end
 

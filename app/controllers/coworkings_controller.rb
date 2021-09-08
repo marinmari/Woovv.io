@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CoworkingsController < ApplicationController
-  before_action :set_coworking, only: %i[ show edit update destroy ]
+  before_action :set_coworking, only: %i[show edit update destroy]
 
   # GET /coworkings or /coworkings.json
   def index
@@ -7,8 +9,7 @@ class CoworkingsController < ApplicationController
   end
 
   # GET /coworkings/1 or /coworkings/1.json
-  def show
-  end
+  def show; end
 
   # GET /coworkings/new
   def new
@@ -16,8 +17,7 @@ class CoworkingsController < ApplicationController
   end
 
   # GET /coworkings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /coworkings or /coworkings.json
   def create
@@ -57,13 +57,14 @@ class CoworkingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coworking
-      @coworking = Coworking.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def coworking_params
-      params.fetch(:coworking, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_coworking
+    @coworking = Coworking.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def coworking_params
+    params.fetch(:coworking, {})
+  end
 end

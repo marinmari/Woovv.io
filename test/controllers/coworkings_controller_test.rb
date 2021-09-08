@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CoworkingsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class CoworkingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create coworking" do
     assert_difference('Coworking.count') do
-      post coworkings_url, params: { coworking: {  } }
+      post coworkings_url, params: { coworking: {} }
     end
 
     assert_redirected_to coworking_url(Coworking.last)
@@ -34,7 +36,7 @@ class CoworkingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update coworking" do
-    patch coworking_url(@coworking), params: { coworking: {  } }
+    patch coworking_url(@coworking), params: { coworking: {} }
     assert_redirected_to coworking_url(@coworking)
   end
 

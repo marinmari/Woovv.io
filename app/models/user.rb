@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,6 +9,4 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :attended_coworkings, through: :bookings, source: :coworking
   has_many :managed_coworkings, class_name: "Coworking", foreign_key: "manager_id"
-  
-
 end

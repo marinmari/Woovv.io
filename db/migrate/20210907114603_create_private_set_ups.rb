@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePrivateSetUps < ActiveRecord::Migration[5.2]
   def change
     create_table :private_set_ups do |t|

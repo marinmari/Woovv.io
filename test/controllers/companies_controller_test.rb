@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CompaniesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: {  } }
+      post companies_url, params: { company: {} }
     end
 
     assert_redirected_to company_url(Company.last)
@@ -34,7 +36,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: {  } }
+    patch company_url(@company), params: { company: {} }
     assert_redirected_to company_url(@company)
   end
 
