@@ -1,25 +1,28 @@
 <p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <title>Points on a map</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <%= javascript_include_tag 'mapbox_woov' %>
+    <style>
+      body { 
+        margin: 0; 
+        padding: 0; 
+      }
+      #map { 
+        position: absolute; 
+        top: 0; 
+        bottom: 0; 
+        width: 100%; 
+      }
+    </style>
+  </head>
+<body>
+<div id='map' value="<%=@coordinates%>"></div>
+</body>
+</html>
 
-<h1>Coworkings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @coworkings.each do |coworking| %>
-      <tr>
-        <td><%= link_to 'Show', coworking %></td>
-        <td><%= link_to 'Edit', edit_coworking_path(coworking) %></td>
-        <td><%= link_to 'Destroy', coworking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Coworking', new_coworking_path %>
