@@ -12,6 +12,6 @@ class Availability < ApplicationRecord
    
   private
     def is_scrapped?
-      Coworking.find(seld.coworking_id)
+      Coworking.find(self.coworking_id).is_from_scrapping? == true
     end 
 end

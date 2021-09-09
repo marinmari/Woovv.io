@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_194420) do
+ActiveRecord::Schema.define(version: 2021_09_09_000421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
     t.bigint "coworking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_open_monday?", default: true
-    t.boolean "is_open_tuesday?", default: true
-    t.boolean "is_open_wednesday?", default: true
-    t.boolean "is_open_thursday?", default: true
-    t.boolean "is_open_friday?", default: true
-    t.boolean "is_open_saturday?", default: true
-    t.boolean "is_open_sunday?", default: true
+    t.boolean "is_open_monday", default: true
+    t.boolean "is_open_tuesday", default: true
+    t.boolean "is_open_wednesday", default: true
+    t.boolean "is_open_thursday", default: true
+    t.boolean "is_open_friday", default: true
+    t.boolean "is_open_saturday", default: true
+    t.boolean "is_open_sunday", default: true
     t.index ["coworking_id"], name: "index_availabilities_on_coworking_id"
   end
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.boolean "coworking_rules_approved?"
+    t.boolean "coworking_rules_approved"
     t.bigint "booking_status_id"
     t.bigint "coworking_id"
     t.bigint "coworker_id"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
-    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_companies_on_manager_id"
+    t.bigint "company_manager_id"
+    t.index ["company_manager_id"], name: "index_companies_on_company_manager_id"
   end
 
   create_table "coworkings", force: :cascade do |t|
@@ -81,13 +81,13 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
     t.string "state"
     t.string "phone_number"
     t.string "email"
-    t.boolean "is_operational?"
+    t.boolean "is_operational"
     t.bigint "managing_company_id"
-    t.bigint "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_from_scrapping?", default: false
-    t.index ["manager_id"], name: "index_coworkings_on_manager_id"
+    t.bigint "coworking_manager_id"
+    t.boolean "is_from_scrapping", default: false
+    t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"
     t.index ["managing_company_id"], name: "index_coworkings_on_managing_company_id"
   end
 
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
     t.bigint "coworking_id"
     t.bigint "coffee_access_id"
     t.bigint "bike_storage_id"
-    t.boolean "is_pet_friendly?"
+    t.boolean "is_pet_friendly"
     t.integer "network_speed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,9 +132,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
     t.datetime "birth_date"
     t.string "phone_number"
     t.string "gender"
-    t.boolean "is_independent?"
-    t.boolean "is_validated?"
     t.bigint "company_id"
+    t.boolean "is_independent"
+    t.boolean "is_validated"
     t.integer "longitude"
     t.integer "latitude"
     t.index ["company_id"], name: "index_users_on_company_id"
@@ -146,9 +146,9 @@ ActiveRecord::Schema.define(version: 2021_09_08_194420) do
   add_foreign_key "bookings", "booking_statuses"
   add_foreign_key "bookings", "coworkings"
   add_foreign_key "bookings", "users", column: "coworker_id"
-  add_foreign_key "companies", "users", column: "manager_id"
+  add_foreign_key "companies", "users", column: "company_manager_id"
   add_foreign_key "coworkings", "companies", column: "managing_company_id"
-  add_foreign_key "coworkings", "users", column: "manager_id"
+  add_foreign_key "coworkings", "users", column: "coworking_manager_id"
   add_foreign_key "private_set_ups", "coworkings"
   add_foreign_key "public_set_ups", "coworkings"
   add_foreign_key "public_set_ups", "public_set_up_accesses", column: "bike_storage_id"
