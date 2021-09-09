@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root to: "he#index"
   devise_for :users
 
-  root to: "coworkings#index"
+  root to: "static_pages#home"
   resources :coworkings, only: [:index, :show]
   resources :users, only: [:edit]
 end
