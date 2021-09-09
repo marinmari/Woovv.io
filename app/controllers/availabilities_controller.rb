@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AvailabilitiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_availability, only: %i[show edit update destroy]
 
   # GET /availabilities or /availabilities.json
