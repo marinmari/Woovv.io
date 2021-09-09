@@ -1,6 +1,20 @@
 <div class="map-page">
   <div class="coworking-list">
-    <h2>Liste des coworkings</h2>
+    <h2 class="stickysticky">Liste des coworkings</h2>
+    <% @coworkings.each do |coworking|%>
+      <div class="card">
+        <%# <div class="card-header">
+          Featured
+        </div> %>
+        <div class="card-body">
+          <h5 class="card-title"><%= coworking.name %></h5>
+          <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
+          <a href="#" class="btn btn-primary">Demande de réservation</a>
+                    <a href="#" class="btn btn-outline">Plus d'information</a>
+
+        </div>
+      </div>
+    <% end %>
   </div>
   <div id='map' value="<%=@coordinates%>"></div>
 </div>
