@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_112357) do
+ActiveRecord::Schema.define(version: 2021_09_09_113233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,12 +94,12 @@ ActiveRecord::Schema.define(version: 2021_09_09_112357) do
   end
 
   create_table "private_set_ups", force: :cascade do |t|
-    t.bigint "coworking_id"
     t.string "wifi_password"
     t.string "manager_phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["coworking_id"], name: "index_private_set_ups_on_coworking_id"
+    t.bigint "coworking_id"
+    t.index ["coworking_id"], name: "index_private_set_ups_on_coworking_id", unique: true
   end
 
   create_table "public_set_up_accesses", force: :cascade do |t|
@@ -109,16 +109,16 @@ ActiveRecord::Schema.define(version: 2021_09_09_112357) do
   end
 
   create_table "public_set_ups", force: :cascade do |t|
-    t.bigint "coworking_id"
     t.bigint "coffee_access_id"
     t.bigint "bike_storage_id"
     t.boolean "is_pet_friendly"
     t.integer "network_speed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "coworking_id"
     t.index ["bike_storage_id"], name: "index_public_set_ups_on_bike_storage_id"
     t.index ["coffee_access_id"], name: "index_public_set_ups_on_coffee_access_id"
-    t.index ["coworking_id"], name: "index_public_set_ups_on_coworking_id"
+    t.index ["coworking_id"], name: "index_public_set_ups_on_coworking_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
