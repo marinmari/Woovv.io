@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.datetime "weekend_closing_time"
     t.integer "available_spots_quantity"
     t.integer "price_per_spot_per_day"
-    t.bigint "coworking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_open_monday", default: true
@@ -32,7 +31,8 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.boolean "is_open_friday", default: true
     t.boolean "is_open_saturday", default: true
     t.boolean "is_open_sunday", default: true
-    t.index ["coworking_id"], name: "index_availabilities_on_coworking_id"
+    t.bigint "coworking_id"
+    t.index ["coworking_id"], name: "index_availabilities_on_coworking_id", unique: true
   end
 
   create_table "booking_statuses", force: :cascade do |t|
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
-    t.bigint "company_manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_manager_id"
     t.index ["company_manager_id"], name: "index_companies_on_company_manager_id"
   end
 
@@ -83,11 +83,10 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.string "email"
     t.boolean "is_operational"
     t.bigint "managing_company_id"
-    t.bigint "coworking_manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "coworking_manager_id"
     t.boolean "is_from_scrapping", default: false
-    t.boolean "functionnal"
     t.integer "longitude"
     t.integer "latitude"
     t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"
@@ -135,9 +134,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.datetime "birth_date"
     t.string "phone_number"
     t.string "gender"
+    t.bigint "company_id"
     t.boolean "is_independent"
     t.boolean "is_validated"
-    t.bigint "company_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
