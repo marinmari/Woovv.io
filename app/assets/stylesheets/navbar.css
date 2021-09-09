@@ -9,11 +9,14 @@
 }
 
 .navbar .navbar-brand {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-family: 'Baloo 2';
+  font-weight: 700;
 }
 
 .dropdown-btn {
-  background-color: black;
+  background-image: url('https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/d/9/a/d9a1058910_50163142_elon-musk1.jpg ');
+  background-size:cover;
   border: 1px transparent solid;
   border-radius: 50%;
   padding:1rem;

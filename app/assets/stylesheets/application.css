@@ -13,8 +13,12 @@
 
  *= require main
  *= require navbar
+ *= require map
+ *= require button
+
 
  *= require footer
 
 
  */
+

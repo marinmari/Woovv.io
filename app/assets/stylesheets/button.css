@@ -1,0 +1,12 @@
+.btn {
+
+}
+
+.btn-primary {
+  background-color: #92DACA;
+  border: 1px transparent solid;
+}
+
+.btn-outline {
+  border: 1px #92DACA solid;
+}
