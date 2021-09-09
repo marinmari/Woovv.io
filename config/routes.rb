@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'users/update'
+  get 'users/edit'
+  get 'users/show'
   resources :availabilities
   resources :bookings
   resources :companies
