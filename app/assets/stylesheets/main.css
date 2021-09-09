@@ -9,9 +9,12 @@
 
 body {
   font-family: 'Josefin Sans';
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
 }
 
-.container {
+.wrapper {
   padding:2rem;
   background-color: rgb(252, 252, 252);
 }
