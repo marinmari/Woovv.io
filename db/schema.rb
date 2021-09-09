@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_113233) do
+ActiveRecord::Schema.define(version: 2021_09_09_113856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 2021_09_09_113233) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
-    t.bigint "company_manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_manager_id"], name: "index_companies_on_company_manager_id"
+    t.bigint "company_manager_id"
+    t.index ["company_manager_id"], name: "index_companies_on_company_manager_id", unique: true
   end
 
   create_table "coworkings", force: :cascade do |t|
