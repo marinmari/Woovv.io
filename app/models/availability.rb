@@ -2,16 +2,17 @@
 
 class Availability < ApplicationRecord 
   belongs_to :coworking
-  validates :is_open_monday?, presence: true, unless: :is_scrapped?
-  validates :is_open_tuesday?, presence: true, unless: :is_scrapped?
-  validates :is_open_wednesday?, presence: true, unless: :is_scrapped?
-  validates :is_open_thursday?, presence: true, unless: :is_scrapped?
-  validates :is_open_friday?, presence: true, unless: :is_scrapped?
-  validates :is_open_saturday?, presence: true, unless: :is_scrapped?
-  validates :is_open_sunday?, presence: true, unless: :is_scrapped?
+  validates :is_open_monday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_tuesday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_wednesday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_thursday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_friday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_saturday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
+  validates :is_open_sunday?, inclusion: { in:[true, false] }, unless: :is_scrapped?
    
   private
     def is_scrapped?
-      Coworking.find(self.coworking_id).is_from_scrapping? == true
-    end 
+      Coworking.find(self.coworking_id).is_from_scrapping?
+    end
+
 end
