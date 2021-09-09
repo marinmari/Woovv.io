@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_booking, only: %i[show edit update destroy]
 
   # GET /bookings or /bookings.json
