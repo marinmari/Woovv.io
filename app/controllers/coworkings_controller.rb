@@ -14,7 +14,9 @@ class CoworkingsController < ApplicationController
   end
 
   # GET /coworkings/1 or /coworkings/1.json
-  def show; end
+  def show
+    @coworking = Coworking.find(params[:id])
+  end
 
   # GET /coworkings/new
   def new

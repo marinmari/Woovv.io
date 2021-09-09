@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :attended_coworkings, through: :bookings, source: :coworking
   has_many :managed_coworkings, class_name: "Coworking", foreign_key: "coworking_manager_id", dependent: :nullify, inverse_of: 'coworking_manager'
   has_one :managed_company, class_name: "Company", foreign_key: "company_manager_id", dependent: :nullify, inverse_of: 'company_manager'
-
+  has_one_attached :avatar
 end
