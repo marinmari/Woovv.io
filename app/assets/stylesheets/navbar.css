@@ -1,5 +1,5 @@
 
-nav {
+.navbar {
   background-color: teal;
   color: white;
 }
@@ -10,4 +10,16 @@ nav {
 
 .navbar .navbar-brand {
   font-size: 2rem;
+}
+
+.dropdown-btn {
+  background-color: black;
+  border: 1px transparent solid;
+  border-radius: 50%;
+  padding:1rem;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
