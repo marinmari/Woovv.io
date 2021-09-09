@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_085433) do
+ActiveRecord::Schema.define(version: 2021_09_09_112357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.string "legal_state"
     t.string "siret"
     t.string "email"
+    t.bigint "company_manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_manager_id"
     t.index ["company_manager_id"], name: "index_companies_on_company_manager_id"
   end
 
@@ -83,9 +83,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.string "email"
     t.boolean "is_operational"
     t.bigint "managing_company_id"
+    t.bigint "coworking_manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "coworking_manager_id"
     t.boolean "is_from_scrapping", default: false
     t.integer "longitude"
     t.integer "latitude"
@@ -134,9 +134,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_085433) do
     t.datetime "birth_date"
     t.string "phone_number"
     t.string "gender"
-    t.bigint "company_id"
     t.boolean "is_independent"
     t.boolean "is_validated"
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
