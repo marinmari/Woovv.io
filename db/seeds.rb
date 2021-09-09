@@ -30,7 +30,7 @@ bdd.each do |row|
     new_coworking.city=row_2[5][2..-2]
     new_coworking.zipcode=row_2[4][2..-2]
     new_coworking.country="France"
-    new_coworking.manager_id = 1
+    new_coworking.coworking_manager_id = 1
     new_coworking.managing_company_id = 1
     if new_coworking.city.include? "Paris" 
       uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{new_coworking.address.gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, '+')}&city='Paris'&limit=1")
@@ -51,7 +51,7 @@ bdd.each do |row|
   rescue
   end
   new_coworking.save
-  new_coworking.update(is_from_scrapping?: true)
+  new_coworking.update(is_from_scrapping: true)
 
 end
 
