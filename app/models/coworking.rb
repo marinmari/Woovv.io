@@ -8,4 +8,5 @@ class Coworking < ApplicationRecord
   belongs_to :managing_company, class_name: "Company"
   has_one :public_set_up, dependent: :destroy
   has_one :private_set_up, dependent: :destroy
+  has_many_attached :coworking_pictures
 end
