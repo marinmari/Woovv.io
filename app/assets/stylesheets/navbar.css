@@ -1,0 +1,13 @@
+
+nav {
+  background-color: teal;
+  color: white;
+}
+
+.navbar a {
+  color: inherit;
+}
+
+.navbar .navbar-brand {
+  font-size: 2rem;
+}
