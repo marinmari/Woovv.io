@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # Nested resources for availabilities, bookings, companies to be created in W2
+  # Nested resources for availabilities, coworkings, bookings, companies to be created in W2
 
   # root to: "he#index"
   devise_for :users
