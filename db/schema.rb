@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_235158) do
+ActiveRecord::Schema.define(version: 2021_09_08_235602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 2021_09_08_235158) do
     t.string "state"
     t.string "phone_number"
     t.string "email"
-    t.boolean "is_operational?"
+    t.boolean "is_operational"
     t.bigint "managing_company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "coworking_manager_id"
-    t.boolean "is_from_scrapping?", default: false
+    t.boolean "is_from_scrapping", default: false
     t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"
     t.index ["managing_company_id"], name: "index_coworkings_on_managing_company_id"
   end
