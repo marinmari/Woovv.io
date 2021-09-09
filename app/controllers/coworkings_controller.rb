@@ -6,6 +6,11 @@ class CoworkingsController < ApplicationController
   # GET /coworkings or /coworkings.json
   def index
     @coworkings = Coworking.all
+    @coordinates = []
+    @coworkings.each do |coworking|
+      @coordinates << (coworking.latitude.to_f)/1000000
+      @coordinates << (coworking.longitude.to_f)/1000000
+    end 
   end
 
   # GET /coworkings/1 or /coworkings/1.json
