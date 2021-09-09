@@ -1,0 +1,19 @@
+
+#map {
+  /* position: absolute; */
+  /* top: 0;
+  bottom: 0; */
+  width: 60%;
+  height: 600px;
+  border: 1px red solid;
+}
+
+.coworking-list {
+  height: 600px;
+  width: 40%;
+border: 1px green solid;}
+
+.map-page {
+  display: flex;
+  flex-direction: space-between;
+}
