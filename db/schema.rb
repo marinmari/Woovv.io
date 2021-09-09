@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_235602) do
+ActiveRecord::Schema.define(version: 2021_09_09_000106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_235602) do
     t.bigint "coworking_id"
     t.bigint "coffee_access_id"
     t.bigint "bike_storage_id"
-    t.boolean "is_pet_friendly?"
+    t.boolean "is_pet_friendly"
     t.integer "network_speed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
