@@ -1,6 +1,6 @@
 # README
 
-###About last night:
+### About last night:
 We decided to do all of our commits in falafel•case, much more vegan, ecological, inclusive and performant for the planet than the kebab-case!
 Be good with the Falafel, it will give it back to you
 
