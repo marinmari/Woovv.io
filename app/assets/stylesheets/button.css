@@ -1,10 +1,15 @@
-.btn {
-
+.btn:not(.dropdown-btn) {
+  border-radius: 0;
 }
 
 .btn-primary {
   background-color: #92DACA;
-  border: 1px transparent solid;
+  border-color: transparent ;
+  
+}
+.btn-primary:hover {
+  background-color: teal;
+  border-color: transparent;
 }
 
 .btn-outline {

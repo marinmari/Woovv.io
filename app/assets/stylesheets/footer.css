@@ -6,3 +6,8 @@ footer {
 footer.bd-footer {
   padding: 2rem;
 }
+
+a.footer-logo {
+  font-family: 'Baloo 2';
+  font-weight: 700;
+}
