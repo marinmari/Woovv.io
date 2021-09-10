@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "static_pages#home"
+  get '/team', to: 'static_pages#team'
   resources :coworkings, only: [:index, :show]
   resources :users, only: [:show]
 end
