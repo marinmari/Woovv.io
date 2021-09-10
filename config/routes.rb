@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   root to: "static_pages#home"
   resources :coworkings, only: [:index, :show]
-  resources :users, only: [:edit]
+  resources :users, only: [:show]
 end
