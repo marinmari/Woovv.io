@@ -36,6 +36,7 @@ input:focus {
 }
 
 .hero {
+  border: 15px white solid;
   background-image: url('https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1128&q=80');
   background-size: cover;
   background-repeat: no-repeat;
@@ -215,4 +216,3 @@ section {
   background-color: #92DACA;
   color: black;
 }
-
