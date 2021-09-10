@@ -1,0 +1,22 @@
+.carousel {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.carousel-item{
+  /* border: 3px red solid; */
+  height: 20rem;
+
+}
+
+.carousel-item > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+
+}
+
+.carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon  {
+  /* color: black; */
+  background-color: black;
+}
