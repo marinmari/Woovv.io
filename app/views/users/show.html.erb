@@ -1,0 +1,10 @@
+<div class="container">
+      <h2>Bienvenue sur ton profil </h2>
+    </div>
+    <div class="container">
+      <h4> Tes informations: </h4>
+      <p> Ton email: <%=@user.email%></p>
+      <p><%= link_to 'Edite ton email ou mot de passe', edit_user_registration_path%></p>
+      <h4> Tes commandes: </h4>
+      <p><%= link_to 'Voir mes commandes', href="#"%></p>
+    </div>

@@ -1,30 +1,51 @@
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
+  console.log()
   var coordinates = document.getElementById("map").attributes[1].value
-  console.log(typeof coordinates)
-  coordinates = coordinates.replace('[', '').replace(']', '').replace(/,/g, '').split(' ').map(Number)
-  // coordinates[0] typeof = number 
-  console.log(typeof coordinates[0])
-  for (i = 0; i < coordinates.length; i += 2) {
-    console.log(typeof parseFloat(coordinates[i] / 1000000), typeof parseFloat(coordinates[i + 1] / 1000000))
-    console.log([parseFloat(coordinates[i] / 1000000), parseFloat(coordinates[i + 1] / 1000000)])
+  var box_focus = document.getElementById("map").attributes[2].value
+  console.log(coordinates)
+  coordinates = coordinates.replace('[[', '').replace(']]', '')
+  coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
+  var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
+  var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
+
+  if (box_focus === 'France') {
+    var box_upper_lat = 6
+    var box_bottom_lat = -1
+    var box_right_lon = 52
+    var box_left_lon = 42
+  } else {
+    var box_upper_lat = Math.max(...latitudes) + 0.05
+    var box_bottom_lat = Math.min(...latitudes) - 0.05
+    var box_right_lon = Math.max(...longitudes) + 0.05
+    var box_left_lon = Math.min(...longitudes) - 0.05
   }
+
   mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
+
   const map = new mapboxgl.Map({
     container: 'map',
     // Replace YOUR_STYLE_URL with your style URL.
     style: 'mapbox://styles/amelieloulergue/ckt8hlgfo20tr19v18ez6bpe3',
-    center: [2.5, 47],
-    zoom: 4.5
+    center: [coordinates[0][0], coordinates[0][1]],
+    zoom: 1
   });
+
   // Set marker options.
-  for (i = 0; i < coordinates.length; i += 2) {
+  var group = []
+  for (i = 0; i < coordinates.length; i++) {
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
       draggable: false
-    }).setLngLat([coordinates[i], coordinates[i + 1]])
+    }).setLngLat([coordinates[i][0], coordinates[i][1]])
       .addTo(map);
+    group.push(marker)
   }
+
+  map.fitBounds([
+    [box_upper_lat, box_right_lon], // southwestern corner of the bounds
+    [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
+  ]);
 
   // Code from the next step will go here.
 }
