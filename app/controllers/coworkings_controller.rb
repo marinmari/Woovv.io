@@ -6,11 +6,16 @@ class CoworkingsController < ApplicationController
 
   # GET /coworkings or /coworkings.json
   def index
-    @coworkings = Coworking.all
+    @coworking = Coworking.new
+    if params[:coworking] == nil || set_zipcode == ''
+      @coworkings = Coworking.all
+      @box_focus = "France"
+    else
+      @coworkings = Coworking.all.select { |c| c.zipcode[0..(set_zipcode.length-1)] == set_zipcode }
+    end
     @coordinates = []
     @coworkings.each do |coworking|
-      @coordinates << (coworking.latitude.to_f)/1000000
-      @coordinates << (coworking.longitude.to_f)/1000000
+      @coordinates << [(coworking.latitude.to_f)/1000000, (coworking.longitude.to_f)/1000000]
     end 
   end
 
@@ -75,4 +80,8 @@ class CoworkingsController < ApplicationController
   def coworking_params
     params.fetch(:coworking, {})
   end
+end
+
+def set_zipcode
+    @zipcode = params[:coworking][:department]
 end
