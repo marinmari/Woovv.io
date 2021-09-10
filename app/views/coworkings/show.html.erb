@@ -1,39 +1,56 @@
 <div>
     <h1 class="cw-title"> <%= @coworking.name %> </h1>
-    <div><h5 class="cw-localisation"><u> <%= @coworking.address %>, <%= @coworking.city %> </u> </h5> <button type="button" class="btn btn-outline-danger"> <%= link_to 'Back', coworkings_path %>  </button> <br></div>
+
+    <div>
+        <h5 class="cw-localisation">
+            <u> <%= @coworking.address %>, <%= @coworking.city %> </u> 
+        </h5> 
+    </div>
+
     <div class="background-cw">
-        <p>hello</p>
+        <button type="button" class="btn btn-outline-danger button-back"> 
+            <%= link_to 'Back', coworkings_path %>  
+        </button>
+        Afficher ici les photos de votre espace de coworking
     </div>
 
     <div>
-        <div><h5><strong> @coworking.photos à ajouter </strong></h5><br></div>
-
         <div>
-            <h5><strong> Description </strong></h5>
-            <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+            <h5 class="description-title">
+                <strong> Description </strong>
+            </h5>
+            <p class="description"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
         </div>
+        <div>
             <div>
+                <h5 class="equipment-title">
+                    <strong> Equipements </strong>
+                </h5>
+            </div>
             <div>
-                <h5><strong> Equipements </strong></h5></div>
-                <ul>
+                <ul class="equipment">
                     <li> Equipement 1 </li>
                     <li> Equipement 2 </li>
                     <li> Equipement 3 </li>
                     <li> Equipement 4 </li>
                     <li> Equipement 5 </li>
                 </ul>
-                        <div>
-                    <h5><strong> Horaires</h5></strong>
-                        <ul>
-                        <li> Horaire Lundi</li>
-                        <li> Horaire Mardi </li>
-                        <li> Horaire Mercredi </li>
-                        <li> Horaire Jeudi  </li>
-                        <li> Horaire Vendredi </li>
-                        <li> Horaire Samedi </li>
-                        <li> Horaire Dimanche </li>
-                    </ul>
-                </div>
             </div>
+            <div>
+                <h5 class="opening-title">
+                    <strong> Horaires</strong>
+                </h5>
+                <ul class="openings">
+                    <li> Horaire Lundi</li>
+                    <li> Horaire Mardi </li>
+                    <li> Horaire Mercredi </li>
+                    <li> Horaire Jeudi  </li>
+                    <li> Horaire Vendredi </li>
+                    <li> Horaire Samedi </li>
+                    <li> Horaire Dimanche </li>
+                </ul>
+            </div>
+
         </div>
     </div>
+</div>
