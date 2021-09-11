@@ -9,9 +9,9 @@
         <li class="nav-item active">
           <%= link_to "Trouver un coworking", coworkings_path, class:"nav-link" %>
         </li>
-        <%# <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li> %>
+        <li class="nav-item">
+          <%= link_to "Team", team_path, class:"nav-link" %>
+        </li>
       </ul>
     </div>
   </div>
@@ -29,7 +29,7 @@
         <%= link_to "Connexion", new_user_session_path, class:"dropdown-item" %>
         <%= link_to "Inscription", new_user_registration_path, class:"dropdown-item" %>
       <% else %>
-        <%= link_to "Mon compte",  new_user_registration_path,class:"dropdown-item" %>
+        <%= link_to "Mon compte",  user_path(current_user.id),class:"dropdown-item" %>
         <%# changer le path de mon compte %>
         <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"dropdown-item" %>
       <% end %>

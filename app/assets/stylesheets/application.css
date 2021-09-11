@@ -15,9 +15,14 @@
  *= require navbar
  *= require map
  *= require button
+ *= require carousel  
+
 
 
  *= require footer
+ *= require coworking
+ *= require team
+
 
 
  */

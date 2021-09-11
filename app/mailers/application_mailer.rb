@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'milou2411@hotmail.fr'
+  default from: 'hello@woovv.io'
   layout 'mailer'
 end

@@ -1,4 +1,5 @@
 <div class="wrapper">
+<%= render 'zipcode_selector'%>
 <div class="map-page">
   <div class="coworking-list">
     <h2 class="stickysticky">Liste des coworkings</h2>
@@ -17,6 +18,6 @@
       </div>
     <% end %>
   </div>
-  <div id='map' value="<%=@coordinates%>"></div>
+  <div id='map' value="<%=@coordinates%>" focus="<%=@box_focus%>" ></div>
 </div>
 </div>
