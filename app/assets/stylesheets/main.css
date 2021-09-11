@@ -87,9 +87,6 @@ h3 {
   align-items: center;
   gap: 1rem;
   flex: 1 1 auto;
-  /* place-self: center; */
-  /* justify-content: center; */
-
 }
 
 .img-div {
@@ -113,9 +110,8 @@ h3 {
 .city-div {
   display: flex;
   flex-direction: column;
-    /* border: 3px purple solid; */
-    max-width: 12rem;
-
+  /* border: 3px purple solid; */
+  max-width: 12rem;
 }
 
 .city {
@@ -126,18 +122,13 @@ h3 {
   font-size: 0.9rem;
 }
 
-
 section {
   margin-bottom: 4rem;
-  /* background-color: rgb(248, 244, 248); */
 }
 
 .activities {
   padding: 1rem;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);  */
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 2rem;
   overflow-x: scroll;
   justify-content: space-between;
@@ -168,6 +159,7 @@ section {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: .25rem;
 }
 
 .find-inspiration {
