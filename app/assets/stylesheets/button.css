@@ -3,7 +3,7 @@
 }
 
 .btn-primary {
-  background-color: #92DACA;
+  background-color: var(--color-primary);
   border-color: transparent ;
   
 }
@@ -13,5 +13,5 @@
 }
 
 .btn-outline {
-  border: 1px #92DACA solid;
+  border: 1px var(--color-primary) solid;
 }

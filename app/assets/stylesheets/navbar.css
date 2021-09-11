@@ -3,18 +3,22 @@
   background-color: transparent;
   color: black;
   /* box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1); */
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 
 .navbar a {
   color: inherit;
 }
 
+.navbar a:hover {
+  color: teal;
+}
+
 .navbar .navbar-brand {
   font-size: 2.5rem;
   font-family: 'Baloo 2';
   font-weight: 700;
-  color: #92DACA;
+  color: var(--color-primary);
 }
 
 .navbar .navbar-brand:hover {
@@ -48,7 +52,7 @@
 }
 
 .btn-secondary {
-  background-color: #92DACA;
+  background-color: var(--color-primary);
   border-color: transparent;
 }
 

@@ -3,7 +3,8 @@
 
 
 :root {
-  --padding-margin-s: 3rem
+  --padding-margin-s: 3rem;
+  --color-primary:#92DACA;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
 }
 
 input {
-  border: 1px #92DACA solid;
+  border: 1px var(--color-primary) solid;
   outline: hidden;
 }
 
@@ -36,24 +37,33 @@ input:focus {
 }
 
 .hero {
-  border: 15px white solid;
   background-image: url('https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1128&q=80');
   background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
   background-repeat: no-repeat;
   background-position: center;
-  height: 70vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 1rem;
 }
 
 .hero h1 {
   color: white;
   font-size: 3rem;
+  font-family: 'Baloo 2';
+  margin-bottom: 0;
+}
+
+.hero h2 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 .hero > div {
-  margin-left: var(--padding-margin-s);
+  margin: 0 var(--padding-margin-s);
 }
 
 .search-field {
@@ -62,7 +72,15 @@ input:focus {
 }
 
 .search {
-  min-width: 20rem;
+  min-width: 45rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-primary.search-btn {
+  border: 1px var(--color-primary) solid;
 }
 
 .search-field:focus {
@@ -166,7 +184,7 @@ section {
   padding: 1rem;
   height: 75vh;
   width: 100%;
-  /* border: 2px #92DACA solid; */
+  /* border: 2px var(--color-primary) solid; */
   position: relative;
   background-image: url("https://images.unsplash.com/photo-1564499504739-bc4fc2ae8cba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1190&q=80");;
   background-size: cover;
@@ -190,7 +208,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px #92DACA solid;
+  border: 1px var(--color-primary) solid;
   padding: 2rem;
   border-radius: 0.5rem;
   /* justify-content: center; */
@@ -206,24 +224,9 @@ section {
 }
 
 .btn-primary.teal:hover {
-  background-color: #92DACA;
+  background-color: var(--color-primary);
   color: black;
 }
-
-@media (max-width:1215px){
-  body {
-    /* color: red; */
-  }
-
-  /* .img-activities {
-    height: 10rem;
-  } */
-
-/* .activities > div {
-  flex: 0 0 32%;
-  } */
-}
-
 
 @media (max-width:1183px){
   .city-div {
@@ -234,7 +237,6 @@ section {
 }
 
 @media (max-width:831px){
-
   .wrapper {
     padding:1rem;
   }
@@ -245,6 +247,16 @@ section {
 
   .activities > div {
     flex: 0 0 100%;
+  }
+}
+
+@media (max-width:503px){
+  .hero h1 {
+    font-size:2.5rem;
+  }
+
+  .hero > div {
+    margin: 0 0.75rem;
   }
 
 }
