@@ -19,7 +19,7 @@ Company.create(legal_name:'Woovv')
 9.times do |i|
   Company.create(legal_name:"Company-#{i}")
 end
-
+count = 0
 bdd.each do |row|
     row_2 = row[0].split(",")
     new_coworking = Coworking.new
@@ -27,32 +27,38 @@ bdd.each do |row|
     new_coworking.name = row_2[0][2..-2]
     new_coworking.description = Faker::Lorem.sentence
     new_coworking.address=row_2[3][2..-2]
+    puts "full adress"
+    puts row_2[2][2..-2].gsub('- ', '').gsub(' ', '+')
     new_coworking.city=row_2[5][2..-2]
-    new_coworking.zipcode=row_2[4][2..-2]
+    if row_2[4][2..-2].length != 5
+      new_coworking.zipcode="0"+row_2[4][2..-2]
+    else 
+      new_coworking.zipcode=row_2[4][2..-2]
+    end 
+    puts new_coworking.zipcode
     new_coworking.country="France"
     new_coworking.coworking_manager_id = 1
     new_coworking.managing_company_id = 1
-    if new_coworking.city.include? "Paris" 
-      uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{new_coworking.address.gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, '+')}&city='Paris'&limit=1")
-    elsif new_coworking.city.include? "Marseille"
-      uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{new_coworking.address.gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, '+')}&city='Marseille'&limit=1")
-    elsif new_coworking.city.include? "Lyon"
-      uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{new_coworking.address.gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, '+')}&city='Lyon'&limit=1")
-    else  
-      uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{new_coworking.address.gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, '+')}&postcode=#{new_coworking.zipcode}")
-    end 
-
+    uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{row_2[2][2..-2].gsub('- ', '').gsub(' ', '+').gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, ' ')}&limit=1")
+    puts uri
     res = Net::HTTP.get_response(uri)
     if res.is_a?(Net::HTTPSuccess) && JSON.parse(res.body)["features"].length != 0
       @datas = JSON.parse(res.body) 
       new_coworking.latitude = @datas["features"][0]["geometry"]["coordinates"][0] * 1000000
       new_coworking.longitude = @datas["features"][0]["geometry"]["coordinates"][1] * 1000000
+      puts new_coworking.latitude, new_coworking.longitude
     end 
   rescue
   end
-  new_coworking.save
-  new_coworking.update(is_from_scrapping: true)
+  if !new_coworking.zipcode || new_coworking.zipcode.length != 5 || new_coworking.longitude == nil || new_coworking.latitude == nil
+    puts "error !!!!!!"
+    count += 1
+  else 
+    new_coworking.save
+    new_coworking.update(is_from_scrapping: true)
+  end 
 
 end
+puts count
 
 
