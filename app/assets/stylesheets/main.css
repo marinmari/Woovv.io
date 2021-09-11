@@ -3,7 +3,7 @@
 
 
 :root {
-  --padding-margin-s: 4rem
+  --padding-margin-s: 3rem
 }
 
 * {
@@ -57,7 +57,7 @@ input:focus {
 }
 
 .search-field {
-  width:40%;
+  width:30%;
   padding: .375rem .75rem;
 }
 
@@ -76,7 +76,7 @@ h3 {
 .new-spots-section {
   /* border: 3px red solid; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(20rem, max-content) );
   gap: 2rem;
   padding: 1rem;
 }
@@ -86,6 +86,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex: 1 1 auto;
   /* place-self: center; */
   /* justify-content: center; */
 
@@ -113,6 +114,7 @@ h3 {
   display: flex;
   flex-direction: column;
     /* border: 3px purple solid; */
+    max-width: 12rem;
 
 }
 
@@ -124,6 +126,7 @@ h3 {
   font-size: 0.9rem;
 }
 
+
 section {
   margin-bottom: 4rem;
   /* background-color: rgb(248, 244, 248); */
@@ -131,30 +134,35 @@ section {
 
 .activities {
   padding: 1rem;
-  /* border: 3px red solid; */
   /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr) );  */
+  grid-template-columns: repeat(3, 1fr);  */
   display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
+  /* flex-wrap: wrap; */
+  gap: 2rem;
+  overflow-x: scroll;
+  justify-content: space-between;
 }
 
 .activities > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 15rem;
+  /* border: 3px red solid; */
+  flex: 0 0 30%;
 }
 
 .img-activities {
-  height: 15rem;
-  width: 15rem;
-  transition: 0.5s all;
+  /* border: 1px lime solid; */
+  position: relative;
+  height: 20rem;
+  min-width: 15rem;
+  transition: 0.25s all;
 }
 
 .img-activities:hover {
   opacity: 0.8;
 }
-
 
 .img-activities > img {
   height: 100%;
@@ -179,13 +187,6 @@ section {
   top: 3rem;
   left: 2rem;
 }
-
-/* .find-inspiration .btn {
-  position: absolute;
-  top: 4rem;
-  left: 1rem;
-  background-color: teal;
-} */
 
 .join-us {
   display: grid;
@@ -215,4 +216,43 @@ section {
 .btn-primary.teal:hover {
   background-color: #92DACA;
   color: black;
+}
+
+@media (max-width:1215px){
+  body {
+    /* color: red; */
+  }
+
+  /* .img-activities {
+    height: 10rem;
+  } */
+
+/* .activities > div {
+  flex: 0 0 32%;
+  } */
+}
+
+
+@media (max-width:1183px){
+  .city-div {
+
+      max-width: 20rem;
+  
+  }
+}
+
+@media (max-width:831px){
+
+  .wrapper {
+    padding:1rem;
+  }
+
+  .city-div {
+    max-width: 100%;
+  }
+
+  .activities > div {
+    flex: 0 0 100%;
+  }
+
 }
