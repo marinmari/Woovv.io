@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   display:flex;
   flex-direction: column;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .wrapper {
@@ -68,16 +68,20 @@ input:focus {
 }
 
 .search-field {
-  width:30%;
+  width:50%;
   padding: .375rem .75rem;
+  min-width: 15rem;
+  max-width: 30rem;
+
 }
 
 .search {
-  min-width: 45rem;
+  /* min-width: 45rem; */
   margin: 1rem 0;
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  /* border: 3px red solid; */
 }
 
 .btn-primary.search-btn {
