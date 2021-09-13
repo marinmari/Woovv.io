@@ -4,19 +4,19 @@
   </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field ">
-      <div class="div-email contener-su ">
+    <div class="field">
+      <div class="div-email container-su ">
         <%# <%= f.label :email, :class=>'title-field' %>
         <%= f.email_field :email, autofocus: true, placeholder: "email" , class: 'field-su' %>
       </div>
     </div>
-    <div class="field contener-su">
-    <div class="password1">
+    <div class="field container-su">
+      <div class="password1">
       <%# <%= f.label :password %>
       </div>
       <%= f.password_field :password, placeholder: "Password (6 characters min)"  , class:'field-su' %>
     </div>
-    <div class="field contener-su">
+    <div class="field container-su">
       <%# <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, placeholder: "Confirm password" , class:'field-su'%>
     </div>
