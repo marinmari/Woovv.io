@@ -33,6 +33,10 @@ input {
   outline: hidden;
 }
 
+input::placeholder{
+  padding: .5rem;
+}
+
 input:focus {
   outline:none
 }
