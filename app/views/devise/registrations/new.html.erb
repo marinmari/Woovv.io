@@ -1,24 +1,27 @@
 <div class="wrapper">
-  <h2>Sign up</h2>
+  <div>
+    <h2 class="title-su">Sign up</h2>
+  </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="field ">
+      <div class="div-email contener-su ">
+        <%# <%= f.label :email, :class=>'title-field' %>
+        <%= f.email_field :email, autofocus: true, placeholder: "email" , class: 'field-su' %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+    <div class="field contener-su">
+    <div class="password1">
+      <%# <%= f.label :password %>
+      </div>
+      <%= f.password_field :password, placeholder: "Password (6 characters min)"  , class:'field-su' %>
     </div>
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="field contener-su">
+      <%# <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password" , class:'field-su'%>
     </div>
-    <div class="actions">
-      <%= f.submit "Sign up" %>
+    <div class="actions div-su">
+      <%= f.submit "Let's go !" , :class => 'btn-su' %>
     </div>
   <% end %>
 </div>
