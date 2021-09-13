@@ -1,0 +1,24 @@
+<div class="text-center">
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Changer mon avatar</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <%= image_tag @user.avatar, alt: 'avatar', class:'avatar mx-auto d-block'%>
+          <%= form_tag user_avatars_path(@user), multipart: true do %>
+            <%= file_field_tag :avatar %>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <%= submit_tag "Changer mon avatar", class:"btn btn-default" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,53 +1,30 @@
 <footer class="bd-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none footer-logo" href="/" aria-label="Bootstrap">
-          <span class="fs-5"><i class="fab fa-weebly"></i> Woovv</span>
-        </a>
-        <ul class="list-unstyled small text-muted">
-          <li>Designed and built with all the love in the world by the <a href="/docs/5.1/about/team/">Woovv team in Surtainville</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</li>
-        </ul>
+  <div class="footer">
+    <div class="col-lg-12">
+      <div class="row justify-content-center">
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-      <div class="col-6 col-lg-2 offset-lg-1">
-        <h5>Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="/">Home</a></li>
-          <li><a href="/docs/5.1/">Docs</a></li>
-          <li><a href="/docs/5.1/examples/">Examples</a></li>
-          <li><a href="https://themes.getbootstrap.com/">Themes</a></li>
-          <li><a href="https://blog.getbootstrap.com/">Blog</a></li>
-        </ul>
+      <div class="row justify-content-center">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="<%= root_path%>">Accueil</a></li>•
+                <li class="list-inline-item"><a href="<%= team_path%>">Notre équipe</a></li>•
+                <li class="list-inline-item"><a href="<%= contact_path%>">Contact</a></li>•
+                <li class="list-inline-item"><a href="<%=help_path%>">Besoin d'aide?</a></li>
+                <!--<li class="list-inline-item"><a href="< %=cgv_path%>">CGV</a></li><br/>-->
+            </ul>
       </div>
-      <div class="col-6 col-lg-2">
-        <h5>Guides</h5>
-        <ul class="list-unstyled">
-          <li><a href="/docs/5.1/getting-started/">Getting started</a></li>
-          <li><a href="/docs/5.1/examples/starter-template/">Starter template</a></li>
-          <li><a href="/docs/5.1/getting-started/webpack/">Webpack</a></li>
-          <li><a href="/docs/5.1/getting-started/parcel/">Parcel</a></li>
-        </ul>
+      <div class="row justify-content-center">
+          <%= link_to "Woovv © 2021", root_path, class:"footer-brand"%>
       </div>
-      <div class="col-6 col-lg-2">
-        <h5>Projects</h5>
-        <ul class="list-unstyled">
-          <li><a href="https://github.com/twbs/bootstrap">Bootstrap 5</a></li>
-          <li><a href="https://github.com/twbs/bootstrap/tree/v4-dev">Bootstrap 4</a></li>
-          <li><a href="https://github.com/twbs/icons">Icons</a></li>
-          <li><a href="https://github.com/twbs/rfs">RFS</a></li>
-          <li><a href="https://github.com/twbs/bootstrap-npm-starter">npm starter</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h5>Community</h5>
-        <ul class="list-unstyled">
-          <li><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
-          <li><a href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
-          <li><a href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
-          <li><a href="https://opencollective.com/bootstrap">Open Collective</a></li>
-          <li><a href="https://bootstrap-slack.herokuapp.com/">Slack</a></li>
-          <li><a href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack Overflow</a></li>
-        </ul>
+      <div class="row justify-content-center">
+          <ul class="list-unstyled small text-muted">
+            <li>Designed and built with all the love in the world by the <a href="<%= team_path%>">Woovv team in Surtainville</a>.</li>
+          </ul>
       </div>
     </div>
   </div>
