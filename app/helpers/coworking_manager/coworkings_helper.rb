@@ -1,0 +1,2 @@
+module CoworkingManager::CoworkingsHelper
+end
