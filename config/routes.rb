@@ -16,4 +16,7 @@ Rails.application.routes.draw do
     resources :coworking_pictures, only: [:create, :destroy]
   end
   resources :users, only: [:show]
+  namespace :coworking_manager do
+    resources :coworkings
+  end
 end
