@@ -126,3 +126,7 @@ h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out
 }
+.modal-content{
+  position: absolute;
+  top:5rem;
+}
