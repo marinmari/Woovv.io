@@ -1,9 +1,6 @@
-<div class="wrapper">
-<%= render 'zipcode_selector'%>
-<div class="map-page">
-  <div class="coworking-list">
-    <h2 class="stickysticky">Liste des coworkings</h2>
-    <% @coworkings.each do |coworking|%>
+<h1>Je suis la view du coworking manager</h1>
+<ul>
+  <% @coworkings.each do |coworking|%>
       <div class="card">
         <%# <div class="card-header">
           Featured
@@ -12,11 +9,8 @@
           <h5 class="card-title"><%= coworking.name %></h5>
           <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
           <a href="#" class="btn btn-primary">Demande de réservation</a>
-          <%= link_to "Détails", coworking_path(coworking.id), class:"btn btn-primary"%>
+          <%= link_to "Détails", edit_coworking_manager_coworking_path(coworking.id), class:"btn btn-primary"%>
         </div>
       </div>
     <% end %>
-  </div>
-  <div id='map' value="<%=@coordinates%>" focus="<%=@box_focus%>" ></div>
-</div>
-</div>
+</ul>
