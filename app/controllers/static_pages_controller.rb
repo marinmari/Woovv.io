@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
+    @coworking = Coworking.new
+
   end
 
   def team
