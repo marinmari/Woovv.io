@@ -1,32 +1,58 @@
-.wrapper{
-    border: 1px brown solid;
-    width: 50%;
-    background-color: white;
-    margin:auto;
-    /* flex-direction: column; */
-}
-
 .title-su{
     display: flex;
     justify-content: center;
-    border: 1px violet solid;
+    /* border: 1px violet solid; */
     margin: 1em;
 }
 
 .field-su{
     display: flex;
-    border: 1px green solid;
+    /* border: 1px green solid; */
     border-radius: 7px;
     /* margin: 1em; */
     width: 60%;
     margin-bottom: 1rem;
 }
 
-.contener-su{
+.new_user {
+    /* border: 3px red solid; */
+    width: 60%;
+    margin: auto;
+}
+
+.field.container-su.remember {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    /* border: 3px blue solid; */
+    width: 60%;
+    align-self: center;
+
+}
+
+.field.container-su.remember label{
+    margin-bottom: 0;
+}
+
+form > div {
+    /* border: 2px lime solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.container-su{
     display: flex ;
     flex-direction: column;
     align-items: center;
-    border: orange 1px solid ;
+    /* border: orange 1px solid ; */
+    /* width: 100%; */
+    /* margin: 3px; */
+}
+
+.container-si{
+    flex-direction: column;
+    /* border: orange 1px solid ; */
     width: 100%;
     /* margin: 3px; */
 }
@@ -35,6 +61,25 @@
     display: flex;
     justify-content: center;
     margin: 1em ;
+    /* border: 3px black solid; */
+    /* justify-: center; */
+}
+
+.div-su .btn-su {
+    justify-self: center;
+    /* border: 3px red solid; */
+    margin: 0 auto;
+}
+
+.new_user a {
+    /* color: red; */
+    margin: 0 auto;
+
+}
+
+.new_user {
+    display:flex;
+    flex-direction: column;
 }
 
 .btn-su{
@@ -51,3 +96,6 @@
 .password1{
 display: flex;
 }
+
+
+
