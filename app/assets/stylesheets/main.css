@@ -350,7 +350,7 @@ form a {
 
 .block-1-right {
   padding: 3rem;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   /* background-color: cyan; */
   /* border:1px var(--color-primary) solid; */
