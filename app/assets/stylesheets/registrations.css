@@ -97,5 +97,12 @@ form > div {
 display: flex;
 }
 
-
+.label-su{
+    margin:0;
+    padding: 0;
+}
+.cancel-account{
+    border-left: solid 2px teal;
+    padding-left: 10px
+}
 
