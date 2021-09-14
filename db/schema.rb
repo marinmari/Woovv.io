@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_142114) do
+ActiveRecord::Schema.define(version: 2021_09_14_095916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_142114) do
   end
 
   create_table "availabilities", force: :cascade do |t|
-    t.datetime "week_opening_time"
-    t.datetime "week_closing_time"
-    t.datetime "weekend_opening_time"
-    t.datetime "weekend_closing_time"
     t.integer "available_spots_quantity"
     t.integer "price_per_spot_per_day"
     t.datetime "created_at", null: false
@@ -50,9 +46,13 @@ ActiveRecord::Schema.define(version: 2021_09_09_142114) do
     t.boolean "is_open_wednesday", default: true
     t.boolean "is_open_thursday", default: true
     t.boolean "is_open_friday", default: true
-    t.boolean "is_open_saturday", default: true
-    t.boolean "is_open_sunday", default: true
+    t.boolean "is_open_saturday", default: false
+    t.boolean "is_open_sunday", default: false
     t.bigint "coworking_id"
+    t.string "week_opening_time"
+    t.string "week_closing_time"
+    t.string "weekend_opening_time"
+    t.string "weekend_closing_time"
     t.index ["coworking_id"], name: "index_availabilities_on_coworking_id", unique: true
   end
 
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_142114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_from_scrapping", default: false
-    t.boolean "functionnal"
     t.integer "longitude"
     t.integer "latitude"
     t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"

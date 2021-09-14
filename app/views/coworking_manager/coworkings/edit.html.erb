@@ -1,2 +1,49 @@
 <h1> View coworking du coworking manager </h1>
 <h1> Je suis le coworking : <%= @coworking.name %></h1>
+<%if @coworking.coworking_pictures.attached?%>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <%@coworking.coworking_pictures.each do |picture|%>
+        <% if picture.id == @coworking.coworking_pictures.first.id %>
+          <div class="carousel-item active">
+            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
+              <%= image_tag picture, alt: 'picture' %>
+            <%end%>
+          </div>
+        <%else%>
+          <div class="carousel-item">
+            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
+              <%= image_tag picture, alt: 'picture' %>
+            <%end%>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  <%end%>
+</div>
+</div>
+<%= form_tag coworking_coworking_pictures_path(@coworking), multipart: true do %>
+  <%= file_field_tag :coworking_pictures %>
+  <%= submit_tag "Ajouter une photo" %>
+<% end %>
+
+<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <%= form.text_field :name, value: @coworking.name %><br/>
+  <%= form.text_field :price_per_spot_per_date, value: @coworking.availability.price_per_spot_per_day %><br/>
+  <%= form.text_field :coffee_access, value: @coworking.public_set_up.coffee_access.set_up_access %><br/>
+  <%= form.submit "enregistrer" %>
+<% end %>
+<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <%= form.text_field :name, value: @coworking.name %><br/>
+  <%= form.text_field :price_per_spot_per_date, value: @coworking.availability.price_per_spot_per_day %><br/>
+  <%= form.text_field :coffee_access, value: @coworking.public_set_up.coffee_access.set_up_access %><br/>
+  <%= form.submit "enregistrer" %>
+<% end %>

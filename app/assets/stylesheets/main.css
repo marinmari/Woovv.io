@@ -28,7 +28,7 @@ body {
   /* margin:0 auto; */
 }
 
-input {
+input[type=text] {
   border: 1px var(--color-primary) solid;
   outline: hidden;
 }
