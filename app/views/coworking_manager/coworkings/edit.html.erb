@@ -1,7 +1,7 @@
 <h1> View coworking du coworking manager </h1>
 <h1> Je suis le coworking : <%= @coworking.name %></h1>
 <%if @coworking.coworking_pictures.attached?%>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel edit slide" data-ride="carousel">
     <div class="carousel-inner">
       <%@coworking.coworking_pictures.each do |picture|%>
         <% if picture.id == @coworking.coworking_pictures.first.id %>
@@ -34,7 +34,6 @@
   <%= file_field_tag :coworking_pictures %>
   <%= submit_tag "Ajouter une photo" %>
 <% end %>
-
 <%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
   <%= form.text_field :name, value: @coworking.name %><br/>
   <%= form.text_field :price_per_spot_per_date, value: @coworking.availability.price_per_spot_per_day %><br/>
