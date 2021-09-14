@@ -1,11 +1,21 @@
-<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-  <%= form.label :name, "Nom du coworking" %>
-  <%= form.text_field :name, value: @coworking.name %><br/>
-  <%= form.label :description, "description" %>
-  <%= form.text_area :description, value: @coworking.description %><br/>
-  <%= form.label :phone_number, "Téléphone direct du gestionnaire du coworking" %>
-  <%= form.text_field :phone_number, value: @coworking.phone_number %><br/>
-  <%= form.label :phone_number, "email du coworking" %>
-  <%= form.text_field :email, value: @coworking.email %><br/>
+<%= form_with model:@public_set_up, url: coworking_manager_coworking_path(@coworking.id, :bike_storage, :coffee_access), method: :patch, local: true do |form| %>
+  <b>café :</b>
+  <%= form.label :coffee_access, "absent" %>
+  <%= radio_button("public_set_up", "coffee_access_id","1") %>
+  <%= form.label :coffee_access, "gratuit" %>
+  <%= radio_button("public_set_up", "coffee_access_id","2") %>
+  <%= form.label :coffee_access, "payant" %>
+  <%= radio_button("public_set_up", "coffee_access_id","3") %><br/>
+  <b>parking vélo :</b>
+  <%= form.label :bike_storage, "absent" %>
+  <%= radio_button("public_set_up","bike_storage_id","1") %>
+  <%= form.label :bike_storage, "gratuit" %>
+  <%= radio_button("public_set_up","bike_storage_id","2") %>
+  <%= form.label :bike_storage, "payant" %>
+  <%= radio_button("public_set_up","bike_storage_id","3") %><br/>
+  <%= form.label :is_pet_friendly, "animaux acceptés" %>
+  <%= form.check_box :is_pet_friendly, class:"btn btn-secondary active",value: @public_set_up.is_pet_friendly %><br/>
+  <%= form.label :network_speed, "vitesse du réseau" %>
+  <%= form.number_field :network_speed, value: @public_set_up.network_speed %><br/>
   <%= form.submit "enregistrer" %>
 <% end %>

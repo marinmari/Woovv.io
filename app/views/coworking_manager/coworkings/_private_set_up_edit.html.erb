@@ -2,6 +2,6 @@
   <%= form.label :wifi_password, "mot de pass wifi" %>
   <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %><br/>
   <%= form.label :manager_phone_number, "numéro de téléphone direct du manager" %>
-  <%= form.text_field :manager_phone_number, value: @private_set_up.manager_phone_number %><br/>
+  <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %><br/>
   <%= form.submit "enregistrer" %>
 <% end %>

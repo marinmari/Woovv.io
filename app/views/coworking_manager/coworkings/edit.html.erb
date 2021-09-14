@@ -41,22 +41,11 @@
                 </div>
                 <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations publiques</h5>
                 <div class="row">
-  <%= render 'private_set_up_edit'%>
+                  <%= render 'private_set_up_edit'%>
                 </div>
                 <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations communiquées après validation de la réseration</h5>
                 <div class="row">
-  <%= render 'public_set_up_edit'%>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
-                <div class='row'>
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Mes réservations</h6>
-                    <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_path(current_user) %></h6>
-                  </div>
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
-                    <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", user_path(current_user) %></h6>
-                  </div>
+                  <%= render 'public_set_up_edit'%>
                 </div>
               </div>
             </div>

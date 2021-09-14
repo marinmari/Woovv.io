@@ -3,9 +3,9 @@
   <%= form.text_field :name, value: @coworking.name %><br/>
   <%= form.label :description, "description" %>
   <%= form.text_area :description, value: @coworking.description %><br/>
-  <%= form.label :phone_number, "Téléphone direct du gestionnaire du coworking" %>
-  <%= form.text_field :phone_number, value: @coworking.phone_number %><br/>
-  <%= form.label :phone_number, "email du coworking" %>
-  <%= form.text_field :email, value: @coworking.email %><br/>
+  <%= form.label :phone_number, "numéro du standard du coworking" %>
+  <%= form.phone_field :phone_number, value: @coworking.phone_number %><br/>
+  <%= form.label :email, "email du coworking" %>
+  <%= form.email_field :email, value: @coworking.email %><br/>
   <%= form.submit "enregistrer" %>
 <% end %>
