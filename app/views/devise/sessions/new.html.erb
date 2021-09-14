@@ -1,19 +1,17 @@
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<h2 class="title-su">Connexion</h2>
-    <div class="field">
-      <%# <%= f.label :email %>
-      <div class="field container-su">
-        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
-      </div>
+  <h2 class="title-su">Connexion</h2>
+  <div class="field">
+    <%# <%= f.label :email %>
+    <div class="field container-su">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
     </div>
-    <div class="field">
-      <div class="field container-su">
-      <%# <%= f.label :password %> 
-        <%= f.password_field :password, placeholder: "Password (6 characters min)", class: 'field-su' %>
-      </div>
+  </div>
+  <div class="field">
+    <div class="field container-su">
+      <%# <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Password (6 characters min)", class: 'field-su' %>
     </div>
-
+  </div>
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <div class="field container-su remember">
@@ -22,7 +20,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="actions div-su">
     <%= f.submit "Log in" , class:"btn-su"%>
   </div>
