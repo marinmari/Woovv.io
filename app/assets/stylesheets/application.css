@@ -25,6 +25,7 @@
  *= require avatars
  *= require users
  *= require devise
+ *= require mapbox
 
  */
 

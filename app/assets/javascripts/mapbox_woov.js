@@ -1,9 +1,9 @@
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
-  console.log()
+  var co_id = document.getElementById("map").attributes[2].value
+  co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
   var coordinates = document.getElementById("map").attributes[1].value
-  var box_focus = document.getElementById("map").attributes[2].value
-  console.log(coordinates)
+  var box_focus = document.getElementById("map").attributes[3].value
   coordinates = coordinates.replace('[[', '').replace(']]', '')
   coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
   var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
@@ -36,16 +36,25 @@ window.onload = function () {
   for (i = 0; i < coordinates.length; i++) {
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
-      draggable: false
+      draggable: false,
     }).setLngLat([coordinates[i][0], coordinates[i][1]])
       .addTo(map);
-    group.push(marker)
+    group.push(marker);
+    marker._element.id = co_id[i]
+    marker.getElement().addEventListener('click', (e) => {
+  
+      console.log(e.path[4].id);
+      show_coworking(e.path[4].id)
+    });
   }
-
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
-
+ 
   // Code from the next step will go here.
-}
+
+} 
+function show_coworking(cw_id) {
+    console.log(document.getElementById(cw_id).textContent)
+  }

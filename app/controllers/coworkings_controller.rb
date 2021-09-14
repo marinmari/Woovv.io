@@ -14,8 +14,11 @@ class CoworkingsController < ApplicationController
       @coworkings = Coworking.all.select { |c| c.zipcode[0..(set_zipcode.length-1)] == set_zipcode }
     end
     @coordinates = []
+    @co_id = []
+    
     @coworkings.each do |coworking|
       @coordinates << [(coworking.latitude.to_f)/1000000, (coworking.longitude.to_f)/1000000]
+      @co_id << coworking.id
     end 
   end
 

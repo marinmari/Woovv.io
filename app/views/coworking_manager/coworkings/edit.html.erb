@@ -1,48 +1,58 @@
-<h1> View coworking du coworking manager </h1>
-<h1> Je suis le coworking : <%= @coworking.name %></h1>
-<%if @coworking.coworking_pictures.attached?%>
-  <div id="carouselExampleIndicators" class="carousel edit slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <%@coworking.coworking_pictures.each do |picture|%>
-        <% if picture.id == @coworking.coworking_pictures.first.id %>
-          <div class="carousel-item active">
-            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-              <%= image_tag picture, alt: 'picture' %>
-            <%end%>
+<h1> Edit du coworking du coworking manager </h1>
+<div>
+  <%= render 'coworking_pictures_edit' %>
+</div>
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center">
+                <div class="row">
+                </div>
+                <div class="row justify-content-center text-white">
+                  <%if current_user.last_name%>
+                    <div class="col-12">
+                      <h4 class="f-w-600"><%=current_user.first_name%> <%=current_user.last_name.upcase%></h4>
+                    </div>
+                  <%end%>
+                  <div class="col-12">
+                    <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Détails du coworking</h5>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Généralités</h5>
+                <div class="row">
+                  <%= render 'coworking_edit'%>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Jours d'ouverture :</h5>
+                <div class="row">
+                  <%= render 'availables_days_edit'%>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Horaires :</h5>
+                <div class="row">
+                  <%= render 'availables_hours_edit'%>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations publiques</h5>
+                <div class="row">
+                  <%= render 'private_set_up_edit'%>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations communiquées après validation de la réseration</h5>
+                <div class="row">
+                  <%= render 'public_set_up_edit'%>
+                </div>
+              </div>
+            </div>
           </div>
-        <%else%>
-          <div class="carousel-item">
-            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-              <%= image_tag picture, alt: 'picture' %>
-            <%end%>
-          </div>
-        <%end%>
-      <%end%>
+        </div>
+      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  <%end%>
+  </div>
 </div>
 </div>
-<%= form_tag coworking_coworking_pictures_path(@coworking), multipart: true do %>
-  <%= file_field_tag :coworking_pictures %>
-  <%= submit_tag "Ajouter une photo" %>
-<% end %>
-<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-  <%= form.text_field :name, value: @coworking.name %><br/>
-  <%= form.text_field :price_per_spot_per_date, value: @coworking.availability.price_per_spot_per_day %><br/>
-  <%= form.text_field :coffee_access, value: @coworking.public_set_up.coffee_access.set_up_access %><br/>
-  <%= form.submit "enregistrer" %>
-<% end %>
-<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-  <%= form.text_field :name, value: @coworking.name %><br/>
-  <%= form.text_field :price_per_spot_per_date, value: @coworking.availability.price_per_spot_per_day %><br/>
-  <%= form.text_field :coffee_access, value: @coworking.public_set_up.coffee_access.set_up_access %><br/>
-  <%= form.submit "enregistrer" %>
-<% end %>
