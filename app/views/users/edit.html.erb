@@ -1,1 +1,44 @@
-COUCOU C MOI
+<div class="wrapper">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div>
+        <h3 class="title-su m-0">Modifie tes informations</h3>
+        <br/>
+      </div>
+      <div class="field m-0">
+        <%= form_for(@user, url: user_path(current_user), html: { method: :put }) do |f| %>
+          <div class="field">
+          <div class="field container-su ">
+              <%= f.label :last_name, "Nom de famille", class:"label-su text-center"%><br />
+              <%= f.search_field :last_name, autofocus: true, autocomplete: "new-password", :class => "field-su" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="div-email container-su ">
+              <%= f.label :first_name, "Prénom", class:"label-su text-center"%><br />
+              <%= f.search_field :first_name, :class => "field-su"%>
+            </div>
+          </div>
+          <div class="field">
+            <div class="div-email container-su ">
+              <%= f.label :first_name, "Téléphone", class:"label-su text-center"%><br />
+              <%= f.search_field :phone_number,:class => "field-su" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="div-email container-su ">
+              <%= f.label :birth_date, "Anniversaire", class:"label-su text-center"%><br />
+              <%= f.date_field :birth_date, :class => "field-su"%>
+            </div>
+          </div>
+          <div class="actions div-su">
+              <%= f.submit "Valider" , :class => 'btn-su'%>
+            
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
