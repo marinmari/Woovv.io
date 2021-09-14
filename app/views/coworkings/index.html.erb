@@ -1,14 +1,14 @@
 <div class="wrapper">
   <%= render 'zipcode_selector'%>
   <div class="map-page">
-    <div class="coworking-list">
+    <div id="toshow" class="coworking-list">
       <h2 class="stickysticky">Liste des coworkings</h2>
       <% @coworkings.each do |coworking|%>
-        <div id="<%=coworking.id%>" class="card">
+        <div class="card">
           <%# <div class="card-header">
           Featured
         </div> %>
-          <div class="card-body">
+          <div id="cwtoshow-<%=coworking.id%>" class="card-body">
             <h5 class="card-title"><%= coworking.name %></h5>
             <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
             <a href="#" class="btn btn-primary">Demande de réservation</a>

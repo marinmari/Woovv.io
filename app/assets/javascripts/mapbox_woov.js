@@ -46,7 +46,7 @@ window.onload = function () {
   
       console.log(e.path[4].id);
       show_coworking(e.path[4].id)
-    });
+    }, {once: true});
   }
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
@@ -57,8 +57,10 @@ window.onload = function () {
 
 } 
 function show_coworking(cw_id) {
-  const child = document.getElementById(cw_id)
-  child.parentNode.remove()
-  const newChild = document.createElement(child);
-  console.log(child)
+  console.log('list-'+ cw_id)
+  const parent = document.getElementById('toshow')
+  console.log(parent)
+  const newChild = document.getElementById('cwtoshow-'+cw_id);
+  console.log(newChild)
+  parent.parentNode.replaceChild(newChild, parent)
   }
