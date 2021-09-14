@@ -97,6 +97,12 @@ form > div {
 display: flex;
 }
 
+.already{
+    display: flex;
+    margin: 0.5em;
+    /* justify-content: center; */
+}
+
 .label-su{
     margin:0;
     padding: 0;
@@ -105,4 +111,3 @@ display: flex;
     border-left: solid 2px teal;
     padding-left: 10px
 }
-
