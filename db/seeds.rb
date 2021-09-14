@@ -27,8 +27,6 @@ bdd.each do |row|
     new_coworking.name = row_2[0][2..-2]
     new_coworking.description = Faker::Lorem.sentence
     new_coworking.address=row_2[3][2..-2]
-    puts "full adress"
-    puts row_2[2][2..-2].gsub('- ', '').gsub(' ', '+')
     new_coworking.city=row_2[5][2..-2]
     if row_2[4][2..-2].length != 5
       new_coworking.zipcode="0"+row_2[4][2..-2]
@@ -40,19 +38,21 @@ bdd.each do |row|
     new_coworking.coworking_manager_id = 1
     new_coworking.managing_company_id = 1
     uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{row_2[2][2..-2].gsub('- ', '').gsub(' ', '+').gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, ' ')}&limit=1")
-    puts uri
     res = Net::HTTP.get_response(uri)
     if res.is_a?(Net::HTTPSuccess) && JSON.parse(res.body)["features"].length != 0
       @datas = JSON.parse(res.body) 
       new_coworking.latitude = @datas["features"][0]["geometry"]["coordinates"][0] * 1000000
       new_coworking.longitude = @datas["features"][0]["geometry"]["coordinates"][1] * 1000000
-      puts new_coworking.latitude, new_coworking.longitude
     end 
   rescue
+    
   end
   if !new_coworking.zipcode || new_coworking.zipcode.length != 5 || new_coworking.longitude == nil || new_coworking.latitude == nil
     puts "error !!!!!!"
     count += 1
+    CSV.open("db/errors_seed.csv", "w+") do |csv|
+      csv << [new_coworking.name, new_coworking.address,new_coworking.city,new_coworking.zipcode, uri]
+    end
   else 
     new_coworking.save
     new_coworking.update(is_from_scrapping: true)
