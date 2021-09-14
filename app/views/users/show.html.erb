@@ -70,7 +70,9 @@
                     </div>
                     <div class="col-sm-6">
                       <h6 class="m-b-10 f-w-600">Anniversaire</h6>
-                      <h6 class="text-muted f-w-400"><%=current_user.birth_date%></h6>
+                      <% if current_user.birth_date %>
+                      <h6 class="text-muted f-w-400"><%=current_user.birth_date.strftime("%d/%m/%Y")%></h6>
+                      <%end%>
                     </div>
                   </div>
                   <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
