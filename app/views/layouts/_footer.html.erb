@@ -3,29 +3,37 @@
     <div class="col-lg-12">
       <div class="row justify-content-center">
         <div class="social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <%=link_to root_path, target:"_blank" do %><i class="fab fa-facebook-f"></i><%end%>
+          <%=link_to root_path, target:"_blank" do %><i class="fab fa-instagram"></i><%end%>
+          <%=link_to "https://twitter.com/woovv_io", target:"_blank" do %><i class="fab fa-twitter"></i><%end%>
+          <%=link_to "https://www.linkedin.com/company/76134626", target:"_blank" do %><i class="fab fa-linkedin-in"></i><%end%>
         </div>
       </div>
       <div class="row justify-content-center">
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="<%=root_path%>">Accueil</a></li>•
-                <li class="list-inline-item"><a href="<%=team_path%>">Notre équipe</a></li>•
-                <li class="list-inline-item"><a href="<%=contact_path%>">Contact</a></li>•
-                <li class="list-inline-item"><a href="<%=help_path%>">Besoin d'aide?</a></li>•
-                <li class="list-inline-item"><a href="<%=cgv_path%>">CGV</a></li><br/>
-            </ul>
+        <ul class="list-inline">
+          <li class="list-inline-item"><%=link_to "Accueil", root_path%></li>
+          •
+          <li class="list-inline-item"><%=link_to "Notre équipe", team_path%></li>
+          •
+          <li class="list-inline-item"><a href="" data-toggle="modal" data-target="#modalContactForm">Contact</a></li>
+          •
+          <li class="list-inline-item"><a href="" data-toggle="modal" data-target="#modalHelpForm">Besoin d'aide?</a></li>
+          •
+          <li class="list-inline-item"><a href="" data-toggle="modal" data-target="#modalCGVForm">CGV</a></li>
+          
+        </ul>
       </div>
       <div class="row justify-content-center">
-          <%= link_to "Woovv © 2021", root_path, class:"footer-brand"%>
+        <%= link_to "Woovv © 2021", root_path, class:"footer-brand"%>
       </div>
       <div class="row justify-content-center">
-          <ul class="list-unstyled small text-muted">
-            <li>Designed and built with all the love in the world by the <a href="<%= team_path%>">Woovv team in Surtainville</a>.</li>
-          </ul>
+        <ul class="list-unstyled small text-muted">
+          <li>Designed and built with all the love in the world by the <%=link_to "Woovv team in Surtainville", team_path%>.</li>
+        </ul>
       </div>
     </div>
   </div>
 </footer>
+<%=render 'shared/modalcgv'%>
+<%=render 'shared/modalhelp'%>
+<%=render 'shared/modalcontact'%>
