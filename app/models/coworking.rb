@@ -10,6 +10,8 @@ class Coworking < ApplicationRecord
   has_one :private_set_up, dependent: :destroy
   has_many_attached :coworking_pictures
 
+
+  validates :zipcode, presence: true
   after_create :initialize_coworking
 
   private

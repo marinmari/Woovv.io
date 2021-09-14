@@ -489,7 +489,7 @@
       "validations": []
     }, {
       "field": "week_opening_time",
-      "type": "Time",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -504,7 +504,7 @@
       "validations": []
     }, {
       "field": "week_closing_time",
-      "type": "Time",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -519,7 +519,7 @@
       "validations": []
     }, {
       "field": "weekend_opening_time",
-      "type": "Time",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,
@@ -534,7 +534,7 @@
       "validations": []
     }, {
       "field": "weekend_closing_time",
-      "type": "Time",
+      "type": "String",
       "default_value": null,
       "enums": null,
       "integration": null,

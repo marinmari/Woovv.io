@@ -6,6 +6,11 @@ class CoworkingsController < ApplicationController
 
   # GET /coworkings or /coworkings.json
   def index
+    puts "😇"*60
+    puts params
+    puts "😇"*60
+    puts set_zipcode
+    puts "😇"*60
     @coworking = Coworking.new
     if params[:coworking] == nil || set_zipcode == ''
       @coworkings = Coworking.all
