@@ -97,5 +97,8 @@ form > div {
 display: flex;
 }
 
-
-
+.already{
+    display: flex;
+    margin: 0.5em;
+    /* justify-content: center; */
+}
