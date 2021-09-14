@@ -28,7 +28,6 @@
     /* border: 3px blue solid; */
     width: 60%;
     align-self: center;
-
 }
 
 .field.container-su.remember label{
@@ -74,7 +73,6 @@ form > div {
 .new_user a {
     /* color: red; */
     margin: 0 auto;
-
 }
 
 .new_user {
@@ -90,7 +88,6 @@ form > div {
     width: 110px ;
     height: 45px ;
     border-radius: 7px ;
-
 }
 
 .password1{
@@ -111,3 +108,16 @@ display: flex;
     border-left: solid 2px teal;
     padding-left: 10px
 }
+
+.forgot-field{
+    border-radius: 7px;
+}
+
+.forgot-btn{
+    /* border: rgb(189, 19, 19) solid 1px; */
+    border-radius: 7px;
+    color: white;
+    background-color: #92DACA ;
+    margin-top: 1em;
+}
+
