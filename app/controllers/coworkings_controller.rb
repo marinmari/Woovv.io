@@ -25,6 +25,11 @@ class CoworkingsController < ApplicationController
   # GET /coworkings/1 or /coworkings/1.json
   def show
     @coworking = Coworking.find(params[:id])
+    @coordinates = []
+
+      @coordinates << [(@coworking.latitude.to_f)/1000000, (@coworking.longitude.to_f)/1000000]
+    
+
   end
 
   # GET /coworkings/new
