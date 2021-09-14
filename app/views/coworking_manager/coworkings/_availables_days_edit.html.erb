@@ -1,0 +1,18 @@
+<ul>
+  <%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+    <li><%= check_box_tag(:is_open_monday) %>
+      <%= label_tag(:is_open_monday, "Ouvert le lundi ?") %></li>
+    <li><%= check_box_tag(:is_open_tuesday) %>
+      <%= label_tag(:is_open_tuesday, "Ouvert le mardi ?") %></li>
+    <li><%= check_box_tag(:is_open_wednesday) %>
+      <%= label_tag(:is_open_wednesday, "Ouvert le mercredi ?") %></li>
+    <li><%= check_box_tag(:is_open_thursday) %>
+      <%= label_tag(:is_open_thursday, "Ouvert le jeudi ?") %></li>
+    <li><%= check_box_tag(:is_open_friday) %>
+      <%= label_tag(:is_open_friday, "Ouvert le vendredi ?") %></li>
+    <li><%= check_box_tag(:is_open_saturday) %>
+      <%= label_tag(:is_open_saturday, "Ouvert le samedi ?") %></li>
+    <li><%= check_box_tag(:is_open_sunday) %>
+      <%= label_tag(:is_open_sunday, "Ouvert le dimanche ?") %></li>
+  <% end %>
+</ul>

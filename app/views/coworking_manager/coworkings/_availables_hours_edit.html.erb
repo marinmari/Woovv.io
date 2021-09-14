@@ -1,0 +1,24 @@
+<div class="opening-hours">
+  <div class="Week-hours">
+    <h5> Semaine : </h5>
+    <ul>
+      <%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+        <%= form.label :week_opening_time, "Heure d'ouverture" %>
+        <%= form.text_field :week_opening_time, value: @coworking.availability.week_opening_time %>
+        <%= form.label :week_closing_time, "Heure de fermeture" %>
+        <%= form.text_field :week_closing_time, value: @coworking.availability.week_closing_time %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="Week-end-hours">
+    <h5> Week-end : </h5>
+    <ul>
+      <%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+        <%= form.label :weekend_opening_time, "Heure d'ouverture" %>
+        <%= form.text_field :weekend_opening_time, value: @coworking.availability.weekend_opening_time %>
+        <%= form.label :weekend_closingend_time, "Heure de fermeture" %>
+        <%= form.text_field :weekend_closing_time, value: @coworking.availability.weekend_closing_time %>
+      <% end %>
+    </ul>
+  </div>
+</div>

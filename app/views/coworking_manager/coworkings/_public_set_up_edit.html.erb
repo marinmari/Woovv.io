@@ -1,0 +1,11 @@
+<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <%= form.label :name, "Nom du coworking" %>
+  <%= form.text_field :name, value: @coworking.name %><br/>
+  <%= form.label :description, "description" %>
+  <%= form.text_area :description, value: @coworking.description %><br/>
+  <%= form.label :phone_number, "Téléphone direct du gestionnaire du coworking" %>
+  <%= form.text_field :phone_number, value: @coworking.phone_number %><br/>
+  <%= form.label :phone_number, "email du coworking" %>
+  <%= form.text_field :email, value: @coworking.email %><br/>
+  <%= form.submit "enregistrer" %>
+<% end %>
