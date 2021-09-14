@@ -50,6 +50,9 @@ def get_cw_infos_from_url(url_coworking)
         
 rescue 
         puts "error 🥲"
+        CSV.open("db/errors_scrapper.csv", "a+") do |csv|
+            csv << [url_coworking]
+        end
     end
     return cw_info_tab
 end
@@ -77,8 +80,8 @@ end
 
 def get_all_cw_infos(page_index_general)
     tab_all_url = []
-    CSV.open("db_urls.csv", "a+") do |csv|
-        for i in 21..105
+    CSV.open("db/db_urls.csv", "w+") do |csv|
+        for i in 0..105
             page = page_index_general + i.to_s
             get_coworking_url(page).each do |url|
                 csv << [get_cw_infos_from_url(url)]

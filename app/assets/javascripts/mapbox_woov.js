@@ -1,9 +1,10 @@
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
-  console.log()
+  var stores = document.getElementById("map").attributes[2].value
+  var test = JSON.parse(stores)
+  console.log(test)
   var coordinates = document.getElementById("map").attributes[1].value
-  var box_focus = document.getElementById("map").attributes[2].value
-  console.log(coordinates)
+  var box_focus = document.getElementById("map").attributes[3].value
   coordinates = coordinates.replace('[[', '').replace(']]', '')
   coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
   var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
@@ -39,13 +40,16 @@ window.onload = function () {
       draggable: false
     }).setLngLat([coordinates[i][0], coordinates[i][1]])
       .addTo(map);
-    group.push(marker)
+    group.push(marker);
+    marker.getElement().addEventListener('click', () => {
+      alert("Clicked");
+    });
   }
 
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
-
+  
   // Code from the next step will go here.
 }
