@@ -272,8 +272,10 @@ section {
 
 }
 
-
 form a {
   color: black;
 }
 
+.city{
+  color: black;
+}
