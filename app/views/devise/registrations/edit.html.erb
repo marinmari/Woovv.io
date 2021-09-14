@@ -9,12 +9,9 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field container-su ">
-            <div class="title-field">
               <p class="label-su text-center">Email</p>
-              <%=current_user.email%><br />
-            </div>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'field-su text-center'%>
           </div>
-          <br />
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
@@ -23,18 +20,18 @@
             <% if @minimum_password_length %>
               <p class="label-su"><em><%= @minimum_password_length %> characters minimum</em></p>
             <% end %>
-            <%= f.password_field :password, autocomplete: "new-password" , class:'field-su'%>
+            <%= f.password_field :password, autocomplete: "new-password" , class:'field-su text-center'%>
           </div>
           <div class="field container-su">
             <%= f.label :password_confirmation, class:"label-su" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"field-su"%>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"field-su text-center"%>
           </div>
           <div class="field container-su">
             <%= f.label :current_password , class:"label-su"%> <i>(we need your current password to confirm your changes)</i>
-            <%= f.password_field :current_password, autocomplete: "current-password" , class:"field-su"%>
+            <%= f.password_field :current_password, autocomplete: "current-password" , class:"field-su text-center"%>
           </div>
           <div class="actions div-su">
-            <%= f.submit "Update" , :class => 'btn-su'%>
+            <%= f.submit "Modifier" , :class => 'btn-su'%>
           </div>
         <% end %>
       </div>
