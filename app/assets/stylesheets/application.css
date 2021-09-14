@@ -22,8 +22,9 @@
  *= require footer
  *= require coworking
  *= require team
-
-
+ *= require avatars
+ *= require users
+ *= require devise
 
  */
 

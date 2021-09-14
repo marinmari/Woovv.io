@@ -1,24 +1,16 @@
 <nav class="navbar navbar-expand-lg" style="display:flex; justify-content:space-between; ">
   <div style="display:flex; justify-content:space-between">
     <%= link_to "Woovv", root_path, class:"navbar-brand"%>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-link">
           <%= link_to "Trouver un coworking", coworkings_path, class:"nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Team", team_path, class:"nav-link" %>
-        </li>
       </ul>
-    </div>
   </div>
   <div class="dropdown my-account-dropdown">
     <button class="btn btn-secondary dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <% if current_user%>
-        <img src="https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/d/9/a/d9a1058910_50163142_elon-musk1.jpg" alt="">
+      <% if current_user && current_user.avatar.attached?%>
+        <%= image_tag current_user.avatar, alt: 'avatar' %>
       <% else %>
         <i class="far fa-user"></i>
       <% end %>

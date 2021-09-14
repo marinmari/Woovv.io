@@ -1,10 +1,97 @@
-<div class="container">
-      <h2>Bienvenue sur ton profil </h2>
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-12 col-md-12">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center">
+                <div class="row">
+                  <div class="avatar">
+                    <%if @user.avatar.attached?%>
+                      <%=image_tag @user.avatar, alt: 'avatar', class:'avatar-photo'%>
+                      <%=link_to user_avatar_path(@user, @user.avatar), :method => :delete, class:"avatar-delete" do%>
+                        <i class="far fa-trash-alt hover-hidden"></i><br>
+                      <%end%>
+                      <a href="" class="avatar-edit" data-toggle="modal" data-target="#modalLoginForm"><i class="far fa-edit hover-hidden"></i></a>
+                      <%= render 'modaleditavatar'%>
+                    <%else%>
+                      <a href="" data-toggle="modal" data-target="#modalLoginForm">
+                        <div class="row justify-content-center">
+                          <div class="avatar-without-photo">
+                            <i class="far fa-user text-white fa-lg"></i>
+                          </div>
+                        </div>
+                      </a>
+                      <%= render 'modalnewavatar'%>
+                    <%end%>
+                  </div>
+                </div>
+                <div class="row justify-content-center text-white">
+                  <%if current_user.last_name%>
+                    <div class="col-12">
+                      <h4 class="f-w-600"><%=current_user.first_name%> <%=current_user.last_name.upcase%></h4>
+                    </div>
+                    <%end%>
+                    <div class="col-12">
+                      <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="card-block">
+                  <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Informations du compte <%= link_to edit_user_registration_path do%>
+                      <i class="far fa-edit text-black"></i>
+                    <%end%></h5>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Email </h6>
+                      <h6 class="text-muted f-w-400"><%=current_user.email%></h6>
+                    </div>
+                  </div>
+                  <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations personnelles <%= link_to edit_user_path(current_user) do%>
+                      <i class="far fa-edit text-black"></i>
+                    <%end%></h5>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Prénom</h6>
+                      <h6 class="text-muted f-w-400"><%=current_user.first_name%></h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Nom</h6>
+                      <%if current_user.last_name%>
+                        <h6 class="text-muted f-w-400"><%=current_user.last_name.upcase%></h6>
+                      <%end%>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Téléphone</h6>
+                      <h6 class="text-muted f-w-400"><%=current_user.phone_number%></h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Anniversaire</h6>
+                      <% if current_user.birth_date %>
+                      <h6 class="text-muted f-w-400"><%=current_user.birth_date.strftime("%d/%m/%Y")%></h6>
+                      <%end%>
+                    </div>
+                  </div>
+                  <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
+                  <div class='row'>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Mes réservations</h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_path(current_user) %></h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", user_path(current_user) %></h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <h4> Tes informations: </h4>
-      <p> Ton email: <%=@user.email%></p>
-      <p><%= link_to 'Edite ton email ou mot de passe', edit_user_registration_path%></p>
-      <h4> Tes commandes: </h4>
-      <p><%= link_to 'Voir mes commandes', href="#"%></p>
-    </div>
+  </div>
+</div>

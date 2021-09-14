@@ -1,0 +1,19 @@
+<ul>
+  <%= form_with model:@availability, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+    <%= form.label :is_open_monday, "Ouvert le lundi ?" %>
+    <%= form.check_box :is_open_monday, value: @availability.is_open_monday %>
+    <%= form.label :is_open_tuesday, "Ouvert le mardi ?" %>
+    <%= form.check_box :is_open_tuesday, value: @availability.is_open_tuesday %>
+    <%= form.label :is_open_wednesday, "Ouvert le mercredi ?" %>
+    <%= form.check_box :is_open_wednesday, value: @availability.is_open_wednesday %>
+    <%= form.label :is_open_thursday, "Ouvert le jeudi ?" %>
+    <%= form.check_box :is_open_thursday, value: @availability.is_open_thursday %>
+    <%= form.label :is_open_friday, "Ouvert le vendredi ?" %>
+    <%= form.check_box :is_open_friday, value: @availability.is_open_friday %>
+    <%= form.label :is_open_saturday, "Ouvert le samedi ?" %>
+    <%= form.check_box :is_open_saturday, value: @availability.is_open_saturday %>
+    <%= form.label :is_open_sunday, "Ouvert le dimanche ?" %>
+    <%= form.check_box :is_open_sunday, value: @availability.is_open_sunday %>
+    <%= form.submit "enregistrer" %>
+  <% end %>
+</ul>

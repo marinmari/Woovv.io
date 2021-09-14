@@ -15,3 +15,11 @@
 .btn-outline {
   border: 1px var(--color-primary) solid;
 }
+
+.btn-outline-danger {
+  border: 0px transparent solid;
+}
+
+.btn-outline-danger:hover {
+  background-color: transparent;
+}

@@ -28,9 +28,13 @@ body {
   /* margin:0 auto; */
 }
 
-input {
+input[type=text] {
   border: 1px var(--color-primary) solid;
   outline: hidden;
+}
+
+input::placeholder{
+  padding: .5rem;
 }
 
 input:focus {
@@ -267,9 +271,10 @@ section {
   }
 
 
-
 }
 
-.stop-waiting-friday {
-  text-align: center;
+
+form a {
+  color: black;
 }
+

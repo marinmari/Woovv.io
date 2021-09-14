@@ -1,0 +1,7 @@
+<%= form_with model:@private_set_up, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <%= form.label :wifi_password, "mot de pass wifi" %>
+  <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %><br/>
+  <%= form.label :manager_phone_number, "numéro de téléphone direct du manager" %>
+  <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %><br/>
+  <%= form.submit "enregistrer" %>
+<% end %>
