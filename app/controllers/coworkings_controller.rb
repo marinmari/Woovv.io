@@ -27,7 +27,7 @@ class CoworkingsController < ApplicationController
     @coworking = Coworking.find(params[:id])
     @coordinates = []
 
-      @coordinates << [(@coworking.latitude.to_f)/1000000, (@coworking.longitude.to_f)/1000000]
+    @coordinates << [(@coworking.latitude.to_f)/1000000, (@coworking.longitude.to_f)/1000000]
     
 
   end
