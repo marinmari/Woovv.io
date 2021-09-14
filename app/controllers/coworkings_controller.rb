@@ -14,8 +14,35 @@ class CoworkingsController < ApplicationController
       @coworkings = Coworking.all.select { |c| c.zipcode[0..(set_zipcode.length-1)] == set_zipcode }
     end
     @coordinates = []
+    @stores = []
+    
     @coworkings.each do |coworking|
       @coordinates << [(coworking.latitude.to_f)/1000000, (coworking.longitude.to_f)/1000000]
+      @stores << {
+                  "type": "FeatureCollection",
+                  "features": [
+                    {
+                      "type": "Feature",
+                      "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                          (coworking.latitude.to_f)/1000000,
+                          (coworking.longitude.to_f)/1000000
+                        ]
+                      },
+                      "properties": {
+                        "name": coworking.name,
+                        "description": coworking.description,
+                        "address": coworking.address,
+                        "city": coworking.city,
+                        "zipcode": coworking.zipcode,
+                        "country": coworking.country,
+                        "phone_number": coworking.phone_number,
+                        "email": coworking.email
+                      }
+                    }
+                  ]
+                }
     end 
   end
 
