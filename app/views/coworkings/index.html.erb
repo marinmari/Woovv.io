@@ -1,12 +1,22 @@
 <div class="wrapper">
   <%= render 'zipcode_selector'%>
   <div class="map-page">
-    <div class='sidebar'>
-      <div class='heading'>
-        <h1>Liste des coworkings</h1>
-      </div>
-      <div id='listings' class='listings'></div>
+    <div class="coworking-list">
+      <h2 class="stickysticky">Liste des coworkings</h2>
+      <% @coworkings.each do |coworking|%>
+        <div id="<%=coworking.id%>" class="card">
+          <%# <div class="card-header">
+          Featured
+        </div> %>
+          <div class="card-body">
+            <h5 class="card-title"><%= coworking.name %></h5>
+            <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
+            <a href="#" class="btn btn-primary">Demande de réservation</a>
+            <%= link_to "Détails", coworking_path(coworking.id), class:"btn btn-primary"%>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div id='map' value="<%=@coordinates%>" value1="<%=@stores%>" focus="<%=@box_focus%>" ></div>
+    <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" ></div>
   </div>
 </div>

@@ -37,7 +37,4 @@ class Coworking < ApplicationRecord
     new_private_set_up = PrivateSetUp.new(coworking: self)
     new_private_set_up.save
   end
-  
-
-
 end
