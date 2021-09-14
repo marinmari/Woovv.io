@@ -20,7 +20,7 @@
           </div>
           <div class="city-div">
             <span class="city">Paris</span>
-            <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <span class="activity-city">Ses terrasses, ses falafels, son ambiance, ses soirées et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "75" }.count %> coworkings.</span>
           </div>
         </div>
         <div>
@@ -31,7 +31,7 @@
             </div>
             <div class="city-div">
               <span class="city">Marseille</span>
-              <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+              <span class="activity-city">Son vélodrome, ses falafels, sa canebière, sa bonne mère et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "13" }.count %> coworkings.</span>
             </div>
           </div>
           <div>
@@ -42,7 +42,7 @@
               </div>
               <div class="city-div">
                 <span class="city">Bordeaux</span>
-                <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                <span class="activity-city">Son vin, ses falafels, ses restaurants, son marché des capucins et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "33" }.count %> coworkings</span>
               </div>
             </div>
             <div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="city-div">
                   <span class="city">Nantes</span>
-                  <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                  <span class="activity-city">Son île, ses falafels, son éléphant, son voyage et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "44" }.count %> coworkings.</span>
                 </div>
               </div>
               <div>
@@ -64,7 +64,7 @@
                   </div>
                   <div class="city-div">
                     <span class="city">Annecy</span>
-                    <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                    <span class="activity-city">Son lac, ses falafels, ses montagnes, ses canaux et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "74" }.count %> coworkings.</span>
                   </div>
                 </div>
                 <div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="city-div">
                       <span class="city">Lyon</span>
-                      <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                      <span class="activity-city">Sa fête des lumières, ses falafels, sa gastronomie et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "69" }.count %> coworkings.</span>
                     </div>
                   </div>
                   <div>
@@ -86,7 +86,7 @@
                       </div>
                       <div class="city-div">
                         <span class="city">Toulouse</span>
-                        <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                        <span class="activity-city">Ses couleurs roses, ses falafels, son rugby, sa proximité avec l'espace et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> coworkings.</span>
                       </div>
                     </div>
                     <div>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="city-div">
                           <span class="city">Lille</span>
-                          <span class="activity-city">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                          <span class="activity-city">Sa braderie, ses falafels, son LOSC, son beffroi et <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> ses coworkings.</span>
                         </div>
                       </div>
                     </div>
@@ -136,23 +136,20 @@
                           <section class="join-us">
                             <div class="category-customer">
                               <h3>Vous êtes gérant d'un espace de coworking ?</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus hic ducimus qui voluptatum maxime repellat
-                                ratione mollitia. Quae praesentium quo saepe, suscipit doloribus, unde recusandae, voluptas sequi omnis
-                                incidunt blanditiis.</p>
+                              <p>Woovv vous accompagne pour proposer vos espaces disponibles en 1 clic à tous les Woovers. Nous gérons
+                              pour vous toutes les étapes de la réservation à la facturation.</p>
                               <button class="btn btn-primary bottom">Rejoignez-nous</button>
                             </div>
                             <div class="category-customer">
                               <h3>Vous êtes une entreprise ?</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus hic ducimus qui voluptatum maxime repellat
-                                ratione mollitia. Quae praesentium quo saepe, suscipit doloribus, unde recusandae, voluptas sequi omnis
-                                incidunt blanditiis.</p>
+                              <p>Woovv vous accompagne dans le suivi de vos collaborateurs en télétravail.
+                              Avec Woovv, votre entreprise a désormais des bureaux dans toute la France</p>
                               <button class="btn btn-primary bottom">Rejoignez-nous</button>
                             </div>
                             <div class="category-customer">
                               <h3>Vous êtes freelance ?</h3>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus hic ducimus qui voluptatum maxime repellat
-                                ratione mollitia. Quae praesentium quo saepe, suscipit doloribus, unde recusandae, voluptas sequi omnis
-                                incidunt blanditiis.</p>
+                              <p><span class="stop-waiting-friday">STOP WAINTING FRIDAY </span></br>Woovv vous accompagne dans la réservation de coworking en
+                              vous proposant +2000 espaces de coworkings à travers la France et bientôt l'Europe.</p>
                               <button class="btn btn-primary bottom">Rejoignez-nous</button>
                             </div>
                           </section>
