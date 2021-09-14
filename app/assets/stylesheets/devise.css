@@ -7,7 +7,7 @@
 
 .field-su{
     display: flex;
-    /* border: 1px green solid; */
+    border: 1px #92DACA solid;
     border-radius: 7px;
     /* margin: 1em; */
     width: 60%;
@@ -120,4 +120,3 @@ display: flex;
     background-color: #92DACA ;
     margin-top: 1em;
 }
-

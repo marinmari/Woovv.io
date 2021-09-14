@@ -1,25 +1,30 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<h2>Connexion</h2>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<h2 class="title-su">Connexion</h2>
+    <div class="field">
+      <%# <%= f.label :email %>
+      <div class="field container-su">
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field container-su">
+      <%# <%= f.label :password %> 
+        <%= f.password_field :password, placeholder: "Password (6 characters min)", class: 'field-su' %>
+      </div>
+    </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="field container-su remember">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me , "Se souvenir de moi" %>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions div-su">
+    <%= f.submit "Log in" , class:"btn-su"%>
   </div>
   <%= render "devise/shared/links" %>
 <% end %>
