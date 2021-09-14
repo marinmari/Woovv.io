@@ -10,6 +10,12 @@ class CoworkingManager::CoworkingsController < ApplicationController
     @coworking = Coworking.where(coworking_manager: current_user).find(params[:id])
   end
 
+  def update
+    puts "😎"*60
+    puts params    
+    puts "😎"*60
+  end
+
   private 
   
   def is_coworking_manager?
