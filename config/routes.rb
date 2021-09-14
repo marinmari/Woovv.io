@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :coworkings, only: [:index, :show] do
     resources :coworking_pictures, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit] do 
+  resources :users, only: [:show, :edit, :update] do 
     resources :avatars, only: [:create, :destroy]
   end 
 
