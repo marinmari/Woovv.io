@@ -35,10 +35,9 @@ window.onload = function () {
   var group = []
   for (i = 0; i < coordinates.length; i++) {
     const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
-    const showDetails = '<a href="/coworkings/'+co_id[i]+'" class="btn btn-primary ">Détails</a>'
     const popup = new mapboxgl.Popup({ closeOnClick: true })
       .setLngLat([coordinates[i][0], coordinates[i][1]])
-      .setHTML(newChildforPopup.innerHTML + showDetails)
+      .setHTML(newChildforPopup.innerHTML)
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
       draggable: false,
@@ -52,7 +51,17 @@ window.onload = function () {
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
-
+  const geocoder = new MapboxGeocoder({
+    // Initialize the geocoder
+    accessToken: mapboxgl.accessToken, // Set the access token
+    mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    placeholder: 'Rechercher une adresse', // Placeholder text for the search bar
+    zoom: 12,
+    types:'country,region,place,postcode,locality,address',
+    countries: "fr"
+  });
+  // Add the geocoder to the map
+  map.addControl(geocoder);
   // Code from the next step will go here.
 
 }

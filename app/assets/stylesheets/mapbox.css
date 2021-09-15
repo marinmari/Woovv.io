@@ -1,0 +1,7 @@
+.hidden{
+  display:none
+}
+
+.mapboxgl-popup-content{
+  border:red solid 2px
+}
