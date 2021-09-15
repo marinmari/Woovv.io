@@ -61,7 +61,7 @@ window.onload = function () {
     countries: "fr"
   });
   // Add the geocoder to the map
-  map.addControl(geocoder);
+  document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
   // Code from the next step will go here.
 
 }

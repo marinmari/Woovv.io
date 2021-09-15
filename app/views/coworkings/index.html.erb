@@ -1,4 +1,5 @@
 <div class="wrapper">
+<div id="geocoder" class="geocoder"></div>  
     <div id="toshow" class="coworking-list hidden">
       <h2 class="stickysticky">Liste des coworkings</h2>
       <% @coworkings.each do |coworking|%>
@@ -21,5 +22,7 @@
         <%# FIN DU POPUP RECUP %>
       <% end %>
     </div>
+    <div class="show mapindex">
     <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" ></div>
+    </div>
 </div>
