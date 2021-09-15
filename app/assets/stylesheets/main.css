@@ -27,7 +27,12 @@ body {
   /* width:90%; */
 }
 
-input[type=text] {
+input[type=text], input[type=tel], input[type=email]  {
+  border: 1px var(--color-primary) solid;
+  outline: hidden;
+}
+
+textarea {
   border: 1px var(--color-primary) solid;
   outline: hidden;
 }
@@ -276,6 +281,15 @@ form a {
   color: black;
 }
 
+.cafe {
+  display:flex;
+  flex-direction: row;
+  gap:0.5rem;
+}
+
+.cafe-width {
+  min-width:33%;
+}
 
 .city{
   color: black;
