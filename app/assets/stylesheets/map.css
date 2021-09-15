@@ -29,3 +29,8 @@
 .card {
   margin-top:1rem;
 }
+
+.show.map #map {
+  width: 100%;
+  height: 100%;
+}
