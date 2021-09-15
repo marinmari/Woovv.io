@@ -347,7 +347,6 @@ form a {
 
 .block-1 {
   margin-top: 2rem;
-  border: 2px black solid;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
