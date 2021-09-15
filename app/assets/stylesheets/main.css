@@ -415,3 +415,9 @@ p.address {
 .block-1-right h3 {
   margin-bottom: 2rem;
 }
+
+
+#toshow a {
+  color: inherit;
+  text-decoration: none;
+}

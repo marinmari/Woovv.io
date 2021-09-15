@@ -1,7 +1,6 @@
 
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
-  const parentStabletest = document.getElementById('toshow')
   var co_id = document.getElementById("map").attributes[2].value
   co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
   var coordinates = document.getElementById("map").attributes[1].value
@@ -35,10 +34,11 @@ window.onload = function () {
   // Set marker options.
   var group = []
   for (i = 0; i < coordinates.length; i++) {
-    newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
+    const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
+    const showDetails = '<a href="/coworkings/'+co_id[i]+'" class="btn btn-primary ">Détails</a>'
     const popup = new mapboxgl.Popup({ closeOnClick: true })
       .setLngLat([coordinates[i][0], coordinates[i][1]])
-      .setHTML(newChildforPopup.innerHTML)
+      .setHTML(newChildforPopup.innerHTML + showDetails)
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
       draggable: false,
@@ -46,13 +46,8 @@ window.onload = function () {
       .setPopup(popup)
       .addTo(map);
     group.push(marker);
-    marker._element.id = co_id[i]
-    marker.getElement().addEventListener('mouseover', (e) => {
-      // const cw_id = e.path[4].id
-      // const newChild = document.getElementById('cwtoshow-' + cw_id);
-      // const coord_child = newChild.attributes[1].value.replace('[', '').replace(']', '').split(', ').map(Number)
-    });
   }
+  
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
