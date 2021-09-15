@@ -3,9 +3,33 @@
 }
 
 .mapboxgl-popup-content{
-  border:blue solid 2px;
-  top:0
+  padding: 0px;
 }
+
+.img-pop{
+  /* border: rgb(99, 96, 97) solid 2px; */
+  padding: 0 ;
+}
+
+.half-bottom{
+  padding: 8px;
+}
+
+.card-body-popup{
+  background-color: #FCFCFC ;
+}
+
+.details-price{
+  display: flex;
+  justify-content: space-around;
+}
+
+.price-popup{ 
+  /* border: teal 1px solid; */
+  display: flex;
+  align-items: center;
+}
+
 .geocoder {
 position: absolute;
 z-index: 100000000;
