@@ -1,59 +1,38 @@
 <div class = "wrapper">
-  <h1 class="cw-title"> <%= @coworking.name %> </h1>
-  <div>
-    <h5 class="cw-localisation">
-      <u> <%= @coworking.address %>, <%= @coworking.city %> </u>
-    </h5>
-  </div>
-  <button type="button" class="btn btn-outline-danger button-back">
-    <%= link_to 'Back', coworkings_path, class:"btn btn-danger" %>
-  </button>
-  <%if @coworking.coworking_pictures.attached?%>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <%@coworking.coworking_pictures.each do |picture|%>
-          <% if picture.id == @coworking.coworking_pictures.first.id %>
-            <div class="carousel-item active">
-              <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-                <%= image_tag picture, alt: 'picture' %>
-              <%end%>
-            </div>
-          <%else%>
-            <div class="carousel-item">
-              <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-                <%= image_tag picture, alt: 'picture' %>
-              <%end%>
-            </div>
-          <%end%>
-        <%end%>
+  <%= render 'carousel' %>
+  <div class="block-1">
+    <div class = "block-1-left">
+          <div class="padding-s">
+      <div class="div-coworking-manager flex">
+        <div class="img-coworking-manager">
+          <img src ="data:image/jpeg;base64,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">
+        </div>
+        <h1 class="show coworking"> <%= @coworking.name %> </h1>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    <%end%>
-    <%= form_tag coworking_coworking_pictures_path(@coworking), multipart: true do %>
-      <%= file_field_tag :coworking_pictures %>
-      <%= submit_tag "Ajouter une photo", class:"btn btn-info" %>
-    <% end %>
-    <div>
-      <div>
-        <h5 class="description-title">
-          <strong> Description </strong>
-        </h5>
-        <p class="description"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+      <h3>Informations importantes :</h3>
+      <div class = "flex">
+        <h5>Adresse :</h5>
+        <p class="address"><%= @coworking.address %>, <%= @coworking.city %></p>
       </div>
-      <div>
+              <div class="description">
+          <h5>Description :</h5>
+          <p > "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+        </div>
+      <div class="flex opening-hours">
         <div>
-          <h5 class="equipment-title">
-            <strong> Equipements </strong>
-          </h5>
+          <h5>Horaires :</h5>
+          <ul>
+            <li>Lundi : 09:30 - 20:00</li>
+            <li>Mardi :  09:30 - 20:00</li>
+            <li>Mercredi :  09:30 - 20:00</li>
+            <li>Jeudi :  09:30 - 20:00</li>
+            <li>Vendredi :  09:30 - 20:00</li>
+            <li>Samedi : 09:30 - 18:30</li>
+            <li>Dimanche : fermé</li>
+          </ul>
         </div>
         <div>
+          <h5>Equipements :</h5>
           <ul class="equipment">
             <li> Equipement 1 </li>
             <li> Equipement 2 </li>
@@ -61,21 +40,35 @@
             <li> Equipement 4 </li>
             <li> Equipement 5 </li>
           </ul>
-        </div>
-        <div>
-          <h5 class="opening-title">
-            <strong> Horaires</strong>
-          </h5>
-          <ul class="openings">
-            <li> Horaire Lundi</li>
-            <li> Horaire Mardi </li>
-            <li> Horaire Mercredi </li>
-            <li> Horaire Jeudi  </li>
-            <li> Horaire Vendredi </li>
-            <li> Horaire Samedi </li>
-            <li> Horaire Dimanche </li>
-          </ul>
+          </div>
         </div>
       </div>
     </div>
+    <div class="block-1-right">
+      <div>
+        <h3>Bossez bien !</h3>
+        <label for="">Début de la réservation</label><br>
+        <input type="date" name="" id="">
+      </div>
+      <div>
+        <label for="">Fin</label><br>
+        <input type="date" name="" id="">
+      </div>
+      <div>
+        <strong>30,00 € TTC</strong>
+      </div>
+      <div class="cgv">
+      <input type="checkbox">
+      <p>J'accepte les CGV</p></div>
+      <a class="btn btn-primary" src = "#">Je réserve !<a>
+      </div>
+    </div>
+
+
+  <div class = "show map">
+    <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" ></div>
   </div>
+
+    <%= link_to 'Liste des coworkings', coworkings_path, class:"btn btn-danger" %>
+  </div>
+  
