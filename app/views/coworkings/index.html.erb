@@ -4,11 +4,11 @@
     <div id="toshow" class="coworking-list">
       <h2 class="stickysticky">Liste des coworkings</h2>
       <% @coworkings.each do |coworking|%>
-        <div class="card">
+        <div id="cwtoshow-<%=coworking.id%>" coordinates="<%=[(coworking.latitude.to_f)/1000000,(coworking.longitude.to_f)/1000000]%>" class="card">
           <%# <div class="card-header">
           Featured
         </div> %>
-          <div id="cwtoshow-<%=coworking.id%>" class="card-body">
+          <div class="card-body">
             <h5 class="card-title"><%= coworking.name %></h5>
             <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
             <a href="#" class="btn btn-primary">Demande de réservation</a>

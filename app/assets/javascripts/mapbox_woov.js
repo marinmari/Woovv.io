@@ -1,6 +1,7 @@
+
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
-  console.log(document.getElementById("map").attributes)
+  const parentStabletest = document.getElementById('toshow')
   var co_id = document.getElementById("map").attributes[2].value
   co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
   var coordinates = document.getElementById("map").attributes[1].value
@@ -31,36 +32,32 @@ window.onload = function () {
     center: [coordinates[0][0], coordinates[0][1]],
     zoom: 1
   });
-
   // Set marker options.
   var group = []
   for (i = 0; i < coordinates.length; i++) {
+    newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
+    const popup = new mapboxgl.Popup({ closeOnClick: true })
+      .setLngLat([coordinates[i][0], coordinates[i][1]])
+      .setHTML(newChildforPopup.innerHTML)
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
       draggable: false,
     }).setLngLat([coordinates[i][0], coordinates[i][1]])
+      .setPopup(popup)
       .addTo(map);
     group.push(marker);
     marker._element.id = co_id[i]
-    marker.getElement().addEventListener('click', (e) => {
-  
-      console.log(e.path[4].id);
-      show_coworking(e.path[4].id)
-    }, {once: true});
+    marker.getElement().addEventListener('mouseover', (e) => {
+      // const cw_id = e.path[4].id
+      // const newChild = document.getElementById('cwtoshow-' + cw_id);
+      // const coord_child = newChild.attributes[1].value.replace('[', '').replace(']', '').split(', ').map(Number)
+    });
   }
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
- 
+
   // Code from the next step will go here.
 
-} 
-function show_coworking(cw_id) {
-  console.log('list-'+ cw_id)
-  const parent = document.getElementById('toshow')
-  console.log(parent)
-  const newChild = document.getElementById('cwtoshow-'+cw_id);
-  console.log(newChild)
-  parent.parentNode.replaceChild(newChild, parent)
-  }
+}
