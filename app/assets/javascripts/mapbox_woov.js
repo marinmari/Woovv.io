@@ -1,5 +1,6 @@
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
+  console.log(document.getElementById("map").attributes)
   var co_id = document.getElementById("map").attributes[2].value
   co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
   var coordinates = document.getElementById("map").attributes[1].value
@@ -56,5 +57,8 @@ window.onload = function () {
 
 } 
 function show_coworking(cw_id) {
-    console.log(document.getElementById(cw_id).textContent)
+  const child = document.getElementById(cw_id)
+  child.parentNode.remove()
+  const newChild = document.createElement(child);
+  console.log(child)
   }

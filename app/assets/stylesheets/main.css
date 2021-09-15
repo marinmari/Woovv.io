@@ -269,13 +269,16 @@ section {
     margin: 0 0.75rem;
   }
 
-
 }
+
 
 form a {
   color: black;
 }
 
+
+.city{
+  color: black;
 #carouselExampleControls {
   /* border: 3px red solid; */
   width:100%;
