@@ -1,25 +1,26 @@
-<h1> Edit du coworking du coworking manager </h1>
+<h2><%=@coworking.name%></h2>
 <div>
   <%= render 'coworking_pictures_edit' %>
 </div>
 <div class="page-content page-container" id="page-content">
   <div class="padding">
     <div class="row container d-flex justify-content-center">
-      <div class="col-xl-12 col-md-12">
+      <div class="col-xl-12 col-md-12" >
         <div class="card user-card-full">
           <div class="row m-l-0 m-r-0">
             <div class="col-sm-4 bg-c-lite-green user-profile">
               <div class="card-block text-center">
-                <div class="row">
-                </div>
                 <div class="row justify-content-center text-white">
-                  <%if current_user.last_name%>
-                    <div class="col-12">
-                      <h4 class="f-w-600"><%=current_user.first_name%> <%=current_user.last_name.upcase%></h4>
-                    </div>
-                  <%end%>
                   <div class="col-12">
-                    <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
+                    <h6><%=@coworking.name%></h6>
+                    <h6><%=@coworking.address%></h6>
+                    <div class="row justify-content-center col-12">
+                      <h6><%=@coworking.zipcode%></h6>
+                      <h6> - </h6>
+                      <h6><%=@coworking.city%></h6>
+                    </div>
+                    <br/>
+                    <h6>manager : <%=@coworking.coworking_manager.first_name%> <%=@coworking.coworking_manager.last_name%> </h6>
                   </div>
                 </div>
               </div>
@@ -43,7 +44,7 @@
                 <div class="row">
                   <%= render 'private_set_up_edit'%>
                 </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations communiquées après validation de la réseration</h5>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations communiquées après validation de la réservation</h5>
                 <div class="row">
                   <%= render 'public_set_up_edit'%>
                 </div>
