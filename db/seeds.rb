@@ -3,8 +3,11 @@ require 'csv'
 Coworking.destroy_all
 User.destroy_all 
 Company.destroy_all
+PublicSetUpAccess.destroy_all
 
-['coworkings', 'users', 'companies'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
+['Absent', 'Gratuit', 'Payant'].map {|access| PublicSetUpAccess.create(set_up_access: access)}
+
+['coworkings', 'users', 'companies', 'public_set_up_accesses'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
 
 bdd = CSV.read("db/db_urls.csv")
 
@@ -26,8 +29,8 @@ bdd.each do |row|
     new_coworking = Coworking.new
   begin
     new_coworking.name = row_2[0][2..-2]
-    new_coworking.description = "'nom du coworking', vous accueille 'adresse coworking'. Nous vous accompagnerons avec plaisir dans la réservation d'un espace de travail."
     new_coworking.address=row_2[3][2..-2]
+    new_coworking.description = "#{new_coworking.name} vous accueille #{new_coworking.address}. Nous vous accompagnerons avec plaisir dans la réservation d'un espace de travail."
     new_coworking.city=row_2[5][2..-2]
     if row_2[4][2..-2].length != 5
       new_coworking.zipcode="0"+row_2[4][2..-2]

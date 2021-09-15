@@ -29,12 +29,16 @@ class Coworking < ApplicationRecord
   end
   
   def initialize_public_set_up_table
-    new_public_set_up = PublicSetUp.new(coworking: self, bike_storage_id:1, coffee_access_id:1)
-    new_public_set_up.save
+      unless self.public_set_up
+            new_public_set_up = PublicSetUp.new(coworking: self, bike_storage_id:1, coffee_access_id:1)
+            new_public_set_up.save
+      end
   end
   
   def initialize_private_set_up_table
-    new_private_set_up = PrivateSetUp.new(coworking: self)
-    new_private_set_up.save
+      unless self.private_set_up
+            new_private_set_up = PrivateSetUp.new(coworking: self)
+            new_private_set_up.save
+      end
   end
 end

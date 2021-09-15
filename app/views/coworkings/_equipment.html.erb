@@ -1,10 +1,9 @@
 <div>
   <h5>Equipements :</h5>
   <ul class="equipment">
-    <li> Equipement 1 </li>
-    <li> Equipement 2 </li>
-    <li> Equipement 3 </li>
-    <li> Equipement 4 </li>
-    <li> Equipement 5 </li>
+    <li> <i class="fas fa-coffee  "> </i> <%= @coworking.public_set_up.coffee_access.set_up_access %></li>
+    <li> <i class="fas fa-biking  "> </i><%= @coworking.public_set_up.bike_storage.set_up_access %></li>
+    <li> <i class="fas fa-hippo  "> </i> <%= (@coworking.public_set_up.is_pet_friendly) == true ? "Pet friendly" : "Animaux interdits" %></li>
+    <li> <i class="fas fa-running  "> </i> <%= @coworking.public_set_up.network_speed%> Mbps</li>
   </ul>
 </div>

@@ -5,6 +5,7 @@
 :root {
   --padding-margin-s: 3rem;
   --color-primary:#92DACA;
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 * {
@@ -354,8 +355,8 @@ form a {
 }
 
 .block-1-left {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border: 3px red solid;
+  box-shadow: var(--shadow);
+  /* border: 3px red solid; */
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -370,14 +371,9 @@ form a {
 }
 
 .block-1-right {
-  border: 3px lime solid;
-
+  /* border: 3px lime solid; */
   padding: 3rem;
-  /* border: 1px red solid; */
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  /* background-color: cyan; */
-  /* border:1px var(--color-primary) solid; */
-  /* background-color: var(--color-primary); */
+  box-shadow: var(--shadow);
   display: flex;
   height: max-content;
   flex-direction: column;
