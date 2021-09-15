@@ -434,6 +434,11 @@ p.address {
   margin-bottom: 2rem;
 }
 
+#toshow a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .description {
   margin-bottom: 2rem;
 }
