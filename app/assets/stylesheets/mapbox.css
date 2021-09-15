@@ -3,5 +3,34 @@
 }
 
 .mapboxgl-popup-content{
-  border:red solid 2px
+  /* border:green solid 2px; */
+  padding: 0px 0px 0px 0px;
 }
+
+.img-pop{
+  /* border: rgb(99, 96, 97) solid 2px; */
+  padding: 0 ;
+}
+
+.half-bottom{
+  padding: 8px;
+}
+
+.card-body-popup{
+  background-color: #FCFCFC ;
+}
+
+.details-price{
+  display: flex;
+  justify-content: space-around;
+}
+
+.price-popup{ 
+  /* border: teal 1px solid; */
+  display: flex;
+  align-items: center;
+}
+
+/* .price-popup{
+  display: flex;
+} */

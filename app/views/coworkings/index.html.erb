@@ -4,11 +4,18 @@
       <% @coworkings.each do |coworking|%>
       <%# DEBUT DU POPUP RECUP %>
         <div id="cwtoshow-<%=coworking.id%>" coordinates="<%=[(coworking.latitude.to_f)/1000000,(coworking.longitude.to_f)/1000000]%>" class="card">
-          <div class="card-body">
-            <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2900&q=80" alt="cw photo"/>
-            <h5 class="card-title"><%= coworking.name %></h5>
-            <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
-            <a href="/coworkings/<%=coworking.id%>" class="btn btn-primary ">Détails</a>
+          <div class="card-body-popup">
+            <div class="img-pop">
+              <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2900&q=80" alt="cw photo"/>
+            </div>
+            <div class="half-bottom">
+              <h6 class="card-title"><strong><%= coworking.name %></strong></h6>
+              <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
+              <div class="details-price">
+                <a href="/coworkings/<%=coworking.id%>" class="btn btn-primary ">Afficher</a>
+                <h6 class="price-popup">30 € TTC</h6>
+              </div>
+            </div>
           </div>
         </div>
         <%# FIN DU POPUP RECUP %>
