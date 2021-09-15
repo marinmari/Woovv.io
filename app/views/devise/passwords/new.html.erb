@@ -1,19 +1,22 @@
-<h2 class="title-su">Mot de passe oublié ? </h2>
+<div class="wrapper">
+	<h2 class="title-su">Mot de passe oublié ? </h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-	<%= render "devise/shared/error_messages", resource: resource %>
-	<div> 
-		<h4 class="container-su"> Entrez l'e-mail associé à votre compte pour recevoir le lien </h4>
-	</div>
-
-	<div class="field container-su">
-			<%# <%= f.label :email<br />  %>
-			<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"field-su-fg", placeholder:"Email" %>
-		
-
-		<div class="actions">
-			<%= f.submit 'Envoyer' , class:"btn-su" %>
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		<%= render "devise/shared/error_messages", resource: resource %>
+		<div> 
+			<h4 class="container-su"> Entrez l'e-mail associé à votre compte pour recevoir le lien </h4>
 		</div>
-	</div>
-<% end %>
+
+		<div class="field container-su">
+				<%# <%= f.label :email<br />  %>
+				<%= f.email_field :email, autofocus: true, autocomplete: "email", class:"field-su-fg", placeholder:"Email" %>
+			
+
+			<div class="actions">
+				<%= f.submit 'Envoyer' , class:"btn-su" %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
 

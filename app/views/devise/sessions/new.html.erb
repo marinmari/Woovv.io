@@ -1,27 +1,29 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h2 class="title-su">Connexion</h2>
-  <div class="field">
-    <%# <%= f.label :email %>
-    <div class="field container-su">
-      <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
-    </div>
-  </div>
-  <div class="field">
-    <div class="field container-su">
-      <%# <%= f.label :password %>
-      <%= f.password_field :password, placeholder: "Password (6 caractères min)", class: 'field-su' %>
-    </div>
-  </div>
-  <% if devise_mapping.rememberable? %>
+<div class="wrapper">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2 class="title-su">Connexion</h2>
     <div class="field">
-      <div class="field container-su remember">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me , "Se souvenir de moi" %>
+      <%# <%= f.label :email %>
+      <div class="field container-su">
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
       </div>
     </div>
+    <div class="field">
+      <div class="field container-su">
+        <%# <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Mot de passe", class: 'field-su' %>
+      </div>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <div class="field container-su remember">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me , "Se souvenir de moi" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="actions div-su">
+      <%= f.submit "Connexion" , class:"btn-su"%>
+    </div>
+    <%= render "devise/shared/links" %>
   <% end %>
-  <div class="actions div-su">
-    <%= f.submit "Connexion" , class:"btn-su"%>
-  </div>
-  <%= render "devise/shared/links" %>
-<% end %>
+</div>
