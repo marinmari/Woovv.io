@@ -7,6 +7,7 @@ class CoworkingsController < ApplicationController
   # GET /coworkings or /coworkings.json
   def index
     @coworking = Coworking.new
+    puts params
     if params[:coworking] == nil || set_zipcode == ''
       @coworkings = Coworking.all
       @box_focus = "France"

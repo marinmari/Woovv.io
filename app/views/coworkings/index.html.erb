@@ -1,23 +1,18 @@
 <div class="wrapper">
-  <%= render 'zipcode_selector'%>
-  <div class="map-page">
-    <div id="toshow" class="coworking-list">
+    <div id="toshow" class="coworking-list hidden">
       <h2 class="stickysticky">Liste des coworkings</h2>
       <% @coworkings.each do |coworking|%>
-      <a href="/coworkings/<%=coworking.id%>" >
+      <%# DEBUT DU POPUP RECUP %>
         <div id="cwtoshow-<%=coworking.id%>" coordinates="<%=[(coworking.latitude.to_f)/1000000,(coworking.longitude.to_f)/1000000]%>" class="card">
-          <%# <div class="card-header">
-          Featured
-        </div> %>
           <div class="card-body">
+            <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2900&q=80" alt="cw photo"/>
             <h5 class="card-title"><%= coworking.name %></h5>
             <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
-
+            <a href="/coworkings/<%=coworking.id%>" class="btn btn-primary ">Détails</a>
           </div>
         </div>
-        </a>
+        <%# FIN DU POPUP RECUP %>
       <% end %>
     </div>
     <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" ></div>
-  </div>
 </div>

@@ -2,10 +2,8 @@
   <div>
     <h1>Le futur du travail se passe ici</h1>
     <h2>Bookez un coworking où vous voulez !</h2>
-    <%= form_with model: @coworking, url: coworkings_path,method: :get, local:true do |f| %>
-      <%= f.text_field :department, class:"search-field", placeholder:"Où-est-ce qu'on bosse ? (code postal ou département)" %>
-      <%= submit_tag "Afficher", class:"btn btn-primary search-btn" %>
-    <% end %>
+
+    <%=link_to "Trouve ton coworking !", coworkings_path, class:"btn btn-primary search-btn"%>
   </div>
 </div>
 <div class="wrapper">
