@@ -23,7 +23,7 @@ class Coworking < ApplicationRecord
   
   def initialize_availability_table
     unless self.availability
-      new_availability = Availability.new(coworking: self, available_spots_quantity: 5, week_opening_time: "09:00", week_closing_time: "09:00", weekend_opening_time: "09:00", weekend_closing_time: "09:00")
+      new_availability = Availability.new(coworking: self, available_spots_quantity: 5, week_opening_time: "09:00", week_closing_time: "19:00", weekend_opening_time: "09:00", weekend_closing_time: "19:00")
       new_availability.save     
     end
   end
