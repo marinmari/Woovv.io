@@ -4,23 +4,10 @@
       <%= form.label :wifi_password, "Mot de passe Wi-Fi" %>
       <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %>
     </div>
-<<<<<<< Updated upstream
-    <div> <%= form.label :manager_phone_number, "Tel direct du manager" %>
+    <div>
+      <%= form.label :manager_phone_number, "Tel direct du manager" %>
       <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %>
-=======
-    <div class="cafe">
-      <div class="cafe-width">
-    <%= form.label :manager_phone_number, "numéro de téléphone direct du manager" %>
-      </div>
-    <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %><br/>
-    <% if @private_set_up.errors[:manager_phone_number].any? %>
-      <ul>
-        <% @private_set_up.errors[:manager_phone_number].each do |message| %>
-          <li class="alert alert-danger"><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
->>>>>>> Stashed changes
+      <%= render partial: "shared/input_error_message", locals: {error: @private_set_up.errors[:manager_phone_number]}%>
     </div>
     <%= form.submit "Enregistrer", class:"btn btn-primary"  %>
   </div>
