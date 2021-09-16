@@ -21,6 +21,11 @@ body {
   /* overflow-x: hidden; */
 }
 
+h1, h2, h3, h4, h5, h6 {
+      font-family: "Baloo 2";
+      font-weight: bolder;
+}
+
 .wrapper {
   padding:var(--padding-margin-s);
   background-color: rgb(252, 252, 252);
@@ -450,4 +455,158 @@ p.address {
 .cgv p {
   margin: 0;
   margin-left: 1rem;
+}
+
+.edit-coworking.block {
+      /* border: 3px red solid; */
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+}
+
+
+.edit-coworking.block1 {
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;    
+      width: 45%;
+      margin: 1.5rem;
+      background-color: white;
+      align-items:  center;
+}
+
+.cw-edit.active-storage {
+      margin: 3rem;
+      display: flex;
+      flex-direction: column;
+}
+
+.cw-edit.active-storage > * {
+      margin:1rem
+}
+
+.edit-coworking label {
+      width: 10rem;;
+      margin-bottom: 0;
+      color: teal;
+}
+
+.edit-coworking > div {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+}
+
+.edit-coworking > div > div {
+      display: flex;
+      align-items: center;
+      /* margin-bottom: 1rem; */
+}
+
+.edit-coworking h2 {
+      margin-bottom: 1.5rem;
+}
+
+.edit-coworking h3 {
+      font-family: 'Baloo 2';
+      font-weight: bolder;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      margin-top: 0;
+}
+
+.edit-coworking.checkbox > div{
+      /* background-color: #92DACA; */
+      flex-direction: row;
+      align-items: center;
+}
+
+
+.edit-coworking.checkbox .day{
+      /* background-color: #92DACA; */
+      flex-direction: column;
+      align-items: center;
+}
+
+.edit-coworking.checkbox.reverse > div label {
+      margin:0 1rem 0 0
+}
+
+.edit-coworking.checkbox > div label{
+    width: unset;
+    margin-left: 1rem;
+}
+
+.edit-coworking.checkbox label {
+      color: black;
+      }
+
+.edit-coworking h3:not(:nth-child(1)){
+      /* margin-top: 1.5rem; */
+}
+
+.edit-coworking input.btn:not(input[type=checkbox]) {
+      margin-top:1rem;
+      align-self:center;
+      width: max-content;
+}
+
+.edit-coworking input[type=text],
+.edit-coworking input[type=tel], 
+.edit-coworking input[type=number], 
+.edit-coworking input[type=email]{
+      max-width: 20rem;
+      min-width: 10rem;      
+      height: 2rem;
+      padding:0.3rem;
+      font-size: 0.9rem;
+      background-color: rgb(249, 249, 249);
+}
+
+.edit-coworking textarea{
+      max-width: 20rem;
+      min-width: 10rem;
+      min-height: 10rem;
+      padding:0.5rem;
+      font-size: 0.9rem;
+      background-color: rgb(249, 249, 249);
+
+}
+
+form { 
+      width: 80%;
+      /* border: 2px teal solid; */
+}
+
+.radio {
+      flex-direction: column;
+}
+
+.radio > div {
+      padding: 0 1rem;
+}
+
+
+form > .in-line {
+      flex-direction: row;
+}
+
+.edit-coworking.checkbox.in-line {
+      flex-direction: column;
+}
+
+.edit-coworking.checkbox.in-line > div {
+      flex-direction: column;
+}
+
+.day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem;
+}
+
+.edit-coworking.checkbox.in-line .day label {
+      margin-left: 0;
 }

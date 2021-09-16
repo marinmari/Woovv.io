@@ -1,24 +1,25 @@
-<div class="opening-hours col-md-10">
-  <div class="cafe">
-    <div class="Week-hours col-md-6">
-      <h5> Semaine : </h5>
-        <%= form_with model:@availability, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-          <%= form.label :week_opening_time, "Heure d'ouverture" %>
-          <%= form.time_field :week_opening_time, value: @availability.week_opening_time %>
-          <%= form.label :week_closing_time, "Heure de fermeture" %>
-          <%= form.time_field :week_closing_time, value: @availability.week_closing_time %><br/>
-          <%= form.submit "enregistrer", class:"btn btn-primary" %>
-        <% end %>
+<%# <div style="border:1px blue solid"> %>
+<%= form_with model:@availability, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <div class="edit-coworking">
+    <div>
+      <p> Semaine : </p>
+      <div><%= form.label :week_opening_time, "Heure d'ouverture" %>
+        <%= form.time_field :week_opening_time, value: @availability.week_opening_time %>
+      </div>
+      <div>
+        <%= form.label :week_closing_time, "Heure de fermeture" %>
+        <%= form.time_field :week_closing_time, value: @availability.week_closing_time %>
+      </div>
     </div>
-    <div class="Week-end-hours col-md-6">
-      <h5> Week-end : </h5>
-        <%= form_with model:@availability, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-          <%= form.label :weekend_opening_time, "Heure d'ouverture" %>
-          <%= form.time_field :weekend_opening_time, value: @availability.weekend_opening_time %>
-          <%= form.label :weekend_closingend_time, "Heure de fermeture" %>
-          <%= form.time_field :weekend_closing_time, value: @availability.weekend_closing_time %><br/>
-          <%= form.submit "enregistrer", class:"btn btn-primary"%>
-        <% end %>
+    <div>
+      <p> Week-end : </p>
+      <div><%= form.label :weekend_opening_time, "Heure d'ouverture" %>
+        <%= form.time_field :weekend_opening_time, value: @availability.weekend_opening_time %>
+      </div>
+      <div> <%= form.label :weekend_closingend_time, "Heure de fermeture" %>
+        <%= form.time_field :weekend_closing_time, value: @availability.weekend_closing_time %>
+      </div>
     </div>
+    <%= form.submit "Enregistrer", class:"btn btn-primary"%>
   </div>
-</div>
+<% end %>
