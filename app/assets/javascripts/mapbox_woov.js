@@ -1,8 +1,9 @@
 
 window.onload = function () {
   mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
+ var coordinates = document.getElementById("map")
+  console.log(coordinates)
   if (!coordinates) {
-    console.log("coucou")
     const geocoder = new MapboxGeocoder({
       // Initialize the geocoder
       accessToken: mapboxgl.accessToken, // Set the access token
@@ -16,16 +17,36 @@ window.onload = function () {
       
       // Get the geocoder results container.
       const results = document.getElementById('result');
-      console.log(results.childNodes)
+      console.log(results)
       // Add geocoder result to container.
       geocoder.on('result', (e) => {
-        alert('jai les résultats')
         // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
-        let formuTest = document.createElement('form', { 'accept-charset' : 'UTF-8', 'action' : '/', 'method':'get'})
-        let inputTest = document.createElement('input', { 'name' : 'authenticity_token', 'type' : 'hidden', 'value':''})
-        let inputGeo = document.createElement('input', { 'name' : 'geocode_information', 'type' : 'hidden', 'value':JSON.stringify(e.result, null, 2)})
-        results.childNodes.innerHTML = '<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form><%=link_to "Trouve ton coworking !", coworkings_path, class:"btn btn-primary search-btn"%>';
-        console.log(results.childNodes)
+        let divFormu = document.createElement('div')
+        let formuTest = document.createElement('form')
+        let inputTest = document.createElement('input')
+        let inputGeo = document.createElement('input')
+        // let btnGeo = document.createElement('input')
+        divFormu.appendChild(formuTest)
+        formuTest.action = '/coworkings'
+        formuTest.method ='GET'
+        formuTest.id="jsform"
+        inputTest.name="authenticity_token"
+        inputTest.type="hidden"
+        inputTest.value=""
+        inputGeo.name ="geocode_information"
+        inputGeo.type = "hidden"
+        inputGeo.value= JSON.stringify(e.result, null, 2)
+        // btnGeo.type = "submit"
+        // btnGeo.value = "Valider"
+        // btnGeo.name = "btnGeo"
+        // btnGeo.className ="btn btn-primary search-btn"
+        console.log(formuTest)
+        formuTest.appendChild(inputTest)
+        formuTest.appendChild(inputGeo)
+        // formuTest.appendChild(btnGeo)
+        console.log(results)
+        results.innerHTML += divFormu.innerHTML
+        document.getElementById('jsform').submit()
       });
       
       // Clear results container when search is cleared.
@@ -92,31 +113,57 @@ window.onload = function () {
       [box_upper_lat, box_right_lon], // southwestern corner of the bounds
       [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
     ]);
-    if (coordinates.length !== 1) {
-      const geocoder = new MapboxGeocoder({
+      
+      const geocoder2 = new MapboxGeocoder({
         // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
         placeholder: 'Rechercher une adresse', // Placeholder text for the search bar
+        marker:true,
         zoom: 12,
         types: 'country,region,place,postcode,locality,address',
         countries: "fr"
       });
-      // Add the geocoder to the map
-      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-      // Get the geocoder results container.
-      const results = document.getElementById('result');
-
-      // Add geocoder result to container.
-      geocoder.on('result', (e) => {
-        results.innerText = JSON.stringify(e.result, null, 2);
-      });
-
-      // Clear results container when search is cleared.
-      geocoder.on('clear', () => {
+      geocoder2.addTo('#geocoder');
+        
+        // Get the geocoder results container.
+        const results = document.getElementById('result');
+        console.log(results)
+        // Add geocoder result to container.
+        geocoder2.on('result', (e) => {
+          // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
+          let divFormu = document.createElement('div')
+          let formuTest = document.createElement('form')
+          let inputTest = document.createElement('input')
+          let inputGeo = document.createElement('input')
+          // let btnGeo = document.createElement('input')
+          divFormu.appendChild(formuTest)
+          formuTest.action = '/coworkings'
+          formuTest.method ='GET'
+          formuTest.id="jsform"
+          inputTest.name="authenticity_token"
+          inputTest.type="hidden"
+          inputTest.value=""
+          inputGeo.name ="geocode_information"
+          inputGeo.type = "hidden"
+          inputGeo.value= JSON.stringify(e.result, null, 2)
+          // btnGeo.type = "submit"
+          // btnGeo.value = "Valider"
+          // btnGeo.name = "btnGeo"
+          // btnGeo.className ="btn btn-primary search-btn"
+          console.log(formuTest)
+          formuTest.appendChild(inputTest)
+          formuTest.appendChild(inputGeo)
+          // formuTest.appendChild(btnGeo)
+          console.log(results)
+          results.innerHTML += divFormu.innerHTML
+          document.getElementById('jsform').submit()
+        });
+        
+        // Clear results container when search is cleared.
+        geocoder2.on('clear', () => {
         results.innerText = '';
-      });
-      // Code from the next step will go here.
-    }
+        });
+    
   }
 }
