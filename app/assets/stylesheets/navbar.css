@@ -20,7 +20,7 @@
 }
 
 .navbar .navbar-brand {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-family: 'Baloo 2';
   font-weight: 700;
   color: var(--color-primary);
@@ -43,6 +43,20 @@
   border-color: transparent;
 }
 
+.dropdown-item:active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.dropdown-item:active:hover {
+  color: white;
+}
+
+.dropdown-item a {
+  color: inherit;
+}
+
+
 .dropdown-btn:hover {
   border-color: transparent;
 }
@@ -56,6 +70,8 @@
   color: rgba(0, 0, 0, 0.7);
   padding: 12px;
   align-items: center;
+  display: flex;
+  gap: 0px 20px;
 }
 
 .btn-secondary {
