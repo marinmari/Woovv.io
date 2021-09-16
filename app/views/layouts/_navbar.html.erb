@@ -4,6 +4,7 @@
     <ul class="navbar-nav">
       <li class="nav-link">
         <%= link_to "Trouver un coworking", coworkings_path, class:"nav-link" %>
+        <a href="https://rz038zhvlso.typeform.com/to/fOfiofVp" class="nav-link">Gérer mes coworkings</a>
       </li>
       <% if current_user && current_user.managed_coworkings.count > 0%>
         <li class="nav-link">
