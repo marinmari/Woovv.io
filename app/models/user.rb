@@ -1,10 +1,10 @@
-# frozen_string_literal: true
+#frozen_string_literal: true
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #:lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :bookings, foreign_key: 'coworker_id', dependent: :destroy, inverse_of: 'coworker'
   belongs_to :company, optional: true
   has_many :attended_coworkings, through: :bookings, source: :coworking
