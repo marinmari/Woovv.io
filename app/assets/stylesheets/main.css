@@ -556,7 +556,8 @@ p.address {
 .edit-coworking input[type=tel], 
 .edit-coworking input[type=number], 
 .edit-coworking input[type=email]{
-      width: 20rem;
+      max-width: 20rem;
+      min-width: 10rem;      
       height: 2rem;
       padding:0.3rem;
       font-size: 0.9rem;
@@ -564,8 +565,9 @@ p.address {
 }
 
 .edit-coworking textarea{
-      width: 20rem;
-      height: 10rem;
+      max-width: 20rem;
+      min-width: 10rem;
+      min-height: 10rem;
       padding:0.5rem;
       font-size: 0.9rem;
       background-color: rgb(249, 249, 249);
@@ -585,9 +587,6 @@ form {
       padding: 0 1rem;
 }
 
-.edit-coworking input[type=number] {
-      width: 5rem;
-}
 
 form > .in-line {
       flex-direction: row;
