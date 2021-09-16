@@ -37,15 +37,11 @@ class BookingsController < ApplicationController
 
   # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
-    respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: "Booking was successfully updated." }
-        format.json { render :show, status: :ok, location: @booking }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
+    puts "😍"*60
+    puts params
+    puts "😍"*60
+    Booking.find(params[:id]).update(booking_status_id: params[:booking_status_id])
+    redirect_to user_bookings_path(current_user)
   end
 
   # DELETE /bookings/1 or /bookings/1.json

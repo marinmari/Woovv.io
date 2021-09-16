@@ -4,15 +4,18 @@ Coworking.destroy_all
 User.destroy_all 
 Company.destroy_all
 PublicSetUpAccess.destroy_all
+BookingStatus.destroy_all
 
 
-['coworkings', 'users', 'companies', 'public_set_up_accesses'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
+['coworkings', 'users', 'companies', 'public_set_up_accesses', 'booking_statuses'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
 
 ['Absent', 'Gratuit', 'Payant'].map {|access| PublicSetUpAccess.create(set_up_access: access)}
 
+['En attente', 'Appouvé', 'Validé', 'Annulé'].map {|access| BookingStatus.create(status: access)}
+
 bdd = CSV.read("db/db_urls.csv")
 
-User.create(email:"marin.ceo@woovv.io", password:'Woovver4Life')
+User.create(email:"marin@woovv.io", password:'Woovver4Life')
 
 
 # 9.times do |i|

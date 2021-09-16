@@ -2,23 +2,38 @@
 
 <h1>Bookings</h1>
 
-<table>
-  <thead>
+<table class='table'>
+  <thead class="thead-dark">
     <tr>
-      <th colspan="3"></th>
+      <th>Coworking</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Statut</th>
+      <th>Action</th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @bookings.each do |booking| %>
+    <% @bookings.each do |booking|%>
       <tr>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= booking.coworking.name%>
+        </td>
+
+        <td>
+        <%=  booking.start_date  %>
+        </td>
+
+          <td>
+        <%=  booking.end_date  %>
+          </td>
+
+          <td>
+        <%=  booking.booking_status.status  %>
+          </td>
+
+        <td>
+        <%= link_to "Annuler", user_booking_path(current_user.id,booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
+          </td>
       </tr>
     <% end %>
-  </tbody>
 </table>
-
-<br>
-
