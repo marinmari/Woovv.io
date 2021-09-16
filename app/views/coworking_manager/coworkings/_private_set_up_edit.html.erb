@@ -4,8 +4,10 @@
       <%= form.label :wifi_password, "Mot de passe Wi-Fi" %>
       <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %>
     </div>
-    <div> <%= form.label :manager_phone_number, "Tel direct du manager" %>
+    <div>
+      <%= form.label :manager_phone_number, "Tel direct du manager" %>
       <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %>
+      <%= render partial: "shared/input_error_message", locals: {error: @private_set_up.errors[:manager_phone_number]}%>
     </div>
     <%= form.submit "Enregistrer", class:"btn btn-primary"  %>
   </div>

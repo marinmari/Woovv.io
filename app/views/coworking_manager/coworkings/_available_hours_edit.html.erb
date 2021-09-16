@@ -3,7 +3,8 @@
   <div class="edit-coworking">
     <div>
       <p> Semaine : </p>
-      <div><%= form.label :week_opening_time, "Heure d'ouverture", class:"opening-closing-hour" %>
+      <div>
+        <%= form.label :week_opening_time, "Heure d'ouverture", class:"opening-closing-hour" %>
         <%= form.time_field :week_opening_time, value: @availability.week_opening_time %>
       </div>
       <div>
@@ -12,11 +13,13 @@
       </div>
     </div>
     <div>
-      <p> Week-end : </p>
-      <div><%= form.label :weekend_opening_time, "Heure d'ouverture", class:"opening-closing-hour" %>
+      <p> Week-end (si ouvert) : </p>
+      <div>
+        <%= form.label :weekend_opening_time, "Heure d'ouverture", class:"opening-closing-hour" %>
         <%= form.time_field :weekend_opening_time, value: @availability.weekend_opening_time %>
       </div>
-      <div> <%= form.label :weekend_closingend_time, "Heure de fermeture", class:"opening-closing-hour" %>
+      <div>
+        <%= form.label :weekend_closingend_time, "Heure de fermeture", class:"opening-closing-hour" %>
         <%= form.time_field :weekend_closing_time, value: @availability.weekend_closing_time %>
       </div>
     </div>

@@ -9,22 +9,21 @@ class CoworkingManager::CoworkingsController < ApplicationController
   def edit
     set_coworking
   end
-
+    
   def update
     set_coworking
     unless coworking_params == nil
-      @coworking.update(coworking_params)
+      manage_flashes_and_redirection(@coworking.update(coworking_params))
     end
     unless availability_params == nil
-      @availability.update(availability_params)
+      manage_flashes_and_redirection(@availability.update(availability_params))
     end
     unless private_set_up_params == nil
-      @private_set_up.update(private_set_up_params)
+      manage_flashes_and_redirection(@private_set_up.update(private_set_up_params))
     end
     unless public_set_up_params == nil
-      @public_set_up.update(public_set_up_params)
+      manage_flashes_and_redirection(@public_set_up.update(public_set_up_params))
     end
-    redirect_to edit_coworking_manager_coworking_path(params[:id])
   end
 
   private 
@@ -73,5 +72,14 @@ class CoworkingManager::CoworkingsController < ApplicationController
     end
   end
 
+  def manage_flashes_and_redirection(success)
+    if success
+      flash[:success] = "Les paramètres du Coworking ont bien été mis à jour"
+      redirect_to edit_coworking_manager_coworking_path(params[:id])
+    else
+      flash.now[:error] = "Les paramètres n'ont pu être mis à jour : vérifiez les messages d'erreurs sur la page"
+      render :edit
+    end
+  end
 
 end

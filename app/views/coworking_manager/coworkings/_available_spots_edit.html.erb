@@ -1,0 +1,16 @@
+<%# <div style="border:1px blue solid"> %>
+<%= form_with model:@availability, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <div class="edit-coworking">
+    <div>
+      <%= form.label :price_per_spot_per_day, "Prix / jour HT (€) sur Woovv.io" %>
+      <%= form.text_field :price_per_spot_per_day, value: @availability.price_per_spot_per_day %>
+      <%= render partial: "shared/input_error_message", locals: {error: @availability.errors[:price_per_spot_per_day]}%>
+    </div>
+    <div>
+      <%= form.label :available_spots_quantity, "Nombre de places disponibles sur Woovv.io" %>
+      <%= form.text_field :available_spots_quantity, value: @availability.available_spots_quantity %>
+      <%= render partial: "shared/input_error_message", locals: {error: @availability.errors[:available_spots_quantity]}%>
+    </div>
+    <%= form.submit "Enregistrer", class:"btn btn-primary"%>
+  </div>
+<% end %>
