@@ -458,10 +458,10 @@ p.address {
 }
 
 .edit-coworking.block {
-      /* border: 3px red solid; */
       display: flex;
       flex-direction: column;
       align-items: center;  
+      
 }
 
 
@@ -471,7 +471,7 @@ p.address {
       flex-direction: column;
       padding: 2rem;    
       width: 45%;
-      margin: 1.5rem;
+      margin: 0.75rem;
       background-color: white;
       align-items:  center;
 }
@@ -487,7 +487,6 @@ p.address {
 }
 
 .edit-coworking label {
-      width: 10rem;;
       margin-bottom: 0;
       color: teal;
 }
@@ -609,4 +608,24 @@ form > .in-line {
 
 .edit-coworking.checkbox.in-line .day label {
       margin-left: 0;
+}
+
+.label-bullet {
+      width: 10rem;
+}
+
+.edit-coworking.checkbox > div .animals {
+      margin-right: 1rem;
+      width: 10rem;
+}
+
+.opening-closing-hour {
+      width: 10rem;
+}
+
+.btn-delete {
+     z-index: 1000000;
+     position: absolute;
+     bottom: 0;
+     right: 0;
 }

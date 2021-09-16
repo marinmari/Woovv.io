@@ -3,36 +3,36 @@
     <div class="radio">
       <p>Café :</p>
       <div>
-        <%= form.label :coffee_access, "Absent" %>
+        <%= form.label :coffee_access, "Absent", class:"label-bullet" %>
         <%= radio_button("public_set_up", "coffee_access_id","1") %>
       </div>
       <div>
-        <%= form.label :coffee_access, "Présent - gratuit" %>
+        <%= form.label :coffee_access, "Présent - gratuit", class:"label-bullet" %>
         <%= radio_button("public_set_up", "coffee_access_id","2") %>
       </div>
       <div>
-        <%= form.label :coffee_access, "Présent - payant" %>
+        <%= form.label :coffee_access, "Présent - payant", class:"label-bullet" %>
         <%= radio_button("public_set_up", "coffee_access_id","3") %>
       </div>
     </div>
     <div class="radio">
       <p>Parking vélo sécurisé :</p>
       <div>
-        <%= form.label :bike_storage, "Absent" %>
+        <%= form.label :bike_storage, "Absent", class:"label-bullet"  %>
         <%= radio_button("public_set_up","bike_storage_id","1") %>
       </div>
       <div>
-        <%= form.label :bike_storage, "Présent - gratuit" %>
+        <%= form.label :bike_storage, "Présent - gratuit", class:"label-bullet"  %>
         <%= radio_button("public_set_up","bike_storage_id","2") %>
       </div>
       <div>
-        <%= form.label :bike_storage, "Présent - payant" %>
+        <%= form.label :bike_storage, "Présent - payant", class:"label-bullet"  %>
         <%= radio_button("public_set_up","bike_storage_id","3") %>
       </div>
     </div>
     <div class="edit-coworking checkbox reverse">
       <div>
-        <%= form.label :is_pet_friendly, "Animaux acceptés" %>
+        <%= form.label :is_pet_friendly, "Animaux acceptés", class:"label-bullet animals" %>
         <%= form.check_box :is_pet_friendly, class:"btn btn-secondary active",value: @public_set_up.is_pet_friendly %>
       </div>
     </div>

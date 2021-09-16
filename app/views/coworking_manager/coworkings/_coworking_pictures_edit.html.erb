@@ -3,16 +3,14 @@
     <div class="carousel-inner">
       <%@coworking.coworking_pictures.each do |picture|%>
         <% if picture.id == @coworking.coworking_pictures.first.id %>
+          <%=link_to "Supprimer", coworking_coworking_picture_path(@coworking.id, picture.id), :method => :delete, class:"btn btn-danger btn-delete" %>
           <div class="carousel-item active">
-            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-              <%= image_tag picture, alt: 'picture' %>
-            <%end%>
+            <%= image_tag picture, alt: 'picture' %>
           </div>
         <%else%>
+          <%=link_to "Supprimer", coworking_coworking_picture_path(@coworking.id, picture.id), :method => :delete, class:"btn btn-danger btn-delete" %>
           <div class="carousel-item">
-            <%=link_to coworking_coworking_picture_path(@coworking, picture), :method => :delete do%>
-              <%= image_tag picture, alt: 'picture' %>
-            <%end%>
+            <%= image_tag picture, alt: 'picture' %>
           </div>
         <%end%>
       <%end%>
@@ -25,8 +23,8 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  <%end%>
-</div>
+  </div>
+<%end%>
 <%= form_tag coworking_coworking_pictures_path(@coworking), multipart: true do %>
   <%= file_field_tag :coworking_pictures, class:"btn btn-secondary" %>
   <%= submit_tag "Ajouter une photo", class:"btn btn-info" %>

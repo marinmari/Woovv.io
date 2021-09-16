@@ -1,30 +1,8 @@
 <div class = "wrapper">
   <h1>Bienvenue, <%= @coworking.coworking_manager.first_name %> !</h1>
   <p>Sur cette page vous allez pouvoir mettre à jour les informations de votre coworking. A vous de jouer !</p>
-  <strong>(<%=@coworking.name%>)</strong>
+  <strong>(<%=@coworking.name%>, <%= @coworking.address %>)</strong>
   <div class = "edit-coworking block">
-    <div class = "cw-edit active-storage">
-      <h3>Photos du coworking</h3>
-      <%= render 'coworking_pictures_edit' %>
-    </div>
-    <div class='edit-coworking block1'>
-      <%= render 'coworking_edit'%>
-    </div>
-    <div class='edit-coworking block1'>
-      <h3>Jours d'ouvertures</h3>
-      <%= render 'availables_days_edit'%>
-    </div>
-    <div class='edit-coworking block1'>
-      <h3>Horaires d'ouvertures</h3>
-      <%= render 'availables_hours_edit'%>
-    </div>
-    <div class='edit-coworking block1'>
-      <h3>Informations privées</h3>
-      <%= render 'private_set_up_edit'%>
-    </div>
-    <div class='edit-coworking block1'>
-      <h3>Informations publiques</h3>
-      <%= render 'public_set_up_edit'%>
-    </div>
+    <%= render "edit-blocks"%>
   </div>
 </div>
