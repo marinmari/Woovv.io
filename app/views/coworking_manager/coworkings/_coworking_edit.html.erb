@@ -5,15 +5,24 @@
       <%= form.label :name, "Nom du coworking" %>
       <%= form.text_field :name, value: @coworking.name %><br/>
     </div>
+        <div><%= form.label :email, "Email du coworking" %>
+      <%= form.email_field :email, value: @coworking.email %><br/>
+    </div>
+       <div>
+      <%= form.label :price_per_spot_per_day, "Prix / jour HT (€)" %>
+      <%= form.text_field :price_per_spot_per_day, value: @coworking.availability.price_per_spot_per_day %> 
+    </div>
+           <div>
+      <%= form.label :available_spots_quantity, "Nombre de places disponibles sur Woovv.io" %>
+      <%= form.text_field :available_spots_quantity, value: @coworking.availability.available_spots_quantity %> 
+    </div>
     <div><%= form.label :description, "Description" %>
       <%= form.text_area :description, value: @coworking.description %><br/>
     </div>
     <div> <%= form.label :phone_number, "Tel accueil" %>
       <%= form.phone_field :phone_number, value: @coworking.phone_number %><br/>
     </div>
-    <div><%= form.label :email, "Email du coworking" %>
-      <%= form.email_field :email, value: @coworking.email %><br/>
-    </div>
+
     <%= form.submit "Enregistrer", class:"btn btn-primary" %>
   </div>
 <% end %>

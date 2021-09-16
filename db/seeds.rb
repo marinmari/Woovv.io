@@ -5,9 +5,10 @@ User.destroy_all
 Company.destroy_all
 PublicSetUpAccess.destroy_all
 
-['Absent', 'Gratuit', 'Payant'].map {|access| PublicSetUpAccess.create(set_up_access: access)}
 
 ['coworkings', 'users', 'companies', 'public_set_up_accesses'].map {|tab| ActiveRecord::Base.connection.reset_pk_sequence!(tab)}
+
+['Absent', 'Gratuit', 'Payant'].map {|access| PublicSetUpAccess.create(set_up_access: access)}
 
 bdd = CSV.read("db/db_urls.csv")
 
@@ -41,6 +42,7 @@ bdd.each do |row|
     new_coworking.country="France"
     new_coworking.coworking_manager_id = 1
     new_coworking.managing_company_id = 1
+    new_coworking.coworking_pictures.attach(io: File.open("app/assets/images/coworking.png"), filename: "coworking.png")
     uri = URI("https://api-adresse.data.gouv.fr/search/?q=#{row_2[2][2..-2].gsub('- ', '').gsub(' ', '+').gsub(/[èéêë]/,'e').gsub(/[^0-9A-Za-z]/, ' ')}&limit=1")
     res = Net::HTTP.get_response(uri)
     if res.is_a?(Net::HTTPSuccess) && JSON.parse(res.body)["features"].length != 0

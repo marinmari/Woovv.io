@@ -1,7 +1,9 @@
 class CoworkingPicturesController < ApplicationController
   def create
     @coworking = Coworking.find(params[:coworking_id])
+      if params[:coworking_pictures]
     @coworking.coworking_pictures.attach(params[:coworking_pictures])
+    end
     redirect_to(edit_coworking_manager_coworking_path(@coworking.id))
   end
   def destroy
