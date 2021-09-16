@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update] do 
     resources :avatars, only: [:create, :destroy]
+    resources :bookings, only: [:index, :create, :update]
   end 
 
   namespace :coworking_manager do
     resources :coworkings
+    resources :bookings, only: [:index, :update]
   end
 end
