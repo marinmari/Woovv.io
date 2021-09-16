@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_121223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_from_scrapping", default: false
+    t.boolean "functionnal"
     t.integer "longitude"
     t.integer "latitude"
     t.index ["coworking_manager_id"], name: "index_coworkings_on_coworking_manager_id"
