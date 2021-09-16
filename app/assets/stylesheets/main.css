@@ -44,7 +44,6 @@ textarea {
 }
 
 input::placeholder{
-  padding: .5rem;
 }
 
 input:focus {
@@ -73,8 +72,9 @@ input:focus {
 
 .hero h2 {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 0;
+  letter-spacing: 2px;
 }
 
 .hero > div {
@@ -128,21 +128,23 @@ h3 {
 
 .img-div {
   /* border: 3px purple solid; */
-  height: 4rem;
-  width: 4rem;
+  height: 7rem;
+  width: 7rem;
   /* border-radius: 0.3rem; */
   overflow: hidden;
   transition: 0.5s all;
   flex-shrink: 0;
+
 }
 
 .img-div:hover {
   transform: scale(1.05);
 }
 
-.img-div > img {
+.img-div > a img {
   height: 100%;
   width: 100%; 
+  object-fit: cover;
 }
 
 .city-div {
@@ -151,6 +153,11 @@ h3 {
   /* border: 3px purple solid; */
   max-width: 12rem;
 }
+
+.city-div a{
+ font-weight: bolder;
+}
+
 
 .city {
   font-size: 1.1rem;
@@ -274,10 +281,6 @@ section {
   }
   .hero h2 {
     font-size:1.1rem;
-  }
-
-  .hero > div {
-    margin: 0 0.75rem;
   }
 
 }
@@ -628,4 +631,71 @@ form > .in-line {
      position: absolute;
      bottom: 0;
      right: 0;
+}
+
+.wrapper.devise-view {
+      color:white;
+      background-color: teal;
+      width: 50%;
+}
+
+.devise-view  {
+     display: flex;
+     min-height: 70vh;
+}
+
+.devise-view a {
+      color:inherit;
+}
+
+.devise-left-background-image {
+      background-image: url('https://images.unsplash.com/photo-1616503951625-9cc974aaf1c3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80');
+      width: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+}
+
+.devise-left-background-image.sign-up {
+      background-image: url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+
+}
+
+
+
+
+
+.wrapper.devise-view input:not( input[type=submit]) {
+      color: black;
+      padding: 0.25rem 1rem;
+}
+
+.wrapper.devise-view .btn-primary:hover {
+      background-color: white;
+      color: black;
+}
+
+
+.wrapper.devise-view.new-pwd {
+      height: 100%;
+      width: 100%;
+}
+
+.wrapper.devise-view.new-pwd form {
+      width: 40%;
+      max-width: 30rem;
+      min-width: 20rem;
+      padding: 2rem;
+}
+
+.wrapper.devise-view h2 {
+      text-align: center;
+      display: block;
+      margin-bottom: 1rem;
+}
+
+.wrapper.devise-view.new-pwd .btn,
+.wrapper.devise-view p {
+  margin:1rem;
+  margin-top: 0;
 }
