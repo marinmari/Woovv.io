@@ -18,13 +18,7 @@
     <div>
       <%= form.label :phone_number, "Tel accueil" %>
       <%= form.phone_field :phone_number, value: @coworking.phone_number %><br/>
-      <% if @coworking.errors[:phone_number].any? %>
-        <ul>
-          <% @coworking.errors[:phone_number].each do |message| %>
-            <li class="alert alert-danger"><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render partial: "shared/input_error_message", locals: {error: @coworking.errors[:phone_number]}%>
     </div>
     <%= form.submit "Enregistrer", class:"btn btn-primary" %>
   </div>

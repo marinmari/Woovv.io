@@ -12,9 +12,6 @@ class CoworkingManager::CoworkingsController < ApplicationController
     
   def update
     set_coworking
-    puts "🤩"*60
-    puts params
-    puts "🤩"*60
     unless coworking_params == nil
       if @coworking.update(coworking_params)
         flash[:success] = "Les paramètres du Coworking ont bien été mis à jour"
@@ -40,9 +37,13 @@ class CoworkingManager::CoworkingsController < ApplicationController
       end
     end
     unless public_set_up_params == nil
-      @public_set_up.update(public_set_up_params)
+      if @public_set_up.update(public_set_up_params)
+        flash[:success] = "Les paramètres du Coworking ont bien été mis à jour"
+        redirect_to edit_coworking_manager_coworking_path(params[:id])
+      else
+        render :edit
+      end
     end
-    # redirect_to edit_coworking_manager_coworking_path(params[:id])
   end
 
   private 
