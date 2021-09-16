@@ -1,1 +1,5 @@
-
+<% flash.each do |type, msg| %>
+  <div class="alert <%= bootstrap_class_for_flash(type) %> alert-dismissable fade show" role="alert" >
+    <span><%= emoticon1_for_flash(type) %> <%= msg %> <%= emoticon2_for_flash(type) %></span>
+  </div>
+<% end %>
