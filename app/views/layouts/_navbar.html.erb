@@ -5,7 +5,11 @@
       <li class="nav-link">
         <%= link_to "Trouver un coworking", coworkings_path, class:"nav-link" %>
       </li>
-      <% if current_user && current_user.managed_coworkings.count > 0%>
+      <% if !current_user%>
+        <li class="nav-link">
+          <a href="https://rz038zhvlso.typeform.com/to/fOfiofVp" class="nav-link">Proposer mes coworkings</a>
+        </li>
+      <% elsif current_user.managed_coworkings.count > 0%>
         <li class="nav-link">
           <%= link_to "Mes coworkings", coworking_manager_coworkings_path, class:"nav-link" %>
         </li>

@@ -23,3 +23,7 @@
 .btn-outline-danger:hover {
   background-color: transparent;
 }
+
+.btn-primary.search-btn {
+  margin-top: 1rem;
+}

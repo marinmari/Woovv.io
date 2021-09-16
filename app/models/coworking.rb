@@ -12,6 +12,9 @@ class Coworking < ApplicationRecord
 
 
   validates :zipcode, presence: true
+  validates :name, presence: {message: "Nous avons besoin d'un nom de Coworking"}, on: :update
+  validates :phone_number, format: { with: /\A(?:0|\+33 ?|0?0?33 ?|)([1-9] ?(?:[0-9] ?){8})\z/, message: "Nous avons besoin d'un numéro de téléphone au format 0XXXXXXXXX"  }, on: :update
+  validates :email, format: { with: /\A(\S+)@(.+)\.(\S+)\z/, message: "Nous avons besoin d'un email valide"  }, on: :update
   after_create :initialize_coworking
 
   private

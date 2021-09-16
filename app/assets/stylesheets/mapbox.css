@@ -39,8 +39,8 @@ position: fixed;
 z-index: 100000000;
 width: 40%;
 max-width: 50%;
-left: 165px;
-top: 17px;
+left: 183px;
+top: 20px;
 }
 .mapboxgl-ctrl-geocoder {
 min-width: 100%;
