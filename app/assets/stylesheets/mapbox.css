@@ -35,12 +35,18 @@
 }
 
 .geocoder {
-position: fixed;
-z-index: 100000000;
-width: 40%;
-max-width: 50%;
-left: 183px;
-top: 20px;
+  position: relative;
+  top: 4rem;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+}
+.geocoderhome {
+  position: relative;
+  top: 1rem;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
 }
 .mapboxgl-ctrl-geocoder {
 min-width: 100%;
