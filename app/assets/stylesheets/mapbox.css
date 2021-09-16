@@ -12,7 +12,7 @@
 }
 
 .half-bottom{
-  padding: 8px;
+  padding: 1em;
 }
 
 .card-body-popup{
@@ -21,13 +21,17 @@
 
 .details-price{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .price-popup{ 
-  /* border: teal 1px solid; */
+  border: teal 1px solid;
   display: flex;
   align-items: center;
+  font-size: 1.5em;
+  font-family: 'Baloo 2';
+  margin-bottom: 0em;
+  margin-right: 1em;
 }
 
 .geocoder {
@@ -51,4 +55,24 @@ height:38px;
 
 .show.mapindex.cwshow #map{
   width: 50%;
+}
+
+.cw-name{
+  font-size: 1.5em;
+}
+
+.cw-adresse{
+  font-size: 1em;
+}
+
+.mapboxgl-popup-close-button{
+  color: white;
+  width: 1rem; 
+  height: 1rem; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  font-size: 2rem;
 }
