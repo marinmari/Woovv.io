@@ -1,5 +1,7 @@
 
 window.onload = function () {
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
+
   // The value for 'accessToken' begins with 'pk...'
   var co_id = document.getElementById("map").attributes[2].value
   co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
@@ -21,9 +23,6 @@ window.onload = function () {
     var box_right_lon = Math.max(...longitudes) + 0.05
     var box_left_lon = Math.min(...longitudes) - 0.05
   }
-
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
-
   const map = new mapboxgl.Map({
     container: 'map',
     // Replace YOUR_STYLE_URL with your style URL.
@@ -33,6 +32,7 @@ window.onload = function () {
   });
   // Set marker options.
   var group = []
+  if (coordinates.length !== 1){
   for (i = 0; i < coordinates.length; i++) {
     const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
     const popup = new mapboxgl.Popup({ closeOnClick: true })
@@ -45,12 +45,22 @@ window.onload = function () {
       .setPopup(popup)
       .addTo(map);
     group.push(marker);
+  }}else{
+    for (i = 0; i < coordinates.length; i++) {
+    const marker = new mapboxgl.Marker({
+      color: "#92DACA",
+      draggable: false,
+    }).setLngLat([coordinates[i][0], coordinates[i][1]])
+      .addTo(map);
+    group.push(marker)
+  }
   }
   
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
+  if (coordinates.length !== 1){
   const geocoder = new MapboxGeocoder({
     // Initialize the geocoder
     accessToken: mapboxgl.accessToken, // Set the access token
@@ -63,5 +73,5 @@ window.onload = function () {
   // Add the geocoder to the map
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
   // Code from the next step will go here.
-
+  }
 }
