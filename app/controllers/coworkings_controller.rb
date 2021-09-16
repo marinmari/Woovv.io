@@ -6,7 +6,6 @@ class CoworkingsController < ApplicationController
   # GET /coworkings or /coworkings.json
   def index
     @coworking = Coworking.new
-    puts params
     if params[:coworking] == nil || set_zipcode == ''
       @coworkings = Coworking.all
       @box_focus = "France"
@@ -20,6 +19,7 @@ class CoworkingsController < ApplicationController
       @coordinates << [(coworking.latitude.to_f)/1000000, (coworking.longitude.to_f)/1000000]
       @co_id << coworking.id
     end 
+    puts "je suis dans le COWORKING TROOOOOOOOP STYLEEEEEEE"
   end
 
   # GET /coworkings/1 or /coworkings/1.json
