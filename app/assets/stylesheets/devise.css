@@ -13,6 +13,7 @@
     margin-bottom: 1rem;
 }
 
+
 .new_user {
     /* border: 3px red solid; */
     width: 60%;
@@ -133,4 +134,9 @@ display: flex;
     /* margin: 1em; */
     width: 74%;
     margin-bottom: 1rem;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
 }
