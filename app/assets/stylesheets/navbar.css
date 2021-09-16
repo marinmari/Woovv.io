@@ -12,6 +12,7 @@
 
 .navbar a {
   color: inherit;
+  transition: 0.5s all;
 }
 
 .navbar a:hover {
@@ -60,6 +61,7 @@
 .btn-secondary {
   background-color: var(--color-primary);
   border-color: transparent;
+  transition: 0.5s all;
 }
 
 .btn-secondary:hover {

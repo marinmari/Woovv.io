@@ -1,8 +1,10 @@
-<div class="wrapper">
-  <div>
-    <h2 class="title-su">Inscription</h2>
-  </div>
+<div class = "devise-view">
+  <div class = "devise-left-background-image sign-up"></div>
+  <div class="wrapper devise-view">
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h2>Inscription</h2>
+
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
       <div class="div-email container-su ">
@@ -21,10 +23,12 @@
       <%= f.password_field :password_confirmation, placeholder: "Confirmation du mot de passe" , class:'field-su'%>
     </div>
     <div class="actions div-su">
-      <%= f.submit "Let's go !" , :class => 'btn-su' %>
+      <%= f.submit "Let's go !" , :class => 'btn btn-primary' %>
     </div>
-    <div class="already">
+
       <%= link_to "J'ai déjà un compte" , new_user_session_path %>
-    </div>
+      <a href = "https://rz038zhvlso.typeform.com/to/fOfiofVp">S'inscrire en tant que Coworking</a>
+   
   <% end %>
+</div>
 </div>
