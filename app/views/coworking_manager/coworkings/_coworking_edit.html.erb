@@ -1,13 +1,19 @@
-<div class="col-md-10">
-  <%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-    <%= form.label :name, "Nom du coworking" %>
-    <%= form.text_field :name, value: @coworking.name %><br/>
-    <%= form.label :description, "description" %>
-    <%= form.text_area :description, value: @coworking.description %><br/>
-    <%= form.label :phone_number, "numéro du standard du coworking" %>
-    <%= form.phone_field :phone_number, value: @coworking.phone_number %><br/>
-    <%= form.label :email, "email du coworking" %>
-    <%= form.email_field :email, value: @coworking.email %><br/>
-    <%= form.submit "enregistrer", class:"btn btn-primary" %>
-  <% end %>
-</div>
+<h3>Informations générales</h3>
+<%= form_with model:@coworking, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <div class="edit-coworking">
+    <div>
+      <%= form.label :name, "Nom du coworking" %>
+      <%= form.text_field :name, value: @coworking.name %><br/>
+    </div>
+    <div><%= form.label :description, "Description" %>
+      <%= form.text_area :description, value: @coworking.description %><br/>
+    </div>
+    <div> <%= form.label :phone_number, "Tel accueil" %>
+      <%= form.phone_field :phone_number, value: @coworking.phone_number %><br/>
+    </div>
+    <div><%= form.label :email, "Email du coworking" %>
+      <%= form.email_field :email, value: @coworking.email %><br/>
+    </div>
+    <%= form.submit "Enregistrer", class:"btn btn-primary" %>
+  </div>
+<% end %>

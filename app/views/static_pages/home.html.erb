@@ -2,10 +2,8 @@
   <div>
     <h1>Le futur du travail se passe ici</h1>
     <h2>Bookez un coworking où vous voulez !</h2>
-    <%= form_with model: @coworking, url: coworkings_path,method: :get, local:true do |f| %>
-      <%= f.text_field :department, class:"search-field", placeholder:"Où-est-ce qu'on bosse ? (code postal ou département)" %>
-      <%= submit_tag "Afficher", class:"btn btn-primary search-btn" %>
-    <% end %>
+
+    <%=link_to "Trouve ton coworking !", coworkings_path, class:"btn btn-primary search-btn"%>
   </div>
 </div>
 <div class="wrapper">
@@ -46,7 +44,7 @@
             <div class="img-div">
               <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=33&commit=Afficher">
                 <img
-                  src="https://images.unsplash.com/photo-1493564738392-d148cfbd6eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                  src="https://images.unsplash.com /photo-1493564738392-d148cfbd6eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                   alt="">
               </a>
               </div>

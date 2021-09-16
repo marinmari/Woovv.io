@@ -23,18 +23,22 @@ class Coworking < ApplicationRecord
   
   def initialize_availability_table
     unless self.availability
-      new_availability = Availability.new(coworking: self, available_spots_quantity: 5, week_opening_time: "09:00", week_closing_time: "09:00", weekend_opening_time: "09:00", weekend_closing_time: "09:00")
+      new_availability = Availability.new(coworking: self, available_spots_quantity: 5, week_opening_time: "09:00", week_closing_time: "19:00", weekend_opening_time: "09:00", weekend_closing_time: "19:00")
       new_availability.save     
     end
   end
   
   def initialize_public_set_up_table
-    new_public_set_up = PublicSetUp.new(coworking: self, bike_storage_id:1, coffee_access_id:1)
-    new_public_set_up.save
+      unless self.public_set_up
+            new_public_set_up = PublicSetUp.new(coworking: self, bike_storage_id:1, coffee_access_id:1)
+            new_public_set_up.save
+      end
   end
   
   def initialize_private_set_up_table
-    new_private_set_up = PrivateSetUp.new(coworking: self)
-    new_private_set_up.save
+      unless self.private_set_up
+            new_private_set_up = PrivateSetUp.new(coworking: self)
+            new_private_set_up.save
+      end
   end
 end

@@ -1,59 +1,30 @@
-<h2><%=@coworking.name%></h2>
-<div>
-  <%= render 'coworking_pictures_edit' %>
-</div>
-<div class="page-content page-container" id="page-content">
-  <div class="padding">
-    <div class="row container d-flex justify-content-center">
-      <div class="col-xl-12 col-md-12" >
-        <div class="card user-card-full">
-          <div class="row m-l-0 m-r-0">
-            <div class="col-sm-4 bg-c-lite-green user-profile">
-              <div class="card-block text-center">
-                <div class="row justify-content-center text-white">
-                  <div class="col-12">
-                    <h6><%=@coworking.name%></h6>
-                    <h6><%=@coworking.address%></h6>
-                    <div class="row justify-content-center col-12">
-                      <h6><%=@coworking.zipcode%></h6>
-                      <h6> - </h6>
-                      <h6><%=@coworking.city%></h6>
-                    </div>
-                    <br/>
-                    <h6>manager : <%=@coworking.coworking_manager.first_name%> <%=@coworking.coworking_manager.last_name%> </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <div class="card-block">
-                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Détails du coworking</h5>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Généralités</h5>
-                <div class="row">
-                  <%= render 'coworking_edit'%>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Jours d'ouverture :</h5>
-                <div class="row">
-                  <%= render 'availables_days_edit'%>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Horaires :</h5>
-                <div class="row">
-                  <%= render 'availables_hours_edit'%>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations publiques</h5>
-                <div class="row">
-                  <%= render 'private_set_up_edit'%>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations communiquées après validation de la réservation</h5>
-                <div class="row">
-                  <%= render 'public_set_up_edit'%>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class = "wrapper">
+  <h1>Bienvenue, <%= @coworking.coworking_manager.first_name %> !</h1>
+  <p>Sur cette page vous allez pouvoir mettre à jour les informations de votre coworking. A vous de jouer !</p>
+  <strong>(<%=@coworking.name%>)</strong>
+  <div class = "edit-coworking block">
+    <div class = "cw-edit active-storage">
+      <h3>Photos du coworking</h3>
+      <%= render 'coworking_pictures_edit' %>
+    </div>
+    <div class='edit-coworking block1'>
+      <%= render 'coworking_edit'%>
+    </div>
+    <div class='edit-coworking block1'>
+      <h3>Jours d'ouvertures</h3>
+      <%= render 'availables_days_edit'%>
+    </div>
+    <div class='edit-coworking block1'>
+      <h3>Horaires d'ouvertures</h3>
+      <%= render 'availables_hours_edit'%>
+    </div>
+    <div class='edit-coworking block1'>
+      <h3>Informations privées</h3>
+      <%= render 'private_set_up_edit'%>
+    </div>
+    <div class='edit-coworking block1'>
+      <h3>Informations publiques</h3>
+      <%= render 'public_set_up_edit'%>
     </div>
   </div>
-</div>
 </div>

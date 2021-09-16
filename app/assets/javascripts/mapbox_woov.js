@@ -1,6 +1,6 @@
+
 window.onload = function () {
   // The value for 'accessToken' begins with 'pk...'
-  console.log(document.getElementById("map").attributes)
   var co_id = document.getElementById("map").attributes[2].value
   co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
   var coordinates = document.getElementById("map").attributes[1].value
@@ -31,34 +31,37 @@ window.onload = function () {
     center: [coordinates[0][0], coordinates[0][1]],
     zoom: 1
   });
-
   // Set marker options.
   var group = []
   for (i = 0; i < coordinates.length; i++) {
+    const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
+    const popup = new mapboxgl.Popup({ closeOnClick: true })
+      .setLngLat([coordinates[i][0], coordinates[i][1]])
+      .setHTML(newChildforPopup.innerHTML)
     const marker = new mapboxgl.Marker({
       color: "#92DACA",
       draggable: false,
     }).setLngLat([coordinates[i][0], coordinates[i][1]])
+      .setPopup(popup)
       .addTo(map);
     group.push(marker);
-    marker._element.id = co_id[i]
-    marker.getElement().addEventListener('click', (e) => {
-  
-      console.log(e.path[4].id);
-      show_coworking(e.path[4].id)
-    });
   }
+  
   map.fitBounds([
     [box_upper_lat, box_right_lon], // southwestern corner of the bounds
     [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
   ]);
- 
+  const geocoder = new MapboxGeocoder({
+    // Initialize the geocoder
+    accessToken: mapboxgl.accessToken, // Set the access token
+    mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    placeholder: 'Rechercher une adresse', // Placeholder text for the search bar
+    zoom: 12,
+    types:'country,region,place,postcode,locality,address',
+    countries: "fr"
+  });
+  // Add the geocoder to the map
+  document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
   // Code from the next step will go here.
 
-} 
-function show_coworking(cw_id) {
-  const child = document.getElementById(cw_id)
-  child.parentNode.remove()
-  const newChild = document.createElement(child);
-  console.log(child)
-  }
+}

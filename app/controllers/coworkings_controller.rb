@@ -4,9 +4,11 @@ class CoworkingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_coworking, only: %i[show edit update destroy]
 
+
   # GET /coworkings or /coworkings.json
   def index
     @coworking = Coworking.new
+    puts params
     if params[:coworking] == nil || set_zipcode == ''
       @coworkings = Coworking.all
       @box_focus = "France"
@@ -27,7 +29,6 @@ class CoworkingsController < ApplicationController
     @coordinates = []
     @co_id = []
     @coworking = Coworking.find(params[:id])
-
     @coordinates << [(@coworking.latitude.to_f)/1000000, (@coworking.longitude.to_f)/1000000]
     @co_id << @coworking.id
 

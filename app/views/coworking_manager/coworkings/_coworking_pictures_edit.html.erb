@@ -27,8 +27,7 @@
     </a>
   <%end%>
 </div>
-</div>
 <%= form_tag coworking_coworking_pictures_path(@coworking), multipart: true do %>
-  <%= file_field_tag :coworking_pictures %>
-  <%= submit_tag "Ajouter une photo" %>
+  <%= file_field_tag :coworking_pictures, class:"btn btn-secondary" %>
+  <%= submit_tag "Ajouter une photo", class:"btn btn-info" %>
 <% end %>
