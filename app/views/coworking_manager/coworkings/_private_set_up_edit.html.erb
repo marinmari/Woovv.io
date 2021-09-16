@@ -1,17 +1,12 @@
-<div class="col-md-10">
-  <%= form_with model:@private_set_up, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
-    <div class="cafe">
-      <div class="cafe-width">
-        <%= form.label :wifi_password, "mot de pass wifi" %>
-      </div>
-      <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %><br/>
+<%= form_with model:@private_set_up, url: coworking_manager_coworking_path(@coworking.id), method: :patch, local: true do |form| %>
+  <div class="edit-coworking">
+    <div>
+      <%= form.label :wifi_password, "Mot de passe Wi-Fi" %>
+      <%= form.text_field :wifi_password, value: @private_set_up.wifi_password %>
     </div>
-    <div class="cafe">
-      <div class="cafe-width">
-    <%= form.label :manager_phone_number, "numéro de téléphone direct du manager" %>
-      </div>
-    <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %><br/>
+    <div> <%= form.label :manager_phone_number, "Tel direct du manager" %>
+      <%= form.phone_field :manager_phone_number, value: @private_set_up.manager_phone_number %>
     </div>
-    <%= form.submit "enregistrer", class:"btn btn-primary"  %>
-  <% end %>
-</div>
+    <%= form.submit "Enregistrer", class:"btn btn-primary"  %>
+  </div>
+<% end %>
