@@ -1,14 +1,13 @@
 
 window.onload = function () {
   mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
- var coordinates = document.getElementById("map")
-  console.log(coordinates)
+  var coordinates = document.getElementById("map")
   if (!coordinates) {
     const geocoder = new MapboxGeocoder({
       // Initialize the geocoder
       accessToken: mapboxgl.accessToken, // Set the access token
       mapboxgl: mapboxgl, // Set the mapbox-gl instance
-      placeholder: 'Rechercher une adresse', // Placeholder text for the search bar
+      placeholder: 'Rechercher un coworking', // Placeholder text for the search bar
       zoom: 12,
       types: 'country,region,place,postcode,locality,address',
       countries: "fr"
@@ -54,6 +53,8 @@ window.onload = function () {
       results.innerText = '';
       });
   } else {
+    var research = document.getElementById("map").attributes[4].value.replace('[', '').replace(']', '').split(', ').map(Number)
+    console.log(research)
     // The value for 'accessToken' begins with 'pk...'
     var co_id = document.getElementById("map").attributes[2].value
     co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
@@ -63,6 +64,8 @@ window.onload = function () {
     coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
     var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
     var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
+    
+    
 
     if (box_focus === 'France') {
       var box_upper_lat = 6
@@ -108,7 +111,11 @@ window.onload = function () {
         group.push(marker)
       }
     }
-
+    new mapboxgl.Marker({
+      color: "#008080",
+      draggable: false,
+    }).setLngLat(research)
+      .addTo(map)
     map.fitBounds([
       [box_upper_lat, box_right_lon], // southwestern corner of the bounds
       [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
@@ -118,7 +125,7 @@ window.onload = function () {
         // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        placeholder: 'Rechercher une adresse', // Placeholder text for the search bar
+        placeholder: 'Rechercher un coworking', // Placeholder text for the search bar
         marker:true,
         zoom: 12,
         types: 'country,region,place,postcode,locality,address',
