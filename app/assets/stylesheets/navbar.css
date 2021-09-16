@@ -42,6 +42,20 @@
   border-color: transparent;
 }
 
+.dropdown-item:active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.dropdown-item:active:hover {
+  color: white;
+}
+
+.dropdown-item a {
+  color: inherit;
+}
+
+
 .dropdown-btn:hover {
   border-color: transparent;
 }

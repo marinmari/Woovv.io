@@ -128,21 +128,23 @@ h3 {
 
 .img-div {
   /* border: 3px purple solid; */
-  height: 4rem;
-  width: 4rem;
+  height: 7rem;
+  width: 7rem;
   /* border-radius: 0.3rem; */
   overflow: hidden;
   transition: 0.5s all;
   flex-shrink: 0;
+
 }
 
 .img-div:hover {
   transform: scale(1.05);
 }
 
-.img-div > img {
+.img-div > a img {
   height: 100%;
   width: 100%; 
+  object-fit: cover;
 }
 
 .city-div {
@@ -151,6 +153,11 @@ h3 {
   /* border: 3px purple solid; */
   max-width: 12rem;
 }
+
+.city-div a{
+ font-weight: bolder;
+}
+
 
 .city {
   font-size: 1.1rem;
