@@ -1,0 +1,2 @@
+module CoworkingManager::BookingsHelper
+end
