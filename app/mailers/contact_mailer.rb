@@ -5,7 +5,7 @@ class ContactMailer < ApplicationMailer
     @email = @contact.email
     @object = @contact.object
     @content = @contact.content
-    mail(to: 'jojo.justman@gmail.com', subject:"Un Woovver nous sollicite !")
+    mail(to: 'hello@woovv.io', subject:"Un Woovver nous sollicite !")
   end
 
 
