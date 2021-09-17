@@ -4,7 +4,8 @@ class CoworkingManager::BookingsController < ApplicationController
   # before_action :manages_this_booking?, only: [:edit]
   
   def index
-    @bookings = current_user.managed_coworkings.bookings
+    # @bookings = current_user.bookings
+    # @bookings = current_user.managed_coworkings.bookings
   end 
 
   def create
@@ -14,7 +15,7 @@ class CoworkingManager::BookingsController < ApplicationController
   end
 
 
-  private 
+  # private 
   # def is_booking_manager?
   #   if Booking.where(coworking_manager: current_user).count < 1 
   #     redirect_to root_path
