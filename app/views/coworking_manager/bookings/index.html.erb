@@ -33,7 +33,7 @@
           <% unless booking.booking_status_id == 2  %>
             <%= link_to "Approuver", coworking_manager_booking_path(booking.id, booking_status_id: 2), method: :patch, class:'btn btn-primary', local:true %>
           <% end %>
-          <% unless booking.booking_status_id == 4  %>
+          <% unless booking.booking_status_id == 4 %>
             <%= link_to "Refuser", coworking_manager_booking_path(booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
           <% end %>
         </td>
