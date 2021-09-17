@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<%# <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -20,6 +20,42 @@
       <div class="modal-footer d-flex justify-content-center">
         <button class="btn btn-success">Envoyer<i class="fas fa-paper-plane-o ml-1"></i></button>
       </div>
+    </div>
+  </div>
+</div> %>
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Formulaire de contact <br/>
+          On revient vers vous très vite !</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <%= form_with model:@contact, url:contacts_path, method: :post, local:true do |form|%>
+          <div>
+            <%= form.label :email, "Votre email" %>
+            <%= form.text_field :email %>
+          </div>
+          <div>
+            <%= form.label :object, "Object de votre email" %>
+            <%= form.text_field :object %>
+          </div>
+          <div>
+            <%= form.label :content, "Dites-nous tout !" %>
+            <%= form.text_area :content %>
+          </div>
+          <div>
+            <%= form.submit "Envoyer", class:"btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <%# <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-success">Envoyer<i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div> %>
     </div>
   </div>
 </div>
