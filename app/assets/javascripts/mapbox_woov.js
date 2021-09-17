@@ -10,7 +10,6 @@ window.onload = function () {
   var coordinates = document.getElementById("map")
   if (!coordinates) {
     const geocoder = new MapboxGeocoder({
-      // Initialize the geocoder
       accessToken: mapboxgl.accessToken, // Set the access token
       mapboxgl: mapboxgl, // Set the mapbox-gl instance
       placeholder: 'Rechercher un coworking', // Placeholder text for the search bar
@@ -22,7 +21,6 @@ window.onload = function () {
       
       // Get the geocoder results container.
       const results = document.getElementById('result');
-      console.log(results)
       // Add geocoder result to container.
       geocoder.on('result', (e) => {
         // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
@@ -30,7 +28,6 @@ window.onload = function () {
         let formuTest = document.createElement('form')
         let inputTest = document.createElement('input')
         let inputGeo = document.createElement('input')
-        // let btnGeo = document.createElement('input')
         divFormu.appendChild(formuTest)
         formuTest.action = '/coworkings'
         formuTest.method ='GET'
@@ -41,15 +38,8 @@ window.onload = function () {
         inputGeo.name ="geocode_information"
         inputGeo.type = "hidden"
         inputGeo.value= JSON.stringify(e.result, null, 2)
-        // btnGeo.type = "submit"
-        // btnGeo.value = "Valider"
-        // btnGeo.name = "btnGeo"
-        // btnGeo.className ="btn btn-primary search-btn"
-        console.log(formuTest)
         formuTest.appendChild(inputTest)
         formuTest.appendChild(inputGeo)
-        // formuTest.appendChild(btnGeo)
-        console.log(results)
         results.innerHTML += divFormu.innerHTML
         document.getElementById('jsform').submit()
       });
@@ -94,7 +84,6 @@ window.onload = function () {
     });
     // Set marker options.
     var group = []
-    console.log(coordinates.length)
     if (coordinates.length > 1) {
       for (i = 0; i < coordinates.length; i++) {
         const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
@@ -121,12 +110,11 @@ window.onload = function () {
     }
     
     map.fitBounds([
-      [box_upper_lat, box_right_lon], // southwestern corner of the bounds
-      [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
+      [box_upper_lat, box_right_lon], 
+      [box_bottom_lat, box_left_lon] 
     ]);
       
       const geocoder2 = new MapboxGeocoder({
-        // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
         placeholder: 'Rechercher un coworking', // Placeholder text for the search bar
@@ -136,18 +124,12 @@ window.onload = function () {
         countries: "fr"
       });
       geocoder2.addTo('#geocoder');
-        
-        // Get the geocoder results container.
         const results = document.getElementById('result');
-        console.log(results)
-        // Add geocoder result to container.
         geocoder2.on('result', (e) => {
-          // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
           let divFormu = document.createElement('div')
           let formuTest = document.createElement('form')
           let inputTest = document.createElement('input')
           let inputGeo = document.createElement('input')
-          // let btnGeo = document.createElement('input')
           divFormu.appendChild(formuTest)
           formuTest.action = '/coworkings'
           formuTest.method ='GET'
@@ -158,20 +140,12 @@ window.onload = function () {
           inputGeo.name ="geocode_information"
           inputGeo.type = "hidden"
           inputGeo.value= JSON.stringify(e.result, null, 2)
-          // btnGeo.type = "submit"
-          // btnGeo.value = "Valider"
-          // btnGeo.name = "btnGeo"
-          // btnGeo.className ="btn btn-primary search-btn"
-          console.log(formuTest)
           formuTest.appendChild(inputTest)
           formuTest.appendChild(inputGeo)
-          // formuTest.appendChild(btnGeo)
-          console.log(results)
           results.innerHTML += divFormu.innerHTML
           document.getElementById('jsform').submit()
         });
         
-        // Clear results container when search is cleared.
         geocoder2.on('clear', () => {
         results.innerText = '';
         });
