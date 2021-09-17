@@ -10,7 +10,7 @@ class BookingMailer < ApplicationMailer
    def booking_confirmation_email_coworker(booking)
     @booking = booking
     @coworking = Coworking.find(@booking.coworking_id)
-    @coworker = User.find(@coworking.coworker_id)
+    @coworker = User.find(@booking.coworker_id)
     mail(to: @coworker.email, subject: 'Confirmation de votre demande de réservation !')
   end
 
