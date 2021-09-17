@@ -1,0 +1,20 @@
+<style>
+  div {
+    width:1000px;
+    height:200px;
+    background-color:#92daca;
+      }
+  
+      p{
+        color:green
+      }
+</style>
+<div></div>
+<p>Hello <%= @manager.first_name %>, vous avez une nouvelle réservation !</p>
+<ul>
+  <li><%= @coworker.first_name%> <%= @coworker.last_name%></li>
+  <li>Du <%= @booking.start_date %> au <%= @booking.end_date %></li>
+  <li>Prix total : (à faire)</li>
+</ul>
+<p>A vous de jouer ! Rendez-vous <%= link_to "ici", coworking_manager_bookings_url%> pour accepter ou refuser la demande de réservation.</p>
+<strong>Bizou.</strong>
