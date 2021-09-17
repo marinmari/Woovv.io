@@ -13,7 +13,7 @@
   </thead>
   <% @coworkings.each do |coworking|%>
     <% coworking.bookings.each do |booking|%>
-      <tr>
+      <tr class="<%=booking.booking_status_id == 1 ? "alert alert-danger" : ""%>">
         <td>
           <%= booking.coworking.name%>
         </td>
