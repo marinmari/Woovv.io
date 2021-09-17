@@ -24,9 +24,6 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    puts "💕"*60
-    puts params
-    puts "💕"*60
     @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
     @booking.save
     puts @booking.errors.full_messages

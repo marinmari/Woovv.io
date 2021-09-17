@@ -21,10 +21,10 @@
           <%= booking.coworker.email%>
         </td>
         <td>
-          <%=  booking.start_date  %>
+          <%=  booking.start_date ? booking.start_date.strftime("%d/%m/%y") : "" %>
         </td>
         <td>
-          <%=  booking.end_date  %>
+          <%=  booking.end_date ? booking.end_date.strftime("%d/%m/%y") : "" %>
         </td>
         <td>
           <%=  booking.booking_status.status  %>

@@ -22,15 +22,6 @@
       </div>
     </div>
     <div class="block-1-right">
-      <%# <div>
-        <h3>Demande de réservation</h3>
-        <label for="">Début de la réservation</label><br>
-        <input type="date" name="" id="">
-      </div>
-      <div>
-        <label for="">Fin (jour inclus)</label><br>
-        <input type="date" name="" id="">
-      </div> %>
       <%= form_with model:@booking, url: user_bookings_path(current_user.id, coworking_id:params[:id]), method: :post, local: true do |form| %>
         <div>
           <%= form.label :start_date, "Début de la réservation" %>
