@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
   
 
   def send_confirmation_email
-    BookingMailer.booking_confirmation_email(self).deliver_now
+    BookingMailer.booking_confirmation_email_manager(self).deliver_now
   end
 
 end
