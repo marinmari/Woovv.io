@@ -699,3 +699,41 @@ form > .in-line {
   margin:1rem;
   margin-top: 0;
 }
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.form-contact.field {
+  margin-bottom: 1rem;
+}
+
+.form-contact.field label{
+  font-weight: bolder;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-title {
+  text-align: center;
+  align-self: center;
+}
+
+.modal-header {
+  justify-content: center;
+}
+
+.modal-header .close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
