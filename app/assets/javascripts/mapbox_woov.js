@@ -1,6 +1,12 @@
 
 window.onload = function () {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lbGllbG91bGVyZ3VlIiwiYSI6ImNrdDhoanZ3NjEyZGkyb3BlZ3oxMTBmeHEifQ.ir5tEud5r6CmrJUyTuG-yw';
+  const mapElement = document.getElementById('map');
+  const geoElement = document.getElementById('geocoder');
+  if (mapElement) {
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+  } else {
+    mapboxgl.accessToken = geoElement.dataset.mapboxApiKey;
+  }
   var coordinates = document.getElementById("map")
   if (!coordinates) {
     const geocoder = new MapboxGeocoder({
@@ -53,8 +59,9 @@ window.onload = function () {
       results.innerText = '';
       });
   } else {
+    if (document.getElementById("map").attributes[4]){
     var research = document.getElementById("map").attributes[4].value.replace('[', '').replace(']', '').split(', ').map(Number)
-    console.log(research)
+    }
     // The value for 'accessToken' begins with 'pk...'
     var co_id = document.getElementById("map").attributes[2].value
     co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
@@ -87,7 +94,8 @@ window.onload = function () {
     });
     // Set marker options.
     var group = []
-    if (coordinates.length !== 1) {
+    console.log(coordinates.length)
+    if (coordinates.length > 1) {
       for (i = 0; i < coordinates.length; i++) {
         const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
         const popup = new mapboxgl.Popup({ closeOnClick: true })
@@ -111,11 +119,7 @@ window.onload = function () {
         group.push(marker)
       }
     }
-    new mapboxgl.Marker({
-      color: "#008080",
-      draggable: false,
-    }).setLngLat(research)
-      .addTo(map)
+    
     map.fitBounds([
       [box_upper_lat, box_right_lon], // southwestern corner of the bounds
       [box_bottom_lat, box_left_lon] // northeastern corner of the bounds
@@ -127,7 +131,7 @@ window.onload = function () {
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
         placeholder: 'Rechercher un coworking', // Placeholder text for the search bar
         marker:true,
-        zoom: 12,
+        zoom: 8,
         types: 'country,region,place,postcode,locality,address',
         countries: "fr"
       });
@@ -171,6 +175,10 @@ window.onload = function () {
         geocoder2.on('clear', () => {
         results.innerText = '';
         });
-    
+        new mapboxgl.Marker({
+          color: "#008080",
+          draggable: false,
+        }).setLngLat(research)
+          .addTo(map)    
   }
 }
