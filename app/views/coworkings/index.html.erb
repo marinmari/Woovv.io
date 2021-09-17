@@ -24,6 +24,6 @@
       <% end %>
     </div>
     <div class="show mapindex cwshow">
-    <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" research="<%=@research_coordinates%>"></div>
+    <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" research="<%=@research_coordinates%>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
 </div>
