@@ -1,1 +1,43 @@
+<p id="notice"><%= notice %></p>
 <h1>Bookings</h1>
+<table class='table'>
+  <thead class="thead-dark">
+    <tr>
+      <th>Coworking</th>
+      <th>Coworker email</th>
+      <th>Début</th>
+      <th>Fin</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <% @coworkings.each do |coworking|%>
+    <% coworking.bookings.each do |booking|%>
+      <tr>
+        <td>
+          <%= booking.coworking.name%>
+        </td>
+        <td>
+          <%= booking.coworker.email%>
+        </td>
+        <td>
+          <%=  booking.start_date  %>
+        </td>
+        <td>
+          <%=  booking.end_date  %>
+        </td>
+        <td>
+          <%=  booking.booking_status.status  %>
+        </td>
+        <td>
+          <% unless booking.booking_status_id == 2  %>
+            <%= link_to "Approuver", coworking_manager_booking_path(booking.id, booking_status_id: 2), method: :patch, class:'btn btn-primary', local:true %>
+          <% end %>
+          <% unless booking.booking_status_id == 4  %>
+            <%= link_to "Refuser", coworking_manager_booking_path(booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

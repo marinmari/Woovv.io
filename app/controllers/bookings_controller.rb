@@ -37,9 +37,6 @@ class BookingsController < ApplicationController
 
   # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
-    puts "😍"*60
-    puts params
-    puts "😍"*60
     Booking.find(params[:id]).update(booking_status_id: params[:booking_status_id])
     redirect_to user_bookings_path(current_user)
   end

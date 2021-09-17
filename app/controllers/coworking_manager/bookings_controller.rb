@@ -6,12 +6,15 @@ class CoworkingManager::BookingsController < ApplicationController
   def index
     # @bookings = current_user.bookings
     # @bookings = current_user.managed_coworkings.bookings
+    @coworkings = Coworking.where(coworking_manager:current_user).select{|coworking| coworking.bookings.count > 0}
   end 
 
   def create
   end
 
   def update
+    Booking.find(params[:id]).update(booking_status_id: params[:booking_status_id])
+    redirect_to coworking_manager_bookings_path
   end
 
 
