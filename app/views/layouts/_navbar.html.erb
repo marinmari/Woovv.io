@@ -15,7 +15,7 @@
             <%= link_to "Mes coworkings", coworking_manager_coworkings_path, class:"nav-link" %>
           </li>
         <% end %>
-        <% if current_user.managed_coworkings.select{|coworking| coworking.bookings.count > 0}.count > 0%>
+        <% if Booking.where(coworking_id:current_user.managed_coworkings.select(:id)).count > 0%>
           <li class="nav-link">
             <%= link_to "Gérer les réservations", coworking_manager_bookings_path, class:"nav-link" %>
           </li>

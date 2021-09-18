@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = current_user.bookings.sort_by{|booking| booking.booking_status_id}
+    @bookings = current_user.bookings.order(:booking_status_id,:start_date)
   end
 
   # GET /bookings/1 or /bookings/1.json

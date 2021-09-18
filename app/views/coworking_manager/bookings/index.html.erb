@@ -5,39 +5,43 @@
     <tr>
       <th>Coworking</th>
       <th>Coworker email</th>
+      <th></th>
       <th>Début</th>
       <th>Fin</th>
       <th>Statut</th>
       <th>Actions</th>
     </tr>
   </thead>
-  <% @coworkings.each do |coworking|%>
-    <% coworking.bookings.each do |booking|%>
-      <tr class="<%=booking.booking_status_id == 1 ? "alert alert-danger" : ""%>">
-        <td>
-          <%= booking.coworking.name%>
-        </td>
-        <td>
-          <%= booking.coworker.email%>
-        </td>
-        <td>
-          <%=  booking.start_date ? booking.start_date.strftime("%d/%m/%y") : "" %>
-        </td>
-        <td>
-          <%=  booking.end_date ? booking.end_date.strftime("%d/%m/%y") : "" %>
-        </td>
-        <td>
-          <%=  booking.booking_status.status  %>
-        </td>
-        <td>
-          <% unless booking.booking_status_id == 2  %>
-            <%= link_to "Approuver", coworking_manager_booking_path(booking.id, booking_status_id: 2), method: :patch, class:'btn btn-primary', local:true %>
-          <% end %>
-          <% unless booking.booking_status_id == 4 %>
-            <%= link_to "Refuser", coworking_manager_booking_path(booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
+  <% @bookings.each do |booking|%>
+    <tr class="<%=((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "alert alert-info" : ""%><%=booking.booking_status_id == 1 ? "alert alert-danger" : ""%>">
+      <td>
+        <%= booking.coworking.name%>
+      </td>
+      <td>
+        <%= booking.coworker.email%>
+      </td>
+      <td>
+        <% if booking.start_date %>
+          <%= ((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "C'EST BIENTÔT ! 🥳" : ""  %>
+        <%end%>
+      </td>
+      <td>
+        <%=  booking.start_date ? booking.start_date.strftime("%d/%m/%y") : "" %>
+      </td>
+      <td>
+        <%=  booking.end_date ? booking.end_date.strftime("%d/%m/%y") : "" %>
+      </td>
+      <td>
+        <%=  booking.booking_status.status  %>
+      </td>
+      <td>
+        <% unless booking.booking_status_id == 2  %>
+          <%= link_to "Approuver", coworking_manager_booking_path(booking.id, booking_status_id: 2), method: :patch, class:'btn btn-primary', local:true %>
+        <% end %>
+        <% unless booking.booking_status_id == 4 %>
+          <%= link_to "Refuser", coworking_manager_booking_path(booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
 </table>

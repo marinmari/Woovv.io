@@ -4,6 +4,7 @@
   <thead class="thead-dark">
     <tr>
       <th>Coworking</th>
+      <th></th>
       <th>Début</th>
       <th>Fin</th>
       <th>Statut</th>
@@ -11,9 +12,14 @@
     </tr>
   </thead>
   <% @bookings.each do |booking|%>
-    <tr>
+    <tr class="<%=((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "alert alert-info" : ""%><%=booking.booking_status_id == 1 ? "alert alert-warning" : ""%>">
       <td>
         <%= booking.coworking.name%>
+      </td>
+      <td>
+        <% if booking.start_date %>
+          <%= ((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "C'EST BIENTÔT ! 🥳" : ""  %>
+        <%end%>
       </td>
       <td>
         <%=  booking.start_date ? booking.start_date.strftime("%d/%m/%y") : "" %>
