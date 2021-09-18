@@ -1,7 +1,11 @@
-
+let loader = true 
 window.onload = function () {
-  const mapElement = document.getElementById('map');
-  const geoElement = document.getElementById('geocoder');
+  const loaderElement = document.getElementById('loader');
+  const mapElement = document.getElementById('map')
+  const geoElement = document.getElementById('geocoder')
+  
+
+
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   } else {
@@ -22,7 +26,6 @@ window.onload = function () {
       
       // Get the geocoder results container.
       const results = document.getElementById('result');
-      console.log(results)
       // Add geocoder result to container.
       geocoder.on('result', (e) => {
         // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
@@ -45,11 +48,9 @@ window.onload = function () {
         // btnGeo.value = "Valider"
         // btnGeo.name = "btnGeo"
         // btnGeo.className ="btn btn-primary search-btn"
-        console.log(formuTest)
         formuTest.appendChild(inputTest)
         formuTest.appendChild(inputGeo)
         // formuTest.appendChild(btnGeo)
-        console.log(results)
         results.innerHTML += divFormu.innerHTML
         document.getElementById('jsform').submit()
       });
@@ -59,6 +60,14 @@ window.onload = function () {
       results.innerText = '';
       });
   } else {
+    mapElement.style.visibility = "hidden";
+    geoElement.style.visibility = "hidden";
+
+    setTimeout(() => {
+      loaderElement.remove();
+      mapElement.style.visibility = "visible";
+      geoElement.style.visibility = "visible";
+    }, 2000);
     if (document.getElementById("map").attributes[4]){
     var research = document.getElementById("map").attributes[4].value.replace('[', '').replace(']', '').split(', ').map(Number)
     }
@@ -71,10 +80,14 @@ window.onload = function () {
     coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
     var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
     var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
-    
-    
-
-    if (box_focus === 'France') {
+    console.log(coordinates)
+    if (research[0] !== 0 ) {
+      var box_upper_lat = research[0] + 0.05
+      var box_bottom_lat = research[0]- 0.05
+      var box_right_lon = research[1]+ 0.05
+      var box_left_lon = research[1]- 0.05
+      
+    }else if(box_focus === 'France'){
       var box_upper_lat = 6
       var box_bottom_lat = -1
       var box_right_lon = 52
@@ -94,7 +107,6 @@ window.onload = function () {
     });
     // Set marker options.
     var group = []
-    console.log(coordinates.length)
     if (coordinates.length > 1) {
       for (i = 0; i < coordinates.length; i++) {
         const newChildforPopup = document.getElementById('cwtoshow-' + co_id[i])
@@ -139,7 +151,6 @@ window.onload = function () {
         
         // Get the geocoder results container.
         const results = document.getElementById('result');
-        console.log(results)
         // Add geocoder result to container.
         geocoder2.on('result', (e) => {
           // var tag = document.createElement('<form accept-charset="UTF-8" action="/" method="get"><input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts="/><input name="geocode_information" type="hidden"value="'+JSON.stringify(e.result, null, 2)+'"/></form>');
@@ -162,11 +173,9 @@ window.onload = function () {
           // btnGeo.value = "Valider"
           // btnGeo.name = "btnGeo"
           // btnGeo.className ="btn btn-primary search-btn"
-          console.log(formuTest)
           formuTest.appendChild(inputTest)
           formuTest.appendChild(inputGeo)
           // formuTest.appendChild(btnGeo)
-          console.log(results)
           results.innerHTML += divFormu.innerHTML
           document.getElementById('jsform').submit()
         });
