@@ -13,6 +13,7 @@ class CoworkingsController < ApplicationController
     end 
     if @coworkings_selected.length == 0
       @coworkings_selected = @coworkings
+      @box_focus = "France"
     end 
     @coordinates = []
     @co_id = []
