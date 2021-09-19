@@ -1,37 +1,35 @@
 <div class="wrapper">
-<div id="geocoder" class="geocoder"></div>
-<pre id="result" class="hidden"></pre>
-    <div id="toshow" class="coworking-list hidden">
-      <h2 class="stickysticky">Liste des coworkings</h2>
-      <% @coworkings.each do |coworking|%>
+  <div id="geocoder" class="geocoder"></div>
+  <pre id="result" class="hidden"></pre>
+  <div id="toshow" class="coworking-list hidden">
+    <h2 class="sticky-bar">Liste des coworkings</h2>
+    <% @coworkings.each do |coworking|%>
       <%# DEBUT DU POPUP RECUP %>
-        <div id="cwtoshow-<%=coworking.id%>" coordinates="<%=[(coworking.latitude.to_f)/1000000,(coworking.longitude.to_f)/1000000]%>"  class="card">
-          <div class="card-body-popup">
-            <div class="img-pop">
-              <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2900&q=80" alt="cw photo"/>
-            </div>
-            <div class="half-bottom">
-              <h6 class="card-title cw-name"><strong><%= coworking.name %></strong></h6>
-              <p class="card-text cw-adress"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
-              <div class="details-price">
-                <a href="/coworkings/<%=coworking.id%>" class="btn btn-primary ">Afficher</a>
-                <h6 class="price-popup"><%=coworking.availability.price_per_spot_per_day%> Price </h6>
-              </div>
+      <div id="cwtoshow-<%=coworking.id%>" coordinates="<%=[(coworking.latitude.to_f)/1000000,(coworking.longitude.to_f)/1000000]%>"  class="card">
+        <div class="card-body-popup">
+          <div class="img-pop">
+            <img src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2900&q=80" alt="cw photo"/>
+          </div>
+          <div class="half-bottom">
+            <h6 class="card-title cw-name"><strong><%= coworking.name %></strong></h6>
+            <p class="card-text cw-adress"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
+            <div class="details-price">
+              <a href="/coworkings/<%=coworking.id%>" class="btn btn-primary ">Afficher</a>
             </div>
           </div>
         </div>
-        <%# FIN DU POPUP RECUP %>
-      <% end %>
-    </div>
-    <div id='loader'>
-      <div class="d-flex justify-content-center loader">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
+      </div>
+      <%# FIN DU POPUP RECUP %>
+    <% end %>
+  </div>
+  <div id='loader'>
+    <div class="d-flex justify-content-center loader">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <div class="show mapindex cwshow">
+  </div>
+  <div class="show mapindex cwshow">
     <div id='map' value="<%=@coordinates%>" co_id="<%=@co_id%>" focus="<%=@box_focus%>" research="<%=@research_coordinates%>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
-
+  </div>
 </div>

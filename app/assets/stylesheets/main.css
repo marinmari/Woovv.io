@@ -737,3 +737,8 @@ form > .in-line {
   padding: 0;
   margin: 0;
 }
+
+.hidden {
+  display: none;
+}
+
