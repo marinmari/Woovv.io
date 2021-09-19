@@ -1,4 +1,6 @@
 class CoworkingManager::CoworkingsController < ApplicationController
+  include ApplicationHelper
+  
   before_action :is_user_coworking_manager?
   before_action :manages_this_coworking?, only: [:edit]
 
@@ -27,10 +29,6 @@ class CoworkingManager::CoworkingsController < ApplicationController
   end
 
   private 
-
-  def is_user_coworking_manager?
-    redirect_to root_path if !current_user&.is_coworking_manager?
-  end
 
   def manages_this_coworking?
     unless Coworking.where(coworking_manager: current_user).include? Coworking.find(params[:id])

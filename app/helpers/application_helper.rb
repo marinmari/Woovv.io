@@ -28,4 +28,8 @@ module ApplicationHelper
     end
   end
 
+  def is_user_coworking_manager?
+    redirect_to root_path if !current_user&.is_coworking_manager?
+  end
+
 end
