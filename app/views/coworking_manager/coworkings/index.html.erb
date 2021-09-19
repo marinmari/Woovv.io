@@ -9,8 +9,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= coworking.name %></h5>
           <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>
-          <a href="#" class="btn btn-primary">Demande de réservation</a>
-          <%= link_to "Détails", edit_coworking_manager_coworking_path(coworking.id), class:"btn btn-primary"%>
+          <%= link_to "Editer le coworking", edit_coworking_manager_coworking_path(coworking.id), class:"btn btn-primary"%>
         </div>
       </div>
     <% end %>
