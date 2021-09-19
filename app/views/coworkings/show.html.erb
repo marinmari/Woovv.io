@@ -22,15 +22,15 @@
       </div>
     </div>
     <div class="block-1-right">
-      <% if current_user != nil %>
+      <% if current_user %>
         <%= form_with model:@booking, url: user_bookings_path(current_user.id, coworking_id:params[:id]), method: :post, local: true do |form| %>
           <div>
             <%= form.label :start_date, "Début de la réservation" %>
             <%= form.date_field :start_date %>
           </div>
-            <br/>
-            <br/>
-            <br/>
+          <br/>
+          <br/>
+          <br/>
           <div>
             <%= form.label :end_date, "Fin (jour inclus)" %>
             <%= form.date_field :end_date%>
