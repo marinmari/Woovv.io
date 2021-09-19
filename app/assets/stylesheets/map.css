@@ -12,7 +12,7 @@
   overflow-y: scroll;
 }
 
-.stickysticky {
+.sticky-bar {
   display: block;
   background-color: white;
   position: sticky;
