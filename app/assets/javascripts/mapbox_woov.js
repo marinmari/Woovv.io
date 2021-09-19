@@ -39,11 +39,13 @@ window.onload = function () {
     var co_id = document.getElementById("map").attributes[2].value
     co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
     var coordinates = document.getElementById("map").attributes[1].value
+    console.log(coordinates)
     var box_focus = document.getElementById("map").attributes[3].value
     coordinates = coordinates.replace('[[', '').replace(']]', '')
     coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
     var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
     var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
+    console.log(coordinates)
     if (research[0] !== 0 ) {
       var box_upper_lat = research[0] + 0.05
       var box_bottom_lat = research[0]- 0.05
@@ -109,8 +111,7 @@ window.onload = function () {
           draggable: false,
         }).setLngLat(research)
           .addTo(map)
-        // code map for index coworking (end here)  
-        console.log(coordinates)  
+        // code map for index coworking (end here) 
         //41 -51 max longitude -5, 9 min max latitude
   }else{
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -166,6 +167,8 @@ function createForm(e, results){
   inputGeo.name ="geocode_information"
   inputGeo.type = "hidden"
   inputGeo.value= JSON.stringify(e.result, null, 2)
+  console.log("createForm")
+  console.log(inputGeo.value)
   formuTest.appendChild(inputTest)
   formuTest.appendChild(inputGeo)
   results.innerHTML += divFormu.innerHTML
