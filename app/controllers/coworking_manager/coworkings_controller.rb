@@ -27,12 +27,6 @@ class CoworkingManager::CoworkingsController < ApplicationController
   end
 
   private 
-  
-  def is_coworking_manager?
-    if Coworking.where(coworking_manager: current_user).count < 1 
-      redirect_to root_path
-    end
-  end
 
   def manages_this_coworking?
     unless Coworking.where(coworking_manager: current_user).include? Coworking.find(params[:id])
