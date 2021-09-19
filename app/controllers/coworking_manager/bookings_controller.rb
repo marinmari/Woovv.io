@@ -1,5 +1,5 @@
 class CoworkingManager::BookingsController < ApplicationController
-  before_action :is_coworking_manager?
+  before_action :is_user_coworking_manager?
   
   def index
     @bookings = Booking.where(coworking_id:current_user.managed_coworkings.select(:id)).order(:booking_status_id,:start_date)
@@ -14,7 +14,11 @@ class CoworkingManager::BookingsController < ApplicationController
   end
 
 
-  # private 
+  private 
+
+  def is_user_coworking_manager?
+    redirect_to root_path if !current_user&.is_coworking_manager?
+  end
   # def is_booking_manager?
   #   if Booking.where(coworking_manager: current_user).count < 1 
   #     redirect_to root_path
