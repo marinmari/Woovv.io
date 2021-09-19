@@ -78,12 +78,21 @@
                   <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
                   <div class='row'>
                     <div class="col-sm-6">
+                      <% if current_user.managed_coworkings.count > 0%>
                       <h6 class="m-b-10 f-w-600">Mes réservations</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_path(current_user) %></h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", coworking_manager_bookings_path(current_user) %></h6>
                     </div>
                     <div class="col-sm-6">
                       <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", user_path(current_user) %></h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", "https://rz038zhvlso.typeform.com/to/fOfiofVp" %></h6>
+                      <% else %>
+                      <h6 class="m-b-10 f-w-600">Mes réservations</h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_bookings_path(current_user) %></h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
+                      <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", "https://rz038zhvlso.typeform.com/to/fOfiofVp" %></h6>
+                      <% end %>
                     </div>
                   </div>
                 </div>
