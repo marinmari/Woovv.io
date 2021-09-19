@@ -13,9 +13,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   def is_coworking_manager?
-    if Coworking.where(coworking_manager: current_user).count < 1 
-      redirect_to root_path
-    end
+    managed_coworkings.any?
   end
 
 end
