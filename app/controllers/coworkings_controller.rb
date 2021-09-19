@@ -94,15 +94,14 @@ class CoworkingsController < ApplicationController
   def analyze_geocode_information
     geocode_info = JSON.parse(params["geocode_information"])
       @research_coordinates = geocode_info["geometry"]["coordinates"]
-      puts @research_coordinates
       info_isAdress = false
       info_isCity = false
       info_isParis = false
       info_isMarseille = false
       info_isLyon = false
       info_isDOMTOM = false
-      if @research_coordinates[0] < -5
-      info_isDOMTOM = true
+      if @research_coordinates[1] < -5
+        info_isDOMTOM = true
       elsif geocode_info["place_type"][0].to_s == "address" && geocode_info["context"].length < 5
         info_isAdress = true
         zipcode_of_adress = geocode_info["context"][3]["short_code"][3..4]
