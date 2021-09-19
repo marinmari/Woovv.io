@@ -1,28 +1,60 @@
 # README
 
-###About last night:
-We decided to do all of our commits in falafel•case, much more vegan, ecological, inclusive and performant for the planet than the kebab-case!
-Be good with the Falafel, it will give it back to you
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+### General Info about WOOVV
+***
 
-* Ruby version
+Woovv is a platform to find the best workspaces all around you. Once you suscribed, you just need to specifiate the place you want to work and Woovv will display the closest coworking locations to the entered position. Then, you can directly book a place for the period you choosed.
 
-* System dependencies
+### Useful 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
+* Production 
+          https://woovv.io/
+* GitHub
+          https://github.com/marinmari/Woovv.io
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+          /app/db/scrapper.rb is a scrapper we developed to collect data on the website https://www.coworking-france.com/. It allows Woovv to propose +2500 reals coworkings in France. 
 
-* ...
+## Technologies
+***
+A list of technologies used within the project:
+
+* Ruby version
+          ruby '2.7.4'
+* Rails version 
+          rails '5.2.6'
+* PostgreSQL version 
+          PostgreSQL 13.3
+## Installation
+***
+HTTPS:
+$ git clone https://github.com/marinmari/Woovv.io
+
+Install Gems:
+
+$ bundle install
+
+Set Local Database:
+
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+
+## Contributors
+Amélie Loulergue https://github.com/AmelieLoulergue
+Jonathan Justman https://github.com/justmanovic
+David Guetta https://github.com/davguetta
+Marin Chrétien https://github.com/marinmari
+Ambroise Bréant https://github.com/Ambizance
+
+## About last night:
+We decided to do all of our commits in falafel•case, much more vegan, ecological, inclusive and performant for the planet than the kebab-case!
+Be good with the Falafel, it will give it back to you
+
+| Headline 1 in the tablehead | Headline 2 in the tablehead | Headline 3 in the tablehead |
+|:--------------|:-------------:|--------------:|
+| text-align left | text-align center | text-align right |
