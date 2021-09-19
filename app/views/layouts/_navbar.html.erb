@@ -21,11 +21,11 @@
         <div class="dropdown-divider"></div>
         <a href="https://rz038zhvlso.typeform.com/to/fOfiofVp" class="nav-link">Proposer mes coworkings</a>
       <% else %>
-        <%= link_to "Mon compte",  user_path(current_user.id),class:"dropdown-item" %>
         <% if current_user.bookings.count > 0%>
           <%= link_to "Mes réservations", user_bookings_path(current_user.id), class:"dropdown-item"  %>
-          <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"dropdown-item" %>
         <% end %>
+        <%= link_to "Mon compte",  user_path(current_user.id),class:"dropdown-item" %>
+        <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"dropdown-item" %>
         <div class="dropdown-divider"></div>
         <div class = "coworking-manager">
           <% if current_user.managed_coworkings.count > 0%>
