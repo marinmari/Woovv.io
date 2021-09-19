@@ -74,6 +74,9 @@
   color: inherit;
 }
 
+.dropdown-menu .btn:hover {
+  color: white;
+}
 
 .dropdown-btn:hover {
   border-color: transparent;
