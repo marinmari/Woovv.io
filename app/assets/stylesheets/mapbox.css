@@ -32,7 +32,8 @@
 
 .geocoder {
   position: relative;
-  top: 4rem;
+  top: 2.65rem;
+  left: 0.3rem;
   width: 60%;
   align-items: center;
   justify-content: center;
@@ -52,6 +53,8 @@
   max-height: 50px;
   font-family: 'Josefin Sans';
   max-width: 25rem;
+  display: flex;
+  width: 40%;
 }
 
 .mapboxgl-ctrl-geocoder--input {
@@ -91,4 +94,29 @@ height:38px;
   color:teal;
   top:50%;
   left:50%
+}
+
+@media (max-width:639px) {
+
+  .mapboxgl-ctrl-geocoder input {
+    padding: 6px 35px;
+
+  }
+
+
+
+  .mapboxgl-ctrl-geocoder input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon-search {
+    top:8px;
+    left: 6px;
+    height:20px;
+  }
+
+  .mapboxgl-ctrl-geocoder {
+    width: 40%;
+  }
+  
 }

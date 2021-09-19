@@ -255,37 +255,6 @@ section {
   color: black;
 }
 
-@media (max-width:1183px){
-  .city-div {
-      max-width: 20rem;
-  }
-}
-
-@media (max-width:831px){
-  .wrapper {
-    padding:1rem;
-  }
-
-  /* .city-div {
-    max-width: 100%;
-  } */
-
-  .activities > div {
-    flex: 0 0 100%;
-  }
-}
-
-@media (max-width:503px){
-  .hero h1 {
-    font-size:2.5rem;
-  }
-  .hero h2 {
-    font-size:1.1rem;
-  }
-
-}
-
-
 form a {
   color: black;
 }
@@ -662,9 +631,6 @@ form > .in-line {
 }
 
 
-
-
-
 .wrapper.devise-view input:not( input[type=submit]) {
       color: black;
       padding: 0.25rem 1rem;
@@ -742,3 +708,41 @@ form > .in-line {
   display: none;
 }
 
+
+@media (max-width:1183px){
+  .city-div {
+      max-width: 20rem;
+  }
+}
+
+@media (max-width:831px){
+  .wrapper {
+    padding:1rem;
+  }
+
+  .activities > div {
+    flex: 0 0 100%;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    margin:0;
+  }
+}
+
+@media (max-width:503px){
+  .hero h1 {
+    font-size:2.25rem;
+  }
+  .hero h2 {
+    font-size:1.1rem;
+  }
+
+  section {
+    margin-bottom: 1  rem;
+  }
+
+}
