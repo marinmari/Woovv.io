@@ -16,18 +16,18 @@
             <div>Nous avois besoin de la confirmation de ton email: <%= resource.unconfirmed_email %></div>
           <% end %>
           <div class="field container-su">
-            <%= f.label :password , class:"label-su text-center"%> <i>(leave blank if you don't want to change it)</i>
+            <p class="label-su text-center">Mot de passe<br> <i>(laissez le champ vide si vous ne voulez pas modifier le mot de passe)</i></p>
             <% if @minimum_password_length %>
-              <p class="label-su"><em><%= @minimum_password_length %> characters minimum</em></p>
+              <p class="label-su text-center"><em><%= @minimum_password_length %> caractères minimum</em></p>
             <% end %>
             <%= f.password_field :password, autocomplete: "new-password" , class:'field-su text-center'%>
           </div>
           <div class="field container-su">
-            <%= f.label :password_confirmation, class:"label-su" %>
+             <p class="label-su text-center">Confirmation du mot de passe</p>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"field-su text-center"%>
           </div>
           <div class="field container-su">
-            <%= f.label :current_password , class:"label-su"%> <i>(we need your current password to confirm your changes)</i>
+            <p class="label-su text-center">Mot de passe actuel<br> <i>(nous avons besoin de ton mot de passe actuel pour valider les changements)</i></p>
             <%= f.password_field :current_password, autocomplete: "current-password" , class:"field-su text-center"%>
           </div>
           <div class="actions div-su">
