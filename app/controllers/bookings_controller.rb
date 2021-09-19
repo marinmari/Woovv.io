@@ -6,11 +6,13 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(:booking_status_id,:start_date)
   end
 
   # GET /bookings/1 or /bookings/1.json
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   # GET /bookings/new
   def new
@@ -22,17 +24,21 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
+    @booking.save
+    puts @booking.errors.full_messages
+    redirect_to user_bookings_path(current_user.id)
 
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @booking, notice: "Booking was successfully created." }
-        format.json { render :show, status: :created, location: @booking }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
-    end
+
+    # respond_to do |format|
+    #   if @booking.save
+    #     format.html { redirect_to @booking, notice: "Booking was successfully created." }
+    #     format.json { render :show, status: :created, location: @booking }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @booking.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /bookings/1 or /bookings/1.json

@@ -1,39 +1,38 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Bookings</h1>
-
+<h1>Mes réservations</h1>
 <table class='table'>
   <thead class="thead-dark">
     <tr>
       <th>Coworking</th>
+      <th></th>
       <th>Début</th>
       <th>Fin</th>
       <th>Statut</th>
       <th>Action</th>
     </tr>
   </thead>
-
-    <% @bookings.each do |booking|%>
-      <tr>
-        <td>
-            <%= booking.coworking.name%>
-        </td>
-
-        <td>
-        <%=  booking.start_date  %>
-        </td>
-
-          <td>
-        <%=  booking.end_date  %>
-          </td>
-
-          <td>
+  <% @bookings.each do |booking|%>
+    <tr class="<%=((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "alert alert-info" : ""%><%=booking.booking_status_id == 1 ? "alert alert-warning" : ""%>">
+      <td>
+        <%= booking.coworking.name%>
+      </td>
+      <td>
+        <% if booking.start_date %>
+          <%= ((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "C'EST BIENTÔT ! 🥳" : ""  %>
+        <%end%>
+      </td>
+      <td>
+        <%=  booking.start_date ? booking.start_date.strftime("%d/%m/%y") : "" %>
+      </td>
+      <td>
+        <%=  booking.end_date ? booking.end_date.strftime("%d/%m/%y") : "" %>
+      </td>
+      <td>
         <%=  booking.booking_status.status  %>
-          </td>
-
-        <td>
+      </td>
+      <td>
         <%= link_to "Annuler", user_booking_path(current_user.id,booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
-          </td>
-      </tr>
-    <% end %>
+      </td>
+    </tr>
+  <% end %>
 </table>

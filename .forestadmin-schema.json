@@ -582,13 +582,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": "Indiquer une date de départ",
+        "type": "is present"
+      }]
     }, {
       "field": "end_date",
       "type": "Date",
@@ -597,13 +600,16 @@
       "integration": null,
       "is_filterable": true,
       "is_read_only": false,
-      "is_required": false,
+      "is_required": true,
       "is_sortable": true,
       "is_virtual": false,
       "reference": null,
       "inverse_of": null,
       "widget": null,
-      "validations": []
+      "validations": [{
+        "message": "Indiquer une date de fin",
+        "type": "is present"
+      }]
     }, {
       "field": "coworking_rules_approved",
       "type": "Boolean",

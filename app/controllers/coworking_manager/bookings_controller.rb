@@ -1,12 +1,8 @@
 class CoworkingManager::BookingsController < ApplicationController
   
-  # before_action :is_booking_manager?
-  # before_action :manages_this_booking?, only: [:edit]
   
   def index
-    # @bookings = current_user.bookings
-    # @bookings = current_user.managed_coworkings.bookings
-    @coworkings = Coworking.where(coworking_manager:current_user).select{|coworking| coworking.bookings.count > 0}
+    @bookings = Booking.where(coworking_id:current_user.managed_coworkings.select(:id)).order(:booking_status_id,:start_date)
   end 
 
   def create

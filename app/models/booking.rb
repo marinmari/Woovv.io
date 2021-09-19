@@ -5,6 +5,9 @@ class Booking < ApplicationRecord
   belongs_to :coworking
   belongs_to :coworker, class_name: "User"
 
+  validates :start_date, presence: {message: "Indiquer une date de départ"}
+  validates :end_date, presence: {message: "Indiquer une date de fin"}
+
   after_create :send_request_confirmation_emails
   after_update :send_booking_response_email
 
