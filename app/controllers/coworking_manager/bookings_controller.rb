@@ -1,5 +1,5 @@
 class CoworkingManager::BookingsController < ApplicationController
-  
+  before_action :is_coworking_manager?
   
   def index
     @bookings = Booking.where(coworking_id:current_user.managed_coworkings.select(:id)).order(:booking_status_id,:start_date)
