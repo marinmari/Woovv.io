@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   root to: "static_pages#home"
   get '/team', to: 'static_pages#team'
-  get '/contact', to: 'static_pages#contact'
   get '/cgv', to: 'static_pages#cgv'
   get '/help', to: 'static_pages#help'
   resources :coworkings, only: [:index, :show] do
@@ -26,4 +25,6 @@ Rails.application.routes.draw do
     resources :coworkings
     resources :bookings, only: [:index, :update]
   end
+
+  resources :contacts, only:[:create]
 end

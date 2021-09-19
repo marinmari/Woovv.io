@@ -1,0 +1,21 @@
+<style>
+  div {
+    width:1000px;
+    height:200px;
+    background-color:#92daca;
+      }
+
+      p{
+        color:green
+      }
+</style>
+<div></div>
+<p>Hello <%= @coworker.first_name %>,</p>
+<p>Ta demande de réservation est acceptée 🥳 !</p>
+<p>Rappel :</p>
+<ul>
+  <li>Nom du coworking : <%= @coworking.name %></li>
+  <li>Adresse : <%= @coworking.address %>, <%= @coworking.zipcode%> <%= @coworking.city %></li>
+  <li>Du <%= @booking.start_date %> au <%= @booking.end_date %></li>
+</ul>
+<strong>Bosse bien, cheers !</strong>

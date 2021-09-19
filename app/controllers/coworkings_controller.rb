@@ -9,58 +9,11 @@ class CoworkingsController < ApplicationController
     @coworkings = Coworking.all
     @coworkings_selected = []
     if params["geocode_information"]
-      geocode_info = JSON.parse(params["geocode_information"])
-      @research_coordinates = geocode_info["geometry"]["coordinates"]
-      info_isAdress = false
-      info_isCity = false
-      info_isParis = false
-      info_isMarseille = false
-      info_isLyon = false
-      if geocode_info["place_type"][0].to_s == "address" && geocode_info["context"].length < 5
-        info_isAdress = true
-        zipcode_of_adress = geocode_info["context"][3]["short_code"][3..4]
-        puts "jsuis une adress"
-      elsif geocode_info["place_type"][0] == "place" && geocode_info["context"].length < 5
-        info_isCity = true
-        zipcode_of_city = geocode_info["context"][0]["short_code"][3..4]
-        puts "jsuis une ville"
-      elsif geocode_info["place_type"][0] == "region" 
-        info_isParis = true
-        zipcode_of_Paris = geocode_info["properties"]["short_code"][3..4]
-        puts "jsuis une paris"
-      elsif geocode_info["place_type"][0] == "address" && geocode_info["context"].length > 5
-        puts geocode_info["context"]
-        puts "jsuis une lyon ou marseille"
-        if geocode_info["context"][4]["short_code"][3..4] == "13"
-          zipcode_of_marseille = geocode_info["context"][4]["short_code"][3..4]
-        info_isMarseille = true
-        puts zipcode_of_marseille
-        puts info_isMarseille
-        puts "je suis marseille"
-        end 
-      else
-        puts 'je suis lyon'
-        puts geocode_info["context"]
-        zipcode_of_lyon = geocode_info["context"][3]["short_code"][3..4]
-        info_isLyon = true
-      end
-      @coworkings.each do |coworking|
-        if info_isParis && coworking.zipcode[0..1] == zipcode_of_Paris
-          @coworkings_selected << coworking
-        elsif info_isCity && coworking.zipcode[0..1] == zipcode_of_city
-          @coworkings_selected << coworking
-        elsif info_isAdress && coworking.zipcode[0..1] == zipcode_of_adress
-          @coworkings_selected << coworking
-        elsif info_isMarseille && coworking.zipcode[0..1] == zipcode_of_marseille
-          @coworkings_selected << coworking
-        elsif info_isLyon && coworking.zipcode[0..1] == zipcode_of_lyon
-          @coworkings_selected << coworking
-        end 
-      end 
+      analyze_geocode_information
     end 
-    puts @coworkings_selected
     if @coworkings_selected.length == 0
-      @coworkings_selected = Coworking.all
+      @coworkings_selected = @coworkings
+      @box_focus = "France"
     end 
     @coordinates = []
     @co_id = []
@@ -137,7 +90,54 @@ class CoworkingsController < ApplicationController
   def coworking_params
     params.fetch(:coworking, {})
   end
-end
-def set_zipcode
-    @zipcode = params[:coworking][:department]
+  
+  def analyze_geocode_information
+    geocode_info = JSON.parse(params["geocode_information"])
+      @research_coordinates = geocode_info["geometry"]["coordinates"]
+      @box
+      info_isAdress = false
+      info_isCity = false
+      info_isParis = false
+      info_isMarseille = false
+      info_isLyon = false
+      if geocode_info["place_type"][0].to_s == "address" && geocode_info["context"].length < 5
+        info_isAdress = true
+        zipcode_of_adress = geocode_info["context"][3]["short_code"][3..4]
+      elsif geocode_info["place_type"][0] == "place" && geocode_info["context"].length < 5
+        info_isCity = true
+        zipcode_of_city = geocode_info["context"][0]["short_code"][3..4]
+        if zipcode_of_city == "2A" || zipcode_of_city == "2B"
+          zipcode_of_city = "20"
+        end
+      elsif geocode_info["place_type"][0] == "region" 
+        info_isParis = true
+        zipcode_of_Paris = geocode_info["properties"]["short_code"][3..4]
+      elsif geocode_info["place_type"][0] == "address" && geocode_info["context"].length > 5
+        if geocode_info["context"][4]["short_code"][3..4] == "13"
+          zipcode_of_marseille = geocode_info["context"][4]["short_code"][3..4]
+          info_isMarseille = true
+        end 
+      elsif  geocode_info["context"][3]
+        zipcode_of_lyon = geocode_info["context"][3]["short_code"][3..4]
+        info_isLyon = true
+      else 
+        info_has0 = true
+        zip_code_has_0 = geocode_info["context"][1]["short_code"][3..4]
+      end
+      @coworkings.each do |coworking|
+        if info_isParis && coworking.zipcode[0..1] == zipcode_of_Paris
+          @coworkings_selected << coworking
+        elsif info_isCity && coworking.zipcode[0..1] == zipcode_of_city
+          @coworkings_selected << coworking
+        elsif info_isAdress && coworking.zipcode[0..1] == zipcode_of_adress
+          @coworkings_selected << coworking
+        elsif info_isMarseille && coworking.zipcode[0..1] == zipcode_of_marseille
+          @coworkings_selected << coworking
+        elsif info_isLyon && coworking.zipcode[0..1] == zipcode_of_lyon
+          @coworkings_selected << coworking
+        elsif info_has0 && coworking.zipcode[0..1] == zip_code_has_0
+          @coworkings_selected << coworking
+        end 
+      end 
+    end 
 end

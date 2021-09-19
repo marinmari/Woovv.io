@@ -2,7 +2,7 @@
   <div>
     <h1>Le futur du travail se passe ici</h1>
     <h2>Bookez un coworking partout en France, et travaillez en toute liberté !</h2>
-      <div id="geocoder" class="geocoderhome"></div>
+      <div id="geocoder" class="geocoderhome" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <pre id="result" class="hidden"></pre>
 
   </div>
@@ -147,7 +147,7 @@
                           </div>
                           <h4>Au bord d'un lac</h4>
                         </div>
-                        <div>
+                        <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.5770942651332840%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q50189%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Annecy%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Annecy%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.101897%2C%0D%0A++++45.849644%2C%0D%0A++++6.155811%2C%0D%0A++++45.93007%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.12944%2C%0D%0A++++45.89917%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.12944%2C%0D%0A++++++45.89917%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
                           <div class="img-activities">
                             <img
                 src="https://images.unsplash.com/photo-1572511443032-a3cfe6823872?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80"
@@ -155,7 +155,7 @@
                             </div>
                             <h4>Sous les cocotiers</h4>
                           </div>
-                          <div>
+                          <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.12603336168659680%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q83236%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.81562%2C%0D%0A++++45.833053%2C%0D%0A++++7.044471%2C%0D%0A++++46.03115%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.86889%2C%0D%0A++++45.92222%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.86889%2C%0D%0A++++++45.92222%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
                             <div class="img-activities">
                                 <img
                   src="https://images.unsplash.com/photo-1590580673100-ee7ee687bfa6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODZ8fGRpZ2l0YWwlMjBub21hZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
