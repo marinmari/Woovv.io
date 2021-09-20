@@ -20,7 +20,7 @@ class Booking < ApplicationRecord
   def send_booking_response_email
     if self.booking_status_id == 2
       BookingMailer.booking_request_confirmation(self).deliver_now
-    elsif self.booking_status_id == 3
+    elsif self.booking_status_id == 4
       BookingMailer.booking_request_rejection(self).deliver_now
     end
 
