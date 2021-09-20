@@ -20,7 +20,7 @@ class Booking < ApplicationRecord
     case booking_status_id
     when 2
       BookingMailer.booking_request_confirmation(self).deliver_now
-    when 3
+    when 4
       BookingMailer.booking_request_rejection(self).deliver_now
     end
   end
