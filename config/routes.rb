@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
   mount ForestLiana::Engine => '/forest'
-  
+
   devise_for :users
 
   root to: "static_pages#home"
@@ -13,15 +14,15 @@ Rails.application.routes.draw do
   resources :coworkings, only: [:index, :show] do
     resources :coworking_pictures, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit, :update] do 
+  resources :users, only: [:show, :edit, :update] do
     resources :avatars, only: [:create, :destroy]
     resources :bookings, only: [:index, :create, :update]
-  end 
+  end
 
   namespace :coworking_manager do
     resources :coworkings
     resources :bookings, only: [:index, :update]
   end
 
-  resources :contacts, only:[:create]
+  resources :contacts, only: [:create]
 end

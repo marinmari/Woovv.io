@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = current_user.bookings.order(:booking_status_id,:start_date)
+    @bookings = current_user.bookings.order(:booking_status_id, :start_date)
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -24,10 +24,9 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
+    @booking = Booking.new(start_date: params[:start_date], end_date: params[:end_date], coworking_id: params[:coworking_id], coworker: current_user, booking_status_id: 1)
     @booking.save
     redirect_to user_bookings_path(current_user.id)
-
   end
 
   # PATCH/PUT /bookings/1 or /bookings/1.json

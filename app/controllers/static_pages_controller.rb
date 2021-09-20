@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 require 'open-uri'
 require 'json'
@@ -7,16 +9,11 @@ class StaticPagesController < ApplicationController
     @coworkings = Coworking.all
   end
 
-  def team
-    
-  end
+  def team; end
 
-  def contact
-  end
+  def contact; end
 
-  def help
-  end
+  def help; end
 
-  def cgv
-  end
+  def cgv; end
 end
