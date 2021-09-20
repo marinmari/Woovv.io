@@ -6,15 +6,26 @@ class CoworkingsController < ApplicationController
 
   # GET /coworkings or /coworkings.json
   def index
+    puts params[:zip_code]
     @coworkings = Coworking.all
     @coworkings_selected = []
     if params["geocode_information"]
       analyze_geocode_information
     end 
+
+    if params[:zip_code]
+      @coworkings.each do |coworking|
+        if coworking.zipcode[0..1] == params[:zip_code]
+          @coworkings_selected << coworking
+        end 
+      end 
+    end 
+
     if @coworkings_selected.length == 0
       @coworkings_selected = @coworkings
       @box_focus = "France"
     end 
+
     @coordinates = []
     @co_id = []
     
@@ -141,7 +152,6 @@ class CoworkingsController < ApplicationController
           @coworkings_selected << coworking
         elsif info_isDOMTOM && coworking.latitude < -5 || coworking.longitude <41
           @coworkings_selected << coworking
-          puts coworking
         end 
       end 
     end 
