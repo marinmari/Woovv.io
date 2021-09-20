@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
     @booking.save
-    puts @booking.errors.full_messages
     redirect_to user_bookings_path(current_user.id)
 
   end

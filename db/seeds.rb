@@ -37,7 +37,6 @@ bdd.each do |row|
     else 
       new_coworking.zipcode=row_2[4][2..-2]
     end 
-    puts new_coworking.zipcode
     new_coworking.country="France"
     new_coworking.coworking_manager_id = 1
     new_coworking.managing_company_id = 1
@@ -53,7 +52,6 @@ bdd.each do |row|
     
   end
   if !new_coworking.zipcode || new_coworking.zipcode.length != 5 || new_coworking.longitude == nil || new_coworking.latitude == nil
-    puts "error !!!!!!"
     count += 1
     CSV.open("db/errors_seed.csv", "w+") do |csv|
       csv << [new_coworking.name, new_coworking.address,new_coworking.city,new_coworking.zipcode, uri]
@@ -64,6 +62,5 @@ bdd.each do |row|
   end 
 
 end
-puts count
 
 
