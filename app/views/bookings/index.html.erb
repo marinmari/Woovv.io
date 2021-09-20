@@ -32,7 +32,9 @@
           <%=  booking.booking_status.status  %>
         </td>
         <td>
-          <%= link_to "Annuler", user_booking_path(current_user.id,booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
+          <% if booking.booking_status_id !=4 %>
+            <%= link_to "Annuler", user_booking_path(current_user.id,booking.id, booking_status_id: 4), method: :patch, class:'btn btn-primary', local:true %>
+          <% end %>
         </td>
       </tr>
     <% end %>
