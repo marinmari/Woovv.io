@@ -22,7 +22,7 @@
           <%= booking.coworker.email%>
         </td>
         <td>
-          <% if booking.start_date %>
+          <% if booking.start_date && booking.booking_status_id != 4 %>
             <%= ((booking.start_date.to_date - Date.today.to_date).to_i < 8) ? "C'EST BIENTÔT ! 🥳" : ""  %>
           <%end%>
         </td>
