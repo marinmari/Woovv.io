@@ -24,21 +24,31 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
-    @booking.save
-    puts @booking.errors.full_messages
-    redirect_to user_bookings_path(current_user.id)
+    puts "😍"*60
+    puts params
+    puts "😍"*60
+    params.permit!
+    # @booking = Booking.new(start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1)
+    @booking = Booking.new(booking_params)
+    @booking.coworking_id = params[:coworking_id]
+    @booking.coworker = current_user
+    @booking.booking_status_id = 1
+    puts @booking
+    puts "😍"*60
+    if @booking.save
+      flash[:success] = "Votre demande de réservation a bien été enregistrée"
+      redirect_to user_bookings_path(current_user.id)
+    else
+      flash[:error] = "Votre demande de réservation n'a pu être enregistrée. Vérfiez bien les paramètres de votre demande"
+      puts "😎"*60
+      puts @booking.errors.full_messages
+      puts "😎"*60
+      puts @booking.errors[:end_date]
+      puts "😎"*60
+      redirect_to coworking_path(params[:coworking_id])
+    end
 
 
-    # respond_to do |format|
-    #   if @booking.save
-    #     format.html { redirect_to @booking, notice: "Booking was successfully created." }
-    #     format.json { render :show, status: :created, location: @booking }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @booking.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /bookings/1 or /bookings/1.json
@@ -66,5 +76,22 @@ class BookingsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def booking_params
     params.fetch(:booking, {})
+  end
+end
+
+private
+
+def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
+    # start_date:params[:start_date], end_date:params[:end_date], coworking_id: params[:coworking_id], coworker:current_user, booking_status_id:1
+end
+
+def manage_flashes_and_redirection(success)
+  if success
+    flash[:success] = "Les paramètres du Coworking ont bien été mis à jour"
+    redirect_to edit_coworking_manager_coworking_path(params[:id])
+  else
+    flash.now[:error] = "Les paramètres n'ont pu être mis à jour : vérifiez les messages d'erreurs sur la page"
+    render :edit
   end
 end

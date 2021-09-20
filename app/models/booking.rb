@@ -8,6 +8,8 @@ class Booking < ApplicationRecord
   validates :start_date, presence: {message: "Indiquer une date de départ"}
   validates :end_date, presence: {message: "Indiquer une date de fin"}
 
+  validate :end_after_start?
+
   after_create :send_request_confirmation_emails
   after_update :send_booking_response_email
 
@@ -23,7 +25,14 @@ class Booking < ApplicationRecord
     elsif self.booking_status_id == 3
       BookingMailer.booking_request_rejection(self).deliver_now
     end
+  end
 
+  private
+
+  def end_after_start?
+    if start_date > end_date
+      errors.add(:end_date, "la date de fin de réservation doit être postérieure à la date de démarrage")
+    end
   end
 
 end

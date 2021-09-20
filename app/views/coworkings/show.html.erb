@@ -34,6 +34,7 @@
           <div>
             <%= form.label :end_date, "Fin (jour inclus)" %>
             <%= form.date_field :end_date%>
+            <%= render partial: "shared/input_error_message", locals: {error: @booking.errors[:end_date]}%>
           </div>
           <p> Nous reviendrons vers vous dans les 24h avec une proposition de réservation pour ce Coworking.</p>
           <%= form.submit "Go !", class:"btn btn-primary" %>
