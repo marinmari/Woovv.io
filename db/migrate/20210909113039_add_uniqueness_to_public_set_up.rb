@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUniquenessToPublicSetUp < ActiveRecord::Migration[5.2]
   def change
     change_table :public_set_ups, bulk: true do |t|

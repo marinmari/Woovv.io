@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeCompanyColumnName < ActiveRecord::Migration[5.2]
   def change
     change_table :companies, bulk: true do |t|

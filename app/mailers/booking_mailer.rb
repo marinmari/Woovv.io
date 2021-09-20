@@ -1,5 +1,6 @@
-class BookingMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class BookingMailer < ApplicationMailer
   def booking_request_email_manager(booking)
     @booking = booking
     @coworking = Coworking.find(@booking.coworking_id)
@@ -8,7 +9,7 @@ class BookingMailer < ApplicationMailer
     mail(to: @manager.email, subject: 'Nouvelle réservation à valider')
   end
 
-   def booking_request_email_coworker(booking)
+  def booking_request_email_coworker(booking)
     @booking = booking
     @coworking = Coworking.find(@booking.coworking_id)
     @coworker = User.find(@booking.coworker_id)
@@ -28,5 +29,4 @@ class BookingMailer < ApplicationMailer
     @coworker = User.find(@booking.coworker_id)
     mail(to: @coworker.email, subject: "Oh non... pas de coworking pour cette fois-ci")
   end
-
 end

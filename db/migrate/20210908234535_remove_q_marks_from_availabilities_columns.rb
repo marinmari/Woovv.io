@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveQMarksFromAvailabilitiesColumns < ActiveRecord::Migration[5.2]
   def change
     change_table :availabilities, bulk: true do |t|
@@ -8,7 +10,6 @@ class RemoveQMarksFromAvailabilitiesColumns < ActiveRecord::Migration[5.2]
       t.rename :is_open_friday?, :is_open_friday
       t.rename :is_open_saturday?, :is_open_saturday
       t.rename :is_open_sunday?, :is_open_sunday
-
     end
   end
 end
