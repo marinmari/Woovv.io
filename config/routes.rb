@@ -4,9 +4,6 @@
 Rails.application.routes.draw do
   mount ForestLiana::Engine => '/forest'
   
-  # Nested resources for availabilities, coworkings, bookings, companies to be created in W2
-
-  # root to: "he#index"
   devise_for :users
 
   root to: "static_pages#home"

@@ -3,9 +3,6 @@
   <ul>
     <% @coworkings.each do |coworking|%>
       <div class="card">
-        <%# <div class="card-header">
-          Featured
-        </div> %>
         <div class="card-body">
           <h5 class="card-title"><%= coworking.name %></h5>
           <p class="card-text"><%=coworking.address%>, <%=coworking.zipcode%> <%=coworking.city%></p>

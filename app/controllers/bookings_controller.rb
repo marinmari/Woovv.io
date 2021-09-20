@@ -29,16 +29,6 @@ class BookingsController < ApplicationController
     puts @booking.errors.full_messages
     redirect_to user_bookings_path(current_user.id)
 
-
-    # respond_to do |format|
-    #   if @booking.save
-    #     format.html { redirect_to @booking, notice: "Booking was successfully created." }
-    #     format.json { render :show, status: :created, location: @booking }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @booking.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /bookings/1 or /bookings/1.json

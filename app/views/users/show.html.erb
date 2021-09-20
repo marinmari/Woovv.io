@@ -32,68 +32,67 @@
                     <div class="col-12">
                       <h4 class="f-w-600"><%=current_user.first_name%> <%=current_user.last_name.upcase%></h4>
                     </div>
-                    <%end%>
-                    <div class="col-12">
-                      <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
-                    </div>
+                  <%end%>
+                  <div class="col-12">
+                    <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-8">
-                <div class="card-block">
-                  <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Informations du compte <%= link_to edit_user_registration_path do%>
-                      <i class="far fa-edit text-black"></i>
-                    <%end%></h5>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Email </h6>
-                      <h6 class="text-muted f-w-400"><%=current_user.email%></h6>
-                    </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Informations du compte <%= link_to edit_user_registration_path do%>
+                    <i class="far fa-edit text-black"></i>
+                  <%end%></h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h6 class="m-b-10 f-w-600">Email </h6>
+                    <h6 class="text-muted f-w-400"><%=current_user.email%></h6>
                   </div>
-                  <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations personnelles <%= link_to edit_user_path(current_user) do%>
-                      <i class="far fa-edit text-black"></i>
-                    <%end%></h5>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Prénom</h6>
-                      <h6 class="text-muted f-w-400"><%=current_user.first_name%></h6>
-                    </div>
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Nom</h6>
-                      <%if current_user.last_name%>
-                        <h6 class="text-muted f-w-400"><%=current_user.last_name.upcase%></h6>
-                      <%end%>
-                    </div>
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Téléphone</h6>
-                      <h6 class="text-muted f-w-400"><%=current_user.phone_number%></h6>
-                    </div>
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Anniversaire</h6>
-                      <% if current_user.birth_date %>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations personnelles <%= link_to edit_user_path(current_user) do%>
+                    <i class="far fa-edit text-black"></i>
+                  <%end%></h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h6 class="m-b-10 f-w-600">Prénom</h6>
+                    <h6 class="text-muted f-w-400"><%=current_user.first_name%></h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <h6 class="m-b-10 f-w-600">Nom</h6>
+                    <%if current_user.last_name%>
+                      <h6 class="text-muted f-w-400"><%=current_user.last_name.upcase%></h6>
+                    <%end%>
+                  </div>
+                  <div class="col-sm-6">
+                    <h6 class="m-b-10 f-w-600">Téléphone</h6>
+                    <h6 class="text-muted f-w-400"><%=current_user.phone_number%></h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <h6 class="m-b-10 f-w-600">Anniversaire</h6>
+                    <% if current_user.birth_date %>
                       <h6 class="text-muted f-w-400"><%=current_user.birth_date.strftime("%d/%m/%Y")%></h6>
-                      <%end%>
-                    </div>
+                    <%end%>
                   </div>
-                  <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
-                  <div class='row'>
-                    <div class="col-sm-6">
-                      <% if current_user.managed_coworkings.count > 0%>
+                </div>
+                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
+                <div class='row'>
+                  <div class="col-sm-6">
+                    <% if current_user.managed_coworkings.count > 0%>
                       <h6 class="m-b-10 f-w-600">Mes réservations</h6>
                       <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", coworking_manager_bookings_path(current_user) %></h6>
                     </div>
                     <div class="col-sm-6">
                       <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
                       <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", "https://rz038zhvlso.typeform.com/to/fOfiofVp" %></h6>
-                      <% else %>
+                    <% else %>
                       <h6 class="m-b-10 f-w-600">Mes réservations</h6>
                       <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_bookings_path(current_user) %></h6>
                     </div>
                     <div class="col-sm-6">
                       <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
                       <h6 class="text-muted f-w-400"><%=link_to "Proposer mon espace", "https://rz038zhvlso.typeform.com/to/fOfiofVp" %></h6>
-                      <% end %>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -103,4 +102,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

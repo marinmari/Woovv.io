@@ -18,10 +18,6 @@ bdd = CSV.read("db/db_urls.csv")
 User.create(email:"marin@woovv.io", password:'Woovver4Life')
 
 
-# 9.times do |i|
-#   User.create(email:"cowork#{i}@coworking.com", password:'azerty')
-# end
-
 Company.create(legal_name:'Woovv')
 
 9.times do |i|

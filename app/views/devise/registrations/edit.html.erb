@@ -9,25 +9,27 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field container-su ">
-              <p class="label-su text-center">Email</p>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'field-su text-center'%>
+            <p class="label-su text-center">Email</p>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'field-su text-center'%>
           </div>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Nous avois besoin de la confirmation de ton email: <%= resource.unconfirmed_email %></div>
           <% end %>
           <div class="field container-su">
-            <p class="label-su text-center">Mot de passe<br> <i>(laissez le champ vide si vous ne voulez pas modifier le mot de passe)</i></p>
+            <p class="label-su text-center">Mot de passe<br>
+              <i>(laissez le champ vide si vous ne voulez pas modifier le mot de passe)</i></p>
             <% if @minimum_password_length %>
               <p class="label-su text-center"><em><%= @minimum_password_length %> caractères minimum</em></p>
             <% end %>
             <%= f.password_field :password, autocomplete: "new-password" , class:'field-su text-center'%>
           </div>
           <div class="field container-su">
-             <p class="label-su text-center">Confirmation du mot de passe</p>
+            <p class="label-su text-center">Confirmation du mot de passe</p>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"field-su text-center"%>
           </div>
           <div class="field container-su">
-            <p class="label-su text-center">Mot de passe actuel<br> <i>(nous avons besoin de ton mot de passe actuel pour valider les changements)</i></p>
+            <p class="label-su text-center">Mot de passe actuel<br>
+              <i>(nous avons besoin de ton mot de passe actuel pour valider les changements)</i></p>
             <%= f.password_field :current_password, autocomplete: "current-password" , class:"field-su text-center"%>
           </div>
           <div class="actions div-su">
@@ -39,18 +41,18 @@
     <div class="col-5 cancel-account text-center">
       <h3>Un problème avec ton compte?</h3>
       <p>N'hésites pas à nous <a href="" data-toggle="modal" data-target="#modalContactForm">contacter</a>
-
-<%=render 'shared/modalcontact'%>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-      <h3 >Pas satisfait ?</h3>
-      <p><%=link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Tu es sûr ?" }, method: :delete%></p>
-    </div><hr>
-</div>
-</div>
+        <%=render 'shared/modalcontact'%>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3 >Pas satisfait ?</h3>
+        <p><%=link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Tu es sûr ?" }, method: :delete%></p>
+      </div>
+      <hr>
+    </div>
+  </div>
