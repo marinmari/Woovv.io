@@ -15,7 +15,7 @@ Woovv is a platform to find the best workspaces all around you. Once you suscrib
 
 * Services (job queues, cache servers, search engines, etc.)
 
-app/db/scrapper.rb is a scrapper we developed to collect data on the website https://www.coworking-france.com/. 
+app/db/scrapper.rb is a scrapper we developed to collect data from the website https://www.coworking-france.com/. 
 We recover a csv file that we used in seed to create Coworkings in the database.
 It allows Woovv to propose +2500 reals coworkings in France. 
 
@@ -40,11 +40,11 @@ $ rails db:seed
 
 ## Contributors
 
-Amélie Loulergue https://github.com/AmelieLoulergue \
-Jonathan Justman https://github.com/justmanovic \
-David Guetta https://github.com/davguetta \
-Marin Chrétien https://github.com/marinmari \
-Ambroise Bréant https://github.com/Ambizance
+* Amélie Loulergue https://github.com/AmelieLoulergue \
+* Jonathan Justman https://github.com/justmanovic \
+* David Guetta https://github.com/davguetta \
+* Marin Chrétien https://github.com/marinmari \
+* Ambroise Bréant https://github.com/Ambizance
 
 ### R&D
 
