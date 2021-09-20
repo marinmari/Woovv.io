@@ -30,7 +30,6 @@ window.onload = function () {
     addLoader(loaderElement, mapElement, geoElement)
     
     if (document.getElementById("map").attributes[4] != ""){ //if information from geocoder
-      console.log(document.getElementById("map").attributes[4])
     var research = document.getElementById("map").attributes[4].value.replace('[', '').replace(']', '').split(', ').map(Number)
     }
     var co_id = document.getElementById("map").attributes[2].value
