@@ -13,7 +13,6 @@ window.onload = function () {
   if (!mapElement && geoElement) {
     mapboxgl.accessToken = geoElement.dataset.mapboxApiKey;
     const results = document.getElementById('result')
-    console.log("je suis dans la landing page")
     const geocoder = initGeocoder(12) //value of zoom as argument
     geocoder.addTo('#geocoder');
       // Add geocoder result to container.
@@ -27,25 +26,21 @@ window.onload = function () {
       // code map for landing page (end here)
   } else if(mapElement && geoElement) {
       // code map for index coworking (begin here)
-    
-    console.log("je suis dans l'index CW'")
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     addLoader(loaderElement, mapElement, geoElement)
-    console.log("je suis dans l'index CW'")
     
-    if (document.getElementById("map").attributes[4]){ //if information from geocoder
+    if (document.getElementById("map").attributes[4] != ""){ //if information from geocoder
+      console.log(document.getElementById("map").attributes[4])
     var research = document.getElementById("map").attributes[4].value.replace('[', '').replace(']', '').split(', ').map(Number)
     }
     var co_id = document.getElementById("map").attributes[2].value
     co_id = co_id.replace('[', '').replace(']', '').split(', ').map(Number)
     var coordinates = document.getElementById("map").attributes[1].value
-    console.log(coordinates)
     var box_focus = document.getElementById("map").attributes[3].value
     coordinates = coordinates.replace('[[', '').replace(']]', '')
     coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
     var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
     var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
-    console.log(coordinates)
     if (research[0] !== 0 ) {
       var box_upper_lat = research[0] + 0.05
       var box_bottom_lat = research[0]- 0.05
@@ -112,7 +107,6 @@ window.onload = function () {
         }).setLngLat(research)
           .addTo(map)
         // code map for index coworking (end here) 
-        //41 -51 max longitude -5, 9 min max latitude
   }else{
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     // code map for show coworking (begin here)
@@ -124,7 +118,6 @@ window.onload = function () {
     coordinates = coordinates.split('], [').map(c => c.split(', ')).map(c => c.map(Number))
     var latitudes = coordinates.map(c => c[0]).filter(lat => lat !== 0)
     var longitudes = coordinates.map(c => c[1]).filter(lon => lon !== 0)
-    console.log(coordinates)
     const map = new mapboxgl.Map({
       container: 'map',
       // Replace YOUR_STYLE_URL with your style URL.
@@ -167,8 +160,6 @@ function createForm(e, results){
   inputGeo.name ="geocode_information"
   inputGeo.type = "hidden"
   inputGeo.value= JSON.stringify(e.result, null, 2)
-  console.log("createForm")
-  console.log(inputGeo.value)
   formuTest.appendChild(inputTest)
   formuTest.appendChild(inputGeo)
   results.innerHTML += divFormu.innerHTML
