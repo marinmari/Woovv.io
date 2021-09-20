@@ -5,7 +5,6 @@ class ContactsController < ApplicationController
       flash[:success] = "Votre email a bien été envoyé à la team Woovv ! 😘"
       redirect_to root_path
     else
-      puts "😡 echec 😡"
       redirect_to root_path
     end
   end

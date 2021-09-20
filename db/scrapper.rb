@@ -12,7 +12,6 @@ def get_cw_infos_from_url(url_coworking)
     name = page.css('h1.product_title').text
     city = page.css('h2')[0].text.split(' ')
 
-    # puts city
     index_a_in = (city.include?('à') ? city.index('à') : city.index('in'))+1
     index_ses_premises = (city.include?('ses') ? city.index('ses') : city.index('premises'))
 

@@ -141,7 +141,6 @@ class CoworkingsController < ApplicationController
           @coworkings_selected << coworking
         elsif info_isDOMTOM && coworking.latitude < -5 || coworking.longitude <41
           @coworkings_selected << coworking
-          puts coworking
         end 
       end 
     end 
