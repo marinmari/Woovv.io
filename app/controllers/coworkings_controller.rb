@@ -12,20 +12,20 @@ class CoworkingsController < ApplicationController
     @coworkings_selected = []
     if params["geocode_information"]
       analyze_geocode_information
-    end 
+    end
 
     if params[:zip_code]
       @coworkings.each do |coworking|
         if coworking.zipcode[0..1] == params[:zip_code]
           @coworkings_selected << coworking
-        end 
-      end 
-    end 
+        end
+      end
+    end
 
-    if @coworkings_selected.length == 0
+    if @coworkings_selected.empty?
       @coworkings_selected = @coworkings
       @box_focus = "France"
-    end 
+    end
 
     @coordinates = []
     @co_id = []
