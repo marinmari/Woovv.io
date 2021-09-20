@@ -1,5 +1,6 @@
-class Contact < ApplicationRecord
+# frozen_string_literal: true
 
+class Contact < ApplicationRecord
   after_create :send_contact_email
 
   def send_contact_email

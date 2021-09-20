@@ -11,163 +11,141 @@
     <h3 class="section-title">Trouvez un coworking au coeur des plus grandes villes</h3>
     <p>Grâce à Woovv, évitez la galère des transports, coworkez sereinement à 2mn de chez vous !</p>
     <div class="new-spots-section">
-      <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.14749210607497330%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22region%22%2C%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q90%22%2C%0D%0A++++%22short_code%22%3A+%22FR-75%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Paris%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Paris%2C+France%22%2C%0D%0A++%22text%22%3A+%22Paris%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Paris%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++2.22422400085346%2C%0D%0A++++48.8156060108013%2C%0D%0A++++2.46976999462145%2C%0D%0A++++48.9020129995121%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++2.35183%2C%0D%0A++++48.85658%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++2.35183%2C%0D%0A++++++48.85658%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 75)%>';">
         <div class="img-div">
           <a>
-            <img
-                  src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60"
-                  alt="">
-            </a>
-          </div>
-          <div class="city-div">
-            <span class="city">Paris</span>
-            <span class="activity-city">Ses terrasses, ses falafels, son ambiance, ses soirées et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "75" }.count %> coworkings.</span>
-          </div>
+            <%= image_tag "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60"%>
+          </a>
         </div>
-        <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.6137063676036310%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q23482%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Marseille%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Marseille%2C+Bouches-du-Rh%C3%B4ne%2C+France%22%2C%0D%0A++%22text%22%3A+%22Marseille%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Marseille%2C+Bouches-du-Rh%C3%B4ne%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++5.228865%2C%0D%0A++++43.172598%2C%0D%0A++++5.532504%2C%0D%0A++++43.391079%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++5.37639%2C%0D%0A++++43.29667%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++5.37639%2C%0D%0A++++++43.29667%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.2013075554143580%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q3240%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-13%22%2C%0D%0A++++++%22text_fr%22%3A+%22Bouches-du-Rh%C3%B4ne%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Bouches-du-Rh%C3%B4ne%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-          <div class="img-div">
-            <a>
-              <img
-                  src="https://images.unsplash.com/photo-1597319327173-efb8c3e632ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
-                  alt="">
-              </a>
-            </div>
-            <div class="city-div">
-              <span class="city">Marseille</span>
-              <span class="activity-city">Son vélodrome, ses falafels, sa canebière, sa bonne mère et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "13" }.count %> coworkings.</span>
-            </div>
-          </div>
-          <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.7230196621811150%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q1479%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Bordeaux%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Bordeaux%2C+Gironde%2C+France%22%2C%0D%0A++%22text%22%3A+%22Bordeaux%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Bordeaux%2C+Gironde%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++-0.638626%2C%0D%0A++++44.81077%2C%0D%0A++++-0.533675%2C%0D%0A++++44.915545%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++-0.57944%2C%0D%0A++++44.83778%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++-0.57944%2C%0D%0A++++++44.83778%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.12909948074787080%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12526%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-33%22%2C%0D%0A++++++%22text_fr%22%3A+%22Gironde%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Gironde%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-            <div class="img-div">
-              <a>
-                <img
-                  src="https://images.unsplash.com/photo-1493564738392-d148cfbd6eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt="">
-                </a>
-              </div>
-              <div class="city-div">
-                <span class="city">Bordeaux</span>
-                <span class="activity-city">Son vin, ses falafels, ses restaurants, son marché des capucins et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "33" }.count %> coworkings</span>
-              </div>
-            </div>
-            <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.12071176627705910%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q12191%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Nantes%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Nantes%2C+Loire-Atlantique%2C+France%22%2C%0D%0A++%22text%22%3A+%22Nantes%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Nantes%2C+Loire-Atlantique%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++-1.641762%2C%0D%0A++++47.180552%2C%0D%0A++++-1.478948%2C%0D%0A++++47.296075%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++-1.55389%2C%0D%0A++++47.21722%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++-1.55389%2C%0D%0A++++++47.21722%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.13833528810540000%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q3068%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-44%22%2C%0D%0A++++++%22text_fr%22%3A+%22Loire-Atlantique%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Loire-Atlantique%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-              <div class="img-div">
-                <a>
-                  <img
-                  src="https://images.unsplash.com/photo-1544013592-1c2496aa255e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt="">
-                  </a>
-                </div>
-                <div class="city-div">
-                  <span class="city">Nantes</span>
-                  <span class="activity-city">Son île, ses falafels, son éléphant, son voyage et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "44" }.count %> coworkings.</span>
-                </div>
-              </div>
-              <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.5770942651332840%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q50189%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Annecy%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Annecy%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.101897%2C%0D%0A++++45.849644%2C%0D%0A++++6.155811%2C%0D%0A++++45.93007%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.12944%2C%0D%0A++++45.89917%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.12944%2C%0D%0A++++++45.89917%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                <div class="img-div">
-                  <a>
-                    <img
-                  src="https://images.unsplash.com/photo-1590274853751-8fb10591d007?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YW5uZWN5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  alt="">
-                    </a>
-                  </div>
-                  <div class="city-div">
-                    <span class="city">Annecy</span>
-                    <span class="activity-city">Son lac, ses falafels, ses montagnes, ses canaux et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "74" }.count %> coworkings.</span>
-                  </div>
-                </div>
-                <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.17006815682783930%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q456%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Lyon%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Lyon%2C+Rh%C3%B4ne%2C+France%22%2C%0D%0A++%22text%22%3A+%22Lyon%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Lyon%2C+Rh%C3%B4ne%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++4.771677%2C%0D%0A++++45.707468%2C%0D%0A++++4.898391%2C%0D%0A++++45.808215%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++4.84139%2C%0D%0A++++45.75889%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++4.84139%2C%0D%0A++++++45.75889%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.10129007719332280%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q46130%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-69%22%2C%0D%0A++++++%22text_fr%22%3A+%22Rh%C3%B4ne%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Rh%C3%B4ne%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                  <div class="img-div">
-                    <a>
-                      <img
-                  src="https://images.unsplash.com/photo-1600775653108-3e08a69d224c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
-                  alt="">
-                      </a>
-                    </div>
-                    <div class="city-div">
-                      <span class="city">Lyon</span>
-                      <span class="activity-city">Sa fête des lumières, ses falafels, sa gastronomie et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "69" }.count %> coworkings.</span>
-                    </div>
-                  </div>
-                  <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.6563401330812120%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q7880%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Toulouse%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Toulouse%2C+Haute-Garonne%2C+France%22%2C%0D%0A++%22text%22%3A+%22Toulouse%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Toulouse%2C+Haute-Garonne%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++1.350287%2C%0D%0A++++43.532617%2C%0D%0A++++1.515346%2C%0D%0A++++43.668713%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++1.44194%2C%0D%0A++++43.60444%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++1.44194%2C%0D%0A++++++43.60444%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.17393409166624210%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12538%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-31%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Garonne%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Garonne%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                    <div class="img-div">
-                      <a>
-                        <img
-                  src="https://images.unsplash.com/photo-1567351673954-0cb49f639dc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="">
-                        </a>
-                      </div>
-                      <div class="city-div">
-                        <span class="city">Toulouse</span>
-                        <span class="activity-city">Ses couleurs roses, ses falafels, son rugby, sa proximité avec l'espace et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> coworkings.</span>
-                      </div>
-                    </div>
-                    <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.9362562133912730%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q648%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Lille%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Lille%2C+Nord%2C+France%22%2C%0D%0A++%22text%22%3A+%22Lille%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Lille%2C+Nord%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++2.967888%2C%0D%0A++++50.600839%2C%0D%0A++++3.125737%2C%0D%0A++++50.661295%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++3.0575%2C%0D%0A++++50.63194%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++3.0575%2C%0D%0A++++++50.63194%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11247701177881300%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12661%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-59%22%2C%0D%0A++++++%22text_fr%22%3A+%22Nord%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Nord%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                      <div class="img-div">
-                        <a>
-                          <img
-                  src="https://images.unsplash.com/photo-1601718747314-f144ab340cca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80"
-                  alt="">
-                          </a>
-                        </div>
-                        <div class="city-div">
-                          <span class="city">Lille</span>
-                          <span class="activity-city">Sa braderie, ses falafels, son LOSC, son beffroi et <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> ses coworkings.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <section>
-                    <h3 class="section-title">Evadez-vous avec Woovv !</h3>
-                    <p>Marre de la ville ? Good ! Woovv vous propose aussi une sélection des meilleurs coworkings au vert, que ce soit à la mer, à la montagne ou à la campagne.</p>
-                    <div class="activities">
-                      <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.5770942651332840%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q50189%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Annecy%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Annecy%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Annecy%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.101897%2C%0D%0A++++45.849644%2C%0D%0A++++6.155811%2C%0D%0A++++45.93007%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.12944%2C%0D%0A++++45.89917%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.12944%2C%0D%0A++++++45.89917%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                        <div class="img-activities">
-                          <img
-                src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1428&q=80"
-                alt="">
-                          </div>
-                          <h4>Au bord d'un lac</h4>
-                        </div>
-                        <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22region.15082397091386440%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22region%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q3389%22%2C%0D%0A++++%22short_code%22%3A+%22FR-29%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Finist%C3%A8re%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Finist%C3%A8re%2C+France%22%2C%0D%0A++%22text%22%3A+%22Finist%C3%A8re%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Finist%C3%A8re%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++-5.24227249992918%2C%0D%0A++++47.7003764026721%2C%0D%0A++++-3.386765004778%2C%0D%0A++++48.8191572967083%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++-4%2C%0D%0A++++48.25%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++-4%2C%0D%0A++++++48.25%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                          <div class="img-activities">
-                            <img
-                src="https://images.unsplash.com/photo-1572511443032-a3cfe6823872?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80"
-                alt="">
-                            </div>
-                            <h4>Au bord de mer</h4>
-                          </div>
-                          <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.12603336168659680%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q83236%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.81562%2C%0D%0A++++45.833053%2C%0D%0A++++7.044471%2C%0D%0A++++46.03115%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.86889%2C%0D%0A++++45.92222%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.86889%2C%0D%0A++++++45.92222%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
-                            <div class="img-activities">
-                              <img
-                  src="https://images.unsplash.com/photo-1590580673100-ee7ee687bfa6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODZ8fGRpZ2l0YWwlMjBub21hZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
-                  alt="">
-                              </div>
-                              <h4>A la montagne</h4>
-                            </div>
-                          </section>
-                          <section class="find-inspiration">
-                            <%= link_to "Trouvez l'inspiration", "http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.13938469891462120%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q241567%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Porto-Vecchio%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Porto-Vecchio%2C+Corse-du-Sud%2C+France%22%2C%0D%0A++%22text%22%3A+%22Porto-Vecchio%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Porto-Vecchio%2C+Corse-du-Sud%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++9.164568%2C%0D%0A++++41.483419%2C%0D%0A++++9.374815%2C%0D%0A++++41.686472%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++9.27972%2C%0D%0A++++41.59083%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++9.27972%2C%0D%0A++++++41.59083%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.13230085263412890%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q3336%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-2A%22%2C%0D%0A++++++%22text_fr%22%3A+%22Corse-du-Sud%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Corse-du-Sud%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D", class:"btn btn-primary" %>
-                          </section>
-                          <section class="join-us">
-                            <div class="category-customer">
-                              <h3>Vous êtes gérant d'un espace de coworking ?</h3>
-                              <p>Woovv vous accompagne pour proposer vos espaces disponibles en 1 clic à tous les Woovvers. Nous gérons
-                                pour vous toutes les étapes de la réservation à la facturation.</p>
-                              <%= link_to "Rejoignez nous", 'https://rz038zhvlso.typeform.com/to/fOfiofVp', class:"btn btn-primary"%>
-                            </div>
-                            <div class="category-customer">
-                              <h3>Vous êtes une entreprise ?</h3>
-                              <p>Woovv vous accompagne dans le suivi de vos collaborateurs en télétravail.
-                                Avec Woovv, votre entreprise a désormais des bureaux dans toute la France</p>
-                              <%= link_to "Rejoignez nous", 'https://tduhyv2gs41.typeform.com/to/Pli9m87O', class:"btn btn-primary"%>
-                            </div>
-                            <div class="category-customer">
-                              <h3>Vous êtes freelance ?</h3>
-                              <span class="stop-waiting-friday">STOP WAITING FRIDAY ! </span>
-                              <p>Woovv vous accompagne dans la réservation de coworking en
-                                vous proposant +2000 espaces de coworkings à travers la France et bientôt l'Europe.</p>
-                              <a> <%= link_to 'Rejoignez-nous', new_user_session_path, class:"btn btn-primary bottom" %> </a>
-                            </div>
-                          </section>
-                        </div>
+        <div class="city-div">
+          <span class="city">Paris</span>
+          <span class="activity-city">Ses terrasses, ses falafels, son ambiance, ses soirées et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "75" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 13)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1597319327173-efb8c3e632ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Marseille</span>
+          <span class="activity-city">Son vélodrome, ses falafels, sa canebière, sa bonne mère et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "13" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 33)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1493564738392-d148cfbd6eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Bordeaux</span>
+          <span class="activity-city">Son vin, ses falafels, ses restaurants, son marché des capucins et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "33" }.count %> coworkings</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 44)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1544013592-1c2496aa255e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Nantes</span>
+          <span class="activity-city">Son île, ses falafels, son éléphant, son voyage et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "44" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 74)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1590274853751-8fb10591d007?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YW5uZWN5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Annecy</span>
+          <span class="activity-city">Son lac, ses falafels, ses montagnes, ses canaux et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "74" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 69)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1600775653108-3e08a69d224c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Lyon</span>
+          <span class="activity-city">Sa fête des lumières, ses falafels, sa gastronomie et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "69" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 31)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1567351673954-0cb49f639dc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Toulouse</span>
+          <span class="activity-city">Ses couleurs roses, ses falafels, son rugby, sa proximité avec l'espace et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> coworkings.</span>
+        </div>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 59)%>';">
+        <div class="img-div">
+          <a>
+            <%= image_tag "https://images.unsplash.com/photo-1601718747314-f144ab340cca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80"%>
+          </a>
+        </div>
+        <div class="city-div">
+          <span class="city">Lille</span>
+          <span class="activity-city">Sa braderie, ses falafels, son LOSC, son beffroi et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "31" }.count %> coworkings.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3 class="section-title">Evadez-vous avec Woovv !</h3>
+    <p>Marre de la ville ? Good ! Woovv vous propose aussi une sélection des meilleurs coworkings au vert, que ce soit à la mer, à la montagne ou à la campagne.</p>
+    <div class="activities">
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 74)%>';">
+        <div class="img-activities">
+          <%= image_tag "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1428&q=80"%>
+        </div>
+        <h4>Au bord d'un lac</h4>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 13)%>';">
+        <div class="img-activities">
+          <%= image_tag "https://images.unsplash.com/photo-1572511443032-a3cfe6823872?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80"%>
+        </div>
+        <h4>Au bord de mer</h4>
+      </div>
+      <div style="cursor: pointer;" onclick="window.location='<%=coworkings_path(zip_code: 88)%>';">
+        <div class="img-activities">
+          <%= image_tag "https://images.unsplash.com/photo-1590580673100-ee7ee687bfa6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODZ8fGRpZ2l0YWwlMjBub21hZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"%>
+        </div>
+        <h4>A la montagne</h4>
+      </div>
+    </section>
+    <section class="find-inspiration">
+      <%= link_to "Trouvez l'inspiration", coworkings_path(zip_code: 20), class:"btn btn-primary" %>
+    </section>
+    <section class="join-us">
+      <div class="category-customer">
+        <h3>Vous êtes gérant d'un espace de coworking ?</h3>
+        <p>Woovv vous accompagne pour proposer vos espaces disponibles en 1 clic à tous les Woovvers. Nous gérons
+          pour vous toutes les étapes de la réservation à la facturation.</p>
+        <%= link_to "Rejoignez nous", 'https://rz038zhvlso.typeform.com/to/fOfiofVp', class:"btn btn-primary"%>
+      </div>
+      <div class="category-customer">
+        <h3>Vous êtes une entreprise ?</h3>
+        <p>Woovv vous accompagne dans le suivi de vos collaborateurs en télétravail.
+          Avec Woovv, votre entreprise a désormais des bureaux dans toute la France</p>
+        <%= link_to "Rejoignez nous", 'https://tduhyv2gs41.typeform.com/to/Pli9m87O', class:"btn btn-primary"%>
+      </div>
+      <div class="category-customer">
+        <h3>Vous êtes freelance ?</h3>
+        <span class="stop-waiting-friday">STOP WAITING FRIDAY ! </span>
+        <p>Woovv vous accompagne dans la réservation de coworking en
+          vous proposant +2000 espaces de coworkings à travers la France et bientôt l'Europe.</p>
+        <a> <%= link_to 'Rejoignez-nous', new_user_session_path, class:"btn btn-primary bottom" %> </a>
+      </div>
+    </section>
+  </div>

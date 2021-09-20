@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUniquenessToAvailabilities < ActiveRecord::Migration[5.2]
   def change
     change_table :availabilities, bulk: true do |t|

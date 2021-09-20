@@ -2,15 +2,13 @@
   <% if public_set_up.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(public_set_up.errors.count, "error") %> prohibited this public_set_up from being saved:</h2>
-
       <ul>
-      <% public_set_up.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% public_set_up.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="actions">
     <%= form.submit %>
   </div>
