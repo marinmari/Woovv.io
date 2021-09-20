@@ -8,5 +8,4 @@ class ContactMailer < ApplicationMailer
     mail(to: 'hello@woovv.io', subject:"Un Woovver nous sollicite !")
   end
 
-
 end

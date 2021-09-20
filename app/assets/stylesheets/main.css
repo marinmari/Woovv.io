@@ -715,7 +715,7 @@ form > .in-line {
   }
 }
 
-@media (max-width:831px){
+@media(max-width:831px){
   .wrapper {
     padding:1rem;
   }
@@ -730,6 +730,18 @@ form > .in-line {
 
   .hero {
     margin:0;
+  }
+
+  .wrapper.devise-view {
+    /* width: 100%; */
+  }
+
+  .devise-left-background-image {
+    /* width: 0%; */
+  }
+
+  .devise-view {
+    flex-direction: column;
   }
 }
 

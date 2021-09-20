@@ -1,17 +1,15 @@
-<div class="hero"> 
+<div class="hero">
   <div>
     <h1>Le futur du travail se passe ici</h1>
     <h2>Bookez un coworking partout en France, et travaillez en toute liberté !</h2>
-      <div id="geocoder" class="geocoderhome" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      <pre id="result" class="hidden"></pre>
-
+    <div id="geocoder" class="geocoderhome" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <pre id="result" class="hidden"></pre>
   </div>
 </div>
 <div class="wrapper">
   <section>
     <h3 class="section-title">Trouvez un coworking au coeur des plus grandes villes</h3>
-      <p>Grâce à Woovv, évitez la galère des transports, coworkez sereinement à 2mn de chez vous !</p>
-
+    <p>Grâce à Woovv, évitez la galère des transports, coworkez sereinement à 2mn de chez vous !</p>
     <div class="new-spots-section">
       <div>
         <div class="img-div">
@@ -19,7 +17,7 @@
             <img
                   src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60"
                   alt="">
-          </a>
+            </a>
           </div>
           <div class="city-div">
             <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=75&commit=Afficher">
@@ -34,7 +32,7 @@
               <img
                   src="https://images.unsplash.com/photo-1597319327173-efb8c3e632ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
                   alt="">
-            </a>
+              </a>
             </div>
             <div class="city-div">
               <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=13&commit=Afficher">
@@ -49,7 +47,7 @@
                 <img
                   src="https://images.unsplash.com/photo-1493564738392-d148cfbd6eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                   alt="">
-              </a>
+                </a>
               </div>
               <div class="city-div">
                 <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=33&commit=Afficher">
@@ -70,7 +68,7 @@
                   <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=44&commit=Afficher">
                     <span class="city">Nantes</span>
                   </a>
-                    <span class="activity-city">Son île, ses falafels, son éléphant, son voyage et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "44" }.count %> coworkings.</span>
+                  <span class="activity-city">Son île, ses falafels, son éléphant, son voyage et ses <%= @coworkings.select { |c| c.zipcode[0..1] == "44" }.count %> coworkings.</span>
                 </div>
               </div>
               <div>
@@ -94,7 +92,7 @@
                       <img
                   src="https://images.unsplash.com/photo-1600775653108-3e08a69d224c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80"
                   alt="">
-                    </a>
+                      </a>
                     </div>
                     <div class="city-div">
                       <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=69&commit=Afficher">
@@ -109,7 +107,7 @@
                         <img
                   src="https://images.unsplash.com/photo-1567351673954-0cb49f639dc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                   alt="">
-                      </a>
+                        </a>
                       </div>
                       <div class="city-div">
                         <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=31&commit=Afficher">
@@ -124,7 +122,7 @@
                           <img
                   src="https://images.unsplash.com/photo-1601718747314-f144ab340cca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80"
                   alt="">
-                        </a>
+                          </a>
                         </div>
                         <div class="city-div">
                           <a href="http://woovv.io/coworkings?utf8=%E2%9C%93&coworking%5Bdepartment%5D=59&commit=Afficher">
@@ -157,7 +155,7 @@
                           </div>
                           <div style="cursor: pointer;" onclick="window.location='http://woovv.io/coworkings?authenticity_token=&geocode_information=%7B%0D%0A++%22id%22%3A+%22place.12603336168659680%22%2C%0D%0A++%22type%22%3A+%22Feature%22%2C%0D%0A++%22place_type%22%3A+%5B%0D%0A++++%22place%22%0D%0A++%5D%2C%0D%0A++%22relevance%22%3A+1%2C%0D%0A++%22properties%22%3A+%7B%0D%0A++++%22wikidata%22%3A+%22Q83236%22%0D%0A++%7D%2C%0D%0A++%22text_fr%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language_fr%22%3A+%22fr%22%2C%0D%0A++%22place_name_fr%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22text%22%3A+%22Chamonix-Mont-Blanc%22%2C%0D%0A++%22language%22%3A+%22fr%22%2C%0D%0A++%22place_name%22%3A+%22Chamonix-Mont-Blanc%2C+Haute-Savoie%2C+France%22%2C%0D%0A++%22bbox%22%3A+%5B%0D%0A++++6.81562%2C%0D%0A++++45.833053%2C%0D%0A++++7.044471%2C%0D%0A++++46.03115%0D%0A++%5D%2C%0D%0A++%22center%22%3A+%5B%0D%0A++++6.86889%2C%0D%0A++++45.92222%0D%0A++%5D%2C%0D%0A++%22geometry%22%3A+%7B%0D%0A++++%22type%22%3A+%22Point%22%2C%0D%0A++++%22coordinates%22%3A+%5B%0D%0A++++++6.86889%2C%0D%0A++++++45.92222%0D%0A++++%5D%0D%0A++%7D%2C%0D%0A++%22context%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22region.11444500172103340%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q12751%22%2C%0D%0A++++++%22short_code%22%3A+%22FR-74%22%2C%0D%0A++++++%22text_fr%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22Haute-Savoie%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22id%22%3A+%22country.19008108158641660%22%2C%0D%0A++++++%22wikidata%22%3A+%22Q142%22%2C%0D%0A++++++%22short_code%22%3A+%22fr%22%2C%0D%0A++++++%22text_fr%22%3A+%22France%22%2C%0D%0A++++++%22language_fr%22%3A+%22fr%22%2C%0D%0A++++++%22text%22%3A+%22France%22%2C%0D%0A++++++%22language%22%3A+%22fr%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D';">
                             <div class="img-activities">
-                                <img
+                              <img
                   src="https://images.unsplash.com/photo-1590580673100-ee7ee687bfa6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODZ8fGRpZ2l0YWwlMjBub21hZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
                   alt="">
                               </div>
@@ -171,20 +169,20 @@
                             <div class="category-customer">
                               <h3>Vous êtes gérant d'un espace de coworking ?</h3>
                               <p>Woovv vous accompagne pour proposer vos espaces disponibles en 1 clic à tous les Woovvers. Nous gérons
-                              pour vous toutes les étapes de la réservation à la facturation.</p>
+                                pour vous toutes les étapes de la réservation à la facturation.</p>
                               <a href="https://rz038zhvlso.typeform.com/to/fOfiofVp" class="btn btn-primary bottom">Rejoignez-nous</a>
                             </div>
                             <div class="category-customer">
                               <h3>Vous êtes une entreprise ?</h3>
                               <p>Woovv vous accompagne dans le suivi de vos collaborateurs en télétravail.
-                              Avec Woovv, votre entreprise a désormais des bureaux dans toute la France</p>
+                                Avec Woovv, votre entreprise a désormais des bureaux dans toute la France</p>
                               <a href="https://tduhyv2gs41.typeform.com/to/Pli9m87O" class="btn btn-primary bottom">Rejoignez-nous</a>
                             </div>
                             <div class="category-customer">
                               <h3>Vous êtes freelance ?</h3>
-                              <span class="stop-waiting-friday">STOP WAITING FRIDAY ! </span> 
+                              <span class="stop-waiting-friday">STOP WAITING FRIDAY ! </span>
                               <p>Woovv vous accompagne dans la réservation de coworking en
-                              vous proposant +2000 espaces de coworkings à travers la France et bientôt l'Europe.</p>
+                                vous proposant +2000 espaces de coworkings à travers la France et bientôt l'Europe.</p>
                               <a> <%= link_to 'Rejoignez-nous', new_user_session_path, class:"btn btn-primary bottom" %> </a>
                             </div>
                           </section>
