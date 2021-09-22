@@ -1,4 +1,4 @@
-
+/* 
 .navbar {
   background-color: transparent;
   color: black;
@@ -19,12 +19,6 @@
   color: teal;
 }
 
-.navbar .navbar-brand {
-  font-size: 3rem;
-  font-family: 'Baloo 2';
-  font-weight: 700;
-  color: var(--color-primary);
-}
 
 .navbar .navbar-brand:hover {
   color: teal;
@@ -46,7 +40,7 @@
 
 .my-account-dropdown {
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -111,7 +105,6 @@
 }
 
 .dropdown-menu {
-  /* width: 15rem; */
   width: max-content;
   text-align: center;
   outline: hidden;
@@ -133,4 +126,162 @@
 .coworking-manager p {
   font-size: 1rem;
   font-weight: bolder;
+} */
+ .navbar-brand {
+  font-size: 3rem;
+  font-family: 'Baloo 2';
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* .coworking-manager {
+  border: 1px black dotted;
+} */
+
+/* .coworking-manager::before {
+  content:'coworking manager'
+} */
+
+header {
+  background-color: white;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999999;
+  padding: 0 1rem;
+}
+
+nav {
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  /* transform: translateX(-50%); */
+  background-color: var(--color-primary);
+  width: 100%;
+  transform: scale(1,0);
+  transform-origin: top;
+  left: 0;
+  right: 0;
+}
+
+nav ul {
+  margin-bottom: 0;
+  padding: 2rem;
+}
+
+
+nav a {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+
+}
+
+.nav-toggle:checked ~ nav a{
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background-color: black;
+  height: 4px;
+  width: 2rem;
+  border-radius: 5px;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content:'';
+  position: absolute;
+}
+
+.nav-toggle-label span::before{
+  bottom: 30px;
+}
+
+.nav-toggle-label span::after{
+  top: 30px;
+}
+
+@media screen and (min-width:800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
+
+  .logo {
+    /* grid-column: 2 / 3; */
+    align-self: center;
+  }
+
+  nav {
+    all: unset;
+    /* grid-column: 3 / 4; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: center;
+    padding: 0;
+    gap: 2rem;
+
+  }
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--color-primary);
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    transform: scale(0,1);
+    transition: transform ease-in-out 0.1s;
+  }
+
+  nav a:hover::before {
+    transform: scale(1,1);
+    /* transform-origin: left; */
+  }
+
+  .navbar-item {
+    font-size: 0.75rem;
+  }
+
 }
