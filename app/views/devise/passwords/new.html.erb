@@ -1,19 +1,18 @@
-<div class="wrapper devise-view new-pwd">
-	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class = "devise-view">
+  <div class = "devise-left-background-image"></div>
+  <div class="wrapper">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <h2>Mot de passe oublié ? </h2>
-		  <%= render "devise/shared/error_messages", resource: resource %>
-		  <p> Pas de problème, ça arrive même aux meilleurs 🙈 ! </p> 
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <p> Pas de problème, ça arrive même aux meilleurs ! </p>
       <p>Entrez l'e-mail associé à votre compte pour recevoir le lien. </p>
       <div class="field">
-		    <div class="field container-su">
-				  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"field-su", placeholder:"Email" %>
-		  	</div>
-      </div> 
-			<div class="actions">
-				<%= f.submit 'Envoyer' , class:"btn btn-primary" %>
-			</div>
-		</div>
-	<% end %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email" %>
+      </div>
+      <div class="field">
+        <%= f.submit "Recevoir le lien" , class:"btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-
+</div>

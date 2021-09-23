@@ -1,34 +1,30 @@
-<nav class="navbar navbar-expand-lg" style="display:flex; justify-content:space-between; ">
-  <div style="display:flex; justify-content:space-between">
-    <%= link_to "Woovv", root_path, class:"navbar-brand"%>
-  </div>
-  <ul class="dropdown my-account-dropdown">
-    <% if current_user && current_user.avatar.attached?%>
-      <div class = "navbar-img">
-        <%= image_tag current_user.avatar, alt: 'avatar' %>
-      </div>
-    <% end %>
-    <% if !current_user%>
-      <li><%= link_to "Connexion", new_user_session_path, class:"navbar-item" %></li>
-      <li><%= link_to "Inscription", new_user_registration_path, class:"navbar-item" %></li>
-      <a href="https://rz038zhvlso.typeform.com/to/fOfiofVp" class="nav-item">Proposer mes coworkings</a>
-    <% else %>
-      <% if current_user.bookings.count > 0%>
+<header>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <%= link_to "Woovv", root_path, class:"navbar-brand"%>
+  <nav>
+    <ul>
+      <% if !current_user%>
+        <div class = "login-signin">
+          <li><%= link_to "Connexion", new_user_session_path, class:"navbar-item" %></li>
+          <li><%= link_to "Inscription", new_user_registration_path, class:"navbar-item" %></li>
+        </div>
+      <% else %>
         <li><%= link_to "Mes réservations", user_bookings_path(current_user.id), class:"navbar-item"  %></li>
-      <% end %>
-      <li><%= link_to "Mon compte",  user_path(current_user.id),class:"navbar-item" %></li>
-      <li><%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"navbar-item" %></li>
-      <%# <div class="dropdown-divider"></div> %>
-      <div class = "coworking-manager">
         <% if current_user.managed_coworkings.count > 0%>
-          <p class="navbar-item">Coworking manager</p>
           <li><%= link_to "Mes coworkings", coworking_manager_coworkings_path, class:"navbar-item"  %></li>
-          <% if Booking.where(coworking_id:current_user.managed_coworkings.select(:id)).count > 0%>
-            <li><%= link_to "Gérer les réservations", coworking_manager_bookings_path, class:"navbar-item"  %></li>
-          <% end %>
+          <li><%= link_to "Gérer les réservations", coworking_manager_bookings_path, class:"navbar-item"  %></li>
         <% end %>
-      </div>
-    <% end %>
-    <li><%= link_to "Trouver un coworking", coworkings_path, class:"btn btn-primary" %></li>
-  </ul>
-</nav>
+        <% if current_user && current_user.avatar.attached?%>
+          <div class = "navbar-img">
+            <%= link_to  user_path(current_user.id),class:"navbar-item"  do %>
+              <%= image_tag current_user.avatar, alt: 'avatar' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </ul>
+  </nav>
+  <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>

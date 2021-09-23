@@ -1,26 +1,7 @@
-.card-box{
-    display: flex;
-    margin: 3rem 0; 
-    gap: 1rem ;
-    border: 1px red solid;
-}
-
-.team-img{
-    width: 50%;
-    margin: 0 auto;
-    border: 2px green solid;
-}
-
-.btn-fun{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
-}
-
 .photo-team {
     height: 20rem;
     flex-shrink: 0;
+    position: relative;
 }
 
 .photo-team img {
@@ -48,65 +29,41 @@
     grid-area: marin;
 }
 
-.full-team {
-    grid-area: full-team;
-}
-
-.falafel {
-    grid-area: falafel;
-}
-
-.elon {
-    grid-area: elon;
-}
-
-.kiffance {
-    grid-area: kiffance;
-}
-
 .team-grid {
     display: grid;
-    /* grid-template-columns: repeat(3,max-content); */
     grid-template-rows: auto;
     grid-template-areas: 
-      "marin amelie david"
-      "ambroise falafel jo"
-      "full-team full-team full-team"
-      "full-team full-team full-team"
-      "elon elon kiffance";
-    justify-content: center;
+      "marin david amelie ambroise jo";
     gap: .25rem;
   }
 
   .team-grid > div {
-    transition: 0.5s all;
     position: relative;
-
 }
-
-   .photo-team:hover {
-    opacity: 0.6;
-}
-
-  .team-grid > div:hover .team-presentation {
-        display: block;
-  }
 
   .team-grid img {
       object-fit: cover;
   }
 
   .team-presentation {
-      position: absolute;
-      display: none;
-      left: 50%;
-      bottom: 0;
-      transform:translateX(-50%);
-      text-align: center;
-      font-weight: bolder;
-      font-size: 2rem;
-      background-color: teal;
-      color: white;
-      width: 100%;
-      padding: 1rem 0;
+    font-size: 1rem;
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    background-color: rgba(0, 128, 128, 0.5);
+    color: white;
+    padding: 0.25rem;
+    display: none;
   }
+
+  .team-grid > div:hover .team-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.first-name {
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
