@@ -52,13 +52,18 @@
 .mapboxgl-ctrl-geocoder {
   max-height: 50px;
   font-family: 'Josefin Sans';
-  max-width: 25rem;
+  max-width: 30rem;
   display: flex;
   width: 40%;
 }
 
 .mapboxgl-ctrl-geocoder--input {
 height:38px;
+}
+
+
+.mapboxgl-ctrl-geocoder--input:focus {
+  outline:solid 1px var(--color-primary);
 }
 
 .show.mapindex #map {

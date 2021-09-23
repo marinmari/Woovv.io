@@ -18,7 +18,6 @@ body {
   min-height: 100vh;
   display:flex;
   flex-direction: column;
-  /* overflow-x: hidden; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,8 +28,6 @@ h1, h2, h3, h4, h5, h6 {
 .wrapper {
   padding:var(--padding-margin-s);
   background-color: rgb(252, 252, 252);
-  /* border: 3px black solid; */
-  /* width:90%; */
 }
 
 input[type=text], input[type=tel], input[type=email]  {
@@ -41,9 +38,6 @@ input[type=text], input[type=tel], input[type=email]  {
 textarea {
   border: 1px var(--color-primary) solid;
   outline: hidden;
-}
-
-input::placeholder{
 }
 
 input:focus {
@@ -90,12 +84,10 @@ input:focus {
 }
 
 .search {
-  /* min-width: 45rem; */
   margin: 1rem 0;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  /* border: 3px red solid; */
 }
 
 .btn-primary.search-btn {
@@ -111,7 +103,6 @@ h3 {
 }
 
 .new-spots-section {
-  /* border: 3px red solid; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, max-content) );
   gap: 2rem;
@@ -119,18 +110,14 @@ h3 {
 }
 
 .new-spots-section > div {
-  /* border: 3px lime solid; */
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* flex: 1 1 auto; */
 }
 
 .img-div {
-  /* border: 3px purple solid; */
   height: 7rem;
   width: 7rem;
-  /* border-radius: 0.3rem; */
   overflow: hidden;
   transition: 0.5s all;
   flex-shrink: 0;
@@ -150,7 +137,6 @@ h3 {
 .city-div {
   display: flex;
   flex-direction: column;
-  /* border: 3px purple solid; */
   max-width: 12rem;
 }
 
@@ -184,12 +170,10 @@ section {
   flex-direction: column;
   gap: 0.5rem;
   width: 15rem;
-  /* border: 3px red solid; */
   flex: 0 0 30%;
 }
 
 .img-activities {
-  /* border: 1px lime solid; */
   position: relative;
   height: 20rem;
   min-width: 15rem;
@@ -204,19 +188,16 @@ section {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  /* border-radius: .25rem; */
 }
 
 .find-inspiration {
   padding: 1rem;
   height: 75vh;
   width: 100%;
-  /* border: 2px var(--color-primary) solid; */
   position: relative;
   background-image: url("https://images.unsplash.com/photo-1564499504739-bc4fc2ae8cba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1190&q=80");;
   background-size: cover;
   background-position: center;
-  /* border-radius: 0.5rem; */
 }
 
 .find-inspiration h2 {
@@ -237,8 +218,7 @@ section {
   align-items: flex-start;
   border: 1px var(--color-primary) solid;
   padding: 2rem;
-  /* border-radius: 0.5rem; */
-  /* justify-content: center; */
+
 }
 
 .btn-primary.bottom {
@@ -274,7 +254,6 @@ form a {
 }
 
 #carouselExampleControls {
-  /* border: 3px red solid; */
   width:100%;
   overflow: hidden;
 }
@@ -304,8 +283,6 @@ form a {
 
 .flex {
   display: flex;
-  /* align-items: center; */
-  /* border: 1px red solid; */
   gap: 1rem;
   margin: 0 0 2rem 0;
 }
@@ -327,12 +304,10 @@ form a {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
-  /* justify-content: space-between; */
 }
 
 .block-1-left {
   box-shadow: var(--shadow);
-  /* border: 3px red solid; */
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -347,16 +322,12 @@ form a {
 }
 
 .block-1-right {
-  /* border: 3px lime solid; */
   padding: 3rem;
   box-shadow: var(--shadow);
   display: flex;
   height: max-content;
   flex-direction: column;
   align-items: flex-start;
-  /* justify-content: center; */
-  /* background-color: white; */
-  /* justify-content: flex-start; */
 }
 
 .block-1-right input {
@@ -472,7 +443,6 @@ p.address {
 .edit-coworking > div > div {
       display: flex;
       align-items: center;
-      /* margin-bottom: 1rem; */
 }
 
 .edit-coworking h2 {
@@ -488,14 +458,12 @@ p.address {
 }
 
 .edit-coworking.checkbox > div{
-      /* background-color: #92DACA; */
       flex-direction: row;
       align-items: center;
 }
 
 
 .edit-coworking.checkbox .day{
-      /* background-color: #92DACA; */
       flex-direction: column;
       align-items: center;
 }
@@ -512,10 +480,6 @@ p.address {
 .edit-coworking.checkbox label {
       color: black;
       }
-
-.edit-coworking h3:not(:nth-child(1)){
-      /* margin-top: 1.5rem; */
-}
 
 .edit-coworking input.btn:not(input[type=checkbox]) {
       margin-top:1rem;
@@ -547,7 +511,6 @@ p.address {
 
 form { 
       width: 80%;
-      /* border: 2px teal solid; */
 }
 
 .radio {
@@ -706,6 +669,10 @@ form > .in-line {
 
 .hidden {
   display: none;
+}
+
+.alert {
+  border-radius: 0;
 }
 
 
