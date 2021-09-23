@@ -130,7 +130,7 @@
 }
 
  .navbar-brand {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-family: 'Baloo 2';
   font-weight: 700;
   color: var(--color-primary);
@@ -150,20 +150,27 @@ header {
   width: 100%;
   z-index: 9999999;
   padding: 0 1rem;
-  box-shadow: 0 4px 7px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+}
+
+header nav ul .btn.btn-primary {
+  background-color: teal;
+  transition: 0.25s all;
+}
+
+header nav ul .btn.btn-primary:hover {
+  background-color: white;
+  color: teal;
 }
 
 nav {
   position: absolute;
-  text-align: center;
   top: 100%;
   background-color: var(--color-primary);
-  width: 100%;
   transform: scale(1,0);
   transform-origin: top;
-  left: 0;
   right: 0;
-
+  left: 0;
 }
 
 nav ul {
@@ -172,6 +179,8 @@ nav ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+  padding: 2rem;
 }
 
 
@@ -224,11 +233,11 @@ nav a {
 }
 
 .nav-toggle-label span::before{
-  bottom: 26px;
+  transform:translateY(-0.5rem)
 }
 
 .nav-toggle-label span::after{
-  top: 26px;
+  transform:translateY(0.5rem)
 }
 
 .navbar-item {
@@ -236,9 +245,15 @@ nav a {
   color: inherit;
 }
 
-.navbar-item:hover {
-  text-decoration: none;
+.navbar-item,
+.navbar-brand {
+  transition: .25s all;
+}
 
+.navbar-item:hover,
+.navbar-brand:hover {
+  text-decoration: none;
+  color: teal;
 }
 
 .login-signin {
@@ -246,15 +261,13 @@ nav a {
   gap: 2rem;
 }
 
-
-
 .my-account {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-@media screen and (min-width:832px) {
+@media screen and (min-width:879px) {
   .nav-toggle-label {
     display: none;
   }
@@ -307,6 +320,14 @@ nav a {
     /* transform-origin: left; */
   }
 
+  header nav ul .btn.btn-primary {
+    background-color: var(--color-primary);
+  }
+
+  header nav ul .btn.btn-primary:hover {
+    background-color: teal;
+    color: white;
+  }
 
   
   .coworking-manager {

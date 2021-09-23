@@ -21,12 +21,14 @@
           <li><%= link_to "Mon compte",  user_path(current_user.id),class:"navbar-item" %></li>
         </div>
         <li><%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"navbar-item" %></li>
-        <div class = "coworking-manager">
-          <li><%= link_to "Mes coworkings", coworking_manager_coworkings_path, class:"navbar-item"  %></li>
-          <li><%= link_to "Gérer les réservations", coworking_manager_bookings_path, class:"navbar-item"  %></li>
-        </div>
-        <li><%= link_to "Trouver un coworking", coworkings_path, class:"btn btn-primary" %></li>
+        <% if current_user.managed_coworkings.count > 0%>
+          <div class = "coworking-manager">
+            <li><%= link_to "Mes coworkings", coworking_manager_coworkings_path, class:"navbar-item"  %></li>
+            <li><%= link_to "Gérer les réservations", coworking_manager_bookings_path, class:"navbar-item"  %></li>
+          </div>
+        <% end %>
       <% end %>
+      <li><%= link_to "Trouver un coworking", coworkings_path, class:"btn btn-primary" %></li>
     </ul>
   </nav>
   <label for="nav-toggle" class="nav-toggle-label">
