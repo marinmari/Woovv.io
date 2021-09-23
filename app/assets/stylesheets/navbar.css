@@ -76,18 +76,6 @@
   border-color: transparent;
 }
 
-.navbar-img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.dropdown-btn img {
-  width: 100%;
-  height: 100%;
-}
 
 .navbar .nav-link {
   width: max-content;
@@ -127,16 +115,28 @@
   font-size: 1rem;
   font-weight: bolder;
 } */
+
+.navbar-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.navbar-img img {
+  width: 100%;
+  height: 100%;
+}
+
  .navbar-brand {
   font-size: 3rem;
   font-family: 'Baloo 2';
   font-weight: 700;
   color: var(--color-primary);
+  padding: 0;
+  margin-right: 0;
 }
-
-/* .coworking-manager {
-  border: 1px black dotted;
-} */
 
 /* .coworking-manager::before {
   content:'coworking manager'
@@ -150,24 +150,28 @@ header {
   width: 100%;
   z-index: 9999999;
   padding: 0 1rem;
+  box-shadow: 0 4px 7px rgba(0,0,0,0.2);
 }
 
 nav {
   position: absolute;
   text-align: center;
   top: 100%;
-  /* transform: translateX(-50%); */
   background-color: var(--color-primary);
   width: 100%;
   transform: scale(1,0);
   transform-origin: top;
   left: 0;
   right: 0;
+
 }
 
 nav ul {
   margin-bottom: 0;
-  padding: 2rem;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -176,6 +180,7 @@ nav a {
   text-transform: uppercase;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .nav-toggle:checked ~ nav {
@@ -206,7 +211,7 @@ nav a {
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  background-color: black;
+  background-color: var(--color-primary);
   height: 4px;
   width: 2rem;
   border-radius: 5px;
@@ -219,14 +224,37 @@ nav a {
 }
 
 .nav-toggle-label span::before{
-  bottom: 30px;
+  bottom: 26px;
 }
 
 .nav-toggle-label span::after{
-  top: 30px;
+  top: 26px;
 }
 
-@media screen and (min-width:800px) {
+.navbar-item {
+  font-size: 0.75rem;
+  color: inherit;
+}
+
+.navbar-item:hover {
+  text-decoration: none;
+
+}
+
+.login-signin {
+  display: flex;
+  gap: 2rem;
+}
+
+
+
+.my-account {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media screen and (min-width:832px) {
   .nav-toggle-label {
     display: none;
   }
@@ -237,32 +265,31 @@ nav a {
   }
 
   .logo {
-    /* grid-column: 2 / 3; */
     align-self: center;
   }
 
   nav {
     all: unset;
-    /* grid-column: 3 / 4; */
     display: flex;
-    justify-content: flex-end;
     align-items: center;
   }
 
   nav ul {
     display: flex;
-    /* justify-content: flex-end; */
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
     padding: 0;
     gap: 2rem;
-
+    width: 100%;
   }
+
   nav a {
     opacity: 1;
     position: relative;
   }
 
-  nav a::before {
+  .navbar-item::before {
     content: '';
     display: block;
     height: 3px;
@@ -275,13 +302,16 @@ nav a {
     transition: transform ease-in-out 0.1s;
   }
 
-  nav a:hover::before {
+  .navbar-item:hover::before {
     transform: scale(1,1);
     /* transform-origin: left; */
   }
 
-  .navbar-item {
-    font-size: 0.75rem;
-  }
 
+  
+  .coworking-manager {
+    background-color: rgba(0, 128, 128, 0.267);
+    padding: 0.25rem;
+  }
+ 
 }
