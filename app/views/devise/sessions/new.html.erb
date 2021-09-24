@@ -1,29 +1,25 @@
 <div class = "devise-view">
   <div class = "devise-left-background-image"></div>
-  <div class="wrapper devise-view">
+  <div class="wrapper">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <h2>Connexion</h2>
       <div class="field">
-        <div class="field container-su">
-          <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'field-su' %>
-        </div>
+        <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
       </div>
       <div class="field">
-        <div class="field container-su">
-          <%= f.password_field :password, placeholder: "Mot de passe", class: 'field-su' %>
-        </div>
+        <%= f.password_field :password, placeholder: "Mot de passe" %>
+      </div>
+      <div class="field">
+        <%= f.submit "Connexion" , class:"btn btn-primary"%>
       </div>
       <% if devise_mapping.rememberable? %>
         <div class="field">
-          <div class="field container-su remember">
+          <div class="field remember">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me , "Se souvenir de moi" %>
           </div>
         </div>
       <% end %>
-      <div class="actions div-su">
-        <%= f.submit "Connexion" , class:"btn btn-primary"%>
-      </div>
       <%= render "devise/shared/links" %>
     <% end %>
   </div>

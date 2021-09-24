@@ -1,31 +1,25 @@
 <div class = "devise-view">
   <div class = "devise-left-background-image sign-up"></div>
-  <div class="wrapper devise-view">
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="wrapper">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <h2>Inscription</h2>
-
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-      <div class="div-email container-su ">
-        <%= f.email_field :email, autofocus: true, placeholder: "Email " , class: 'field-su' %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, placeholder: "Email "  %>
       </div>
-    </div>
-    <div class="field container-su">
-      <div class="password1">
+      <div class="field">
+        <div class="password1">
+        </div>
+        <%= f.password_field :password, placeholder: "Mot de passe (6 caractères minimum)"   %>
       </div>
-      <%= f.password_field :password, placeholder: "Mot de passe (6 caractères minimum)"  , class:'field-su' %>
-    </div>
-    <div class="field container-su">
-      <%= f.password_field :password_confirmation, placeholder: "Confirmation du mot de passe" , class:'field-su'%>
-    </div>
-    <div class="actions div-su">
-      <%= f.submit "Let's go !" , :class => 'btn btn-primary' %>
-    </div>
-
+      <div class="field">
+        <%= f.password_field :password_confirmation, placeholder: "Confirmation du mot de passe" %>
+      </div>
+      <div class="field">
+        <%= f.submit "Let's go !" , :class => 'btn btn-primary' %>
+      </div>
       <%= link_to "J'ai déjà un compte" , new_user_session_path %>
       <a href = "https://rz038zhvlso.typeform.com/to/fOfiofVp">S'inscrire en tant que Coworking</a>
-   
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

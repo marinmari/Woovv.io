@@ -10,15 +10,19 @@
 }
 
 .avatar-photo {
-  border-radius: 8px;
-  height: 100%;
-  width: 100%;
-  display: flex;
+  height: 20rem;
+  width: 15rem;
   padding: 0;
-  overflow: hidden;
-  background-color: #a1b6b1;
-  border-color: transparent;
+
 }
+
+.avatar-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
 .avatar-without-photo {
   border-radius: 50%;
   height: 5rem;
@@ -33,26 +37,26 @@
 }
 
 .avatar-delete{
-  color:black;
+  color:orangered;
   position:absolute;
-  top: 5px;
-  left: 5px;
-  display: none;
-}
-.avatar-edit{
-  color:black;
-  position:absolute;
-  top: 5px;
-  right: 5px;
+  bottom: 0.5rem;
+  right: 1rem;
   display: none;
 }
 
-.avatar:hover .avatar-delete {
+.avatar-edit{
+  color:orangered;
+  position:absolute;
+  bottom: 0.5rem;
+  right: 2.5rem;
+  display: none;
+}
+
+.user-pic:hover .avatar-delete,
+.user-pic:hover .avatar-edit  {
   display: block;
 }
-.avatar:hover .avatar-edit {
-  display: block;
-}
+
 .avatar-without-photo:hover {
   background-color: teal;
   border-color: white;

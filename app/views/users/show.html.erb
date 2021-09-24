@@ -1,107 +1,65 @@
-<div class="page-content page-container" id="page-content">
-  <div class="padding">
-    <div class="row container d-flex justify-content-center">
-      <div class="col-xl-12 col-md-12">
-        <div class="card user-card-full">
-          <div class="row m-l-0 m-r-0">
-            <div class="col-sm-4 bg-c-lite-green user-profile">
-              <div class="card-block text-center">
-                <div class="row">
-                  <div class="avatar">
-                    <%if @user.avatar.attached?%>
-                      <%=image_tag @user.avatar, alt: 'avatar', class:'avatar-photo'%>
-                      <%=link_to user_avatar_path(@user, @user.avatar), :method => :delete, class:"avatar-delete" do%>
-                        <i class="far fa-trash-alt hover-hidden"></i><br>
-                      <%end%>
-                      <a href="" class="avatar-edit" data-toggle="modal" data-target="#modalLoginForm"><i class="far fa-edit hover-hidden"></i></a>
-                      <%= render 'modaleditavatar'%>
-                    <%else%>
-                      <a href="" data-toggle="modal" data-target="#modalLoginForm">
-                        <div class="row justify-content-center">
-                          <div class="avatar-without-photo">
-                            <i class="far fa-user text-white fa-lg"></i>
-                          </div>
-                        </div>
-                      </a>
-                      <%= render 'modalnewavatar'%>
-                    <%end%>
-                  </div>
-                </div>
-                <div class="row justify-content-center text-white">
-                  <%if current_user.last_name%>
-                    <div class="col-12">
-                      <h4 class="f-w-600"><%=current_user.first_name%> <%=current_user.last_name.upcase%></h4>
-                    </div>
-                  <%end%>
-                  <div class="col-12">
-                    <h6><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <div class="card-block">
-                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Informations du compte <%= link_to edit_user_registration_path do%>
-                    <i class="far fa-edit text-black"></i>
-                  <%end%></h5>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Email </h6>
-                    <h6 class="text-muted f-w-400"><%=current_user.email%></h6>
-                  </div>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Informations personnelles <%= link_to edit_user_path(current_user) do%>
-                    <i class="far fa-edit text-black"></i>
-                  <%end%></h5>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Prénom</h6>
-                    <h6 class="text-muted f-w-400"><%=current_user.first_name%></h6>
-                  </div>
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Nom</h6>
-                    <%if current_user.last_name%>
-                      <h6 class="text-muted f-w-400"><%=current_user.last_name.upcase%></h6>
-                    <%end%>
-                  </div>
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Téléphone</h6>
-                    <h6 class="text-muted f-w-400"><%=current_user.phone_number%></h6>
-                  </div>
-                  <div class="col-sm-6">
-                    <h6 class="m-b-10 f-w-600">Anniversaire</h6>
-                    <% if current_user.birth_date %>
-                      <h6 class="text-muted f-w-400"><%=current_user.birth_date.strftime("%d/%m/%Y")%></h6>
-                    <%end%>
-                  </div>
-                </div>
-                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Activités</h5>
-                <div class='row'>
-                  <div class="col-sm-6">
-                    <% if current_user.managed_coworkings.count > 0%>
-                      <h6 class="m-b-10 f-w-600">Mes réservations</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Gérer mes réservations", coworking_manager_bookings_path(current_user) %></h6>
-                    </div>
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Proposer un nouvel espace", "https://rz038zhvlso.typeform.com/to/o13LHWwe" %></h6>
-                    <% else %>
-                      <h6 class="m-b-10 f-w-600">Mes réservations</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Voir mes réservations", user_bookings_path(current_user) %></h6>
-                    </div>
-                    <div class="col-sm-6">
-                      <h6 class="m-b-10 f-w-600">Mon espace de coworking</h6>
-                      <h6 class="text-muted f-w-400"><%=link_to "Devenir coworking manager", "https://rz038zhvlso.typeform.com/to/fOfiofVp" %></h6>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="wrapper">
+  <div class="card-user">
+    <div class="user-pic">
+      <%if @user.avatar.attached?%>
+        <div class='avatar-photo'>
+          <%=image_tag @user.avatar, alt: 'avatar'%>
         </div>
+        <%= render 'modaleditavatar'%>
+      <%else%>
+        <a href="" data-toggle="modal" data-target="#modalLoginForm">
+          <i class="far fa-user fa-lg"></i>
+        </a>
+        <%= render 'modalnewavatar'%>
+      <%end%>
+      <%=link_to user_avatar_path(@user, @user.avatar), :method => :delete, class:"avatar-delete" do%>
+        <i class="far fa-trash-alt hover-hidden"></i><br>
+      <%end%>
+      <a href="" class="avatar-edit" data-toggle="modal" data-target="#modalLoginForm"><i class="far fa-edit hover-hidden"></i></a>
+    </div>
+    <div class = "user-info">
+      <div>
+        <h5>Informations du compte <%= link_to edit_user_registration_path do%>
+            <i class="far fa-edit "></i>
+          <%end%></h5>
+        <div><small><%=current_user.created_at.strftime("Membre depuis le %d/%m/%Y")%></div>
+        </small>
+        <b>Email :</b>
+        <span><%=current_user.email%></span>
+      </div>
+      <div>
+        <h5>Informations personnelles <%= link_to edit_user_path(current_user) do%>
+            <i class="far fa-edit "></i>
+          <%end%></h5>
+        <b>Nom complet :</b>
+        <%if current_user.first_name%>
+          <span><%=current_user.first_name%></span>
+        <%end%>
+        <%if current_user.last_name%>
+          <span><%=current_user.last_name%></span>
+        <%end%>
+        <div>
+          <b>Téléphone :</b>
+          <span><%=current_user.phone_number%></span>
+        </div>
+        <div>
+          <b>Date de naissance :</b>
+          <% if current_user.birth_date %>
+            <span><%=current_user.birth_date.strftime("%d/%m/%Y")%></span>
+          <%end%>
+        </div>
+      </div>
+      <div>
+        <h5>Activités</h5>
+        <%=link_to "Voir mes propres réservations", user_bookings_path(current_user), class:'btn btn-primary'  %>
+        <% if current_user.managed_coworkings.count > 0%>
+          <%=link_to "Gérer mes réservations", coworking_manager_bookings_path(current_user), class:'btn btn-info' %>
+          <%=link_to "Proposer un nouvel espace", "https://rz038zhvlso.typeform.com/to/o13LHWwe", class:'btn btn-secondary'  %>
+        <%else%>
+          <%=link_to "Devenir coworking manager", "https://rz038zhvlso.typeform.com/to/fOfiofVp", class:'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-</div>
+  <%= link_to "Deconnexion",destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
 </div>

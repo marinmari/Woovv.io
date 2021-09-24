@@ -10,9 +10,7 @@
 
 
 .new_user {
-    /* border: 3px red solid; */
-    width: 60%;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .field.container-su.remember {
@@ -30,10 +28,10 @@
     margin-bottom: 0;
 }
 
-form > div {
-    /* border: 2px lime solid; */
+form > .field {
     display: flex;
     flex-direction: column;
+    margin: 0.5rem 1rem;
 }
 
 .container-su{
@@ -70,6 +68,7 @@ form > div {
 .new_user {
     display:flex;
     flex-direction: column;
+    max-width: 23rem;
 }
 
 .btn btn-primary{

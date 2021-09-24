@@ -20,7 +20,7 @@ body {
   flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, b {
       font-family: "Baloo 2";
       font-weight: bolder;
 }
@@ -30,9 +30,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgb(252, 252, 252);
 }
 
-input[type=text], input[type=tel], input[type=email]  {
+input[type=text], 
+input[type=password],
+input[type=tel], 
+input[type=email]  {
   border: 1px var(--color-primary) solid;
   outline: hidden;
+  color: black;
 }
 
 textarea {
@@ -565,14 +569,16 @@ form > .in-line {
      right: 0;
 }
 
-.wrapper.devise-view {
-      color:white;
-      background-color: teal;
-      width: 50%;
+.devise-view .wrapper {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
 
 .devise-view  {
-     display: flex;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
      min-height: 70vh;
 }
 
@@ -582,7 +588,6 @@ form > .in-line {
 
 .devise-left-background-image {
       background-image: url('https://images.unsplash.com/photo-1616503951625-9cc974aaf1c3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80');
-      width: 50%;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -590,7 +595,6 @@ form > .in-line {
 
 .devise-left-background-image.sign-up {
       background-image: url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
-
 }
 
 
@@ -641,6 +645,10 @@ form > .in-line {
   margin-bottom: 1rem;
 }
 
+form h2 {
+  text-align: center;
+}
+
 .form-contact.field label{
   font-weight: bolder;
 }
@@ -667,18 +675,77 @@ form > .in-line {
   margin: 0;
 }
 
-.hidden {
-  display: none;
+.field .btn.btn-primary {
+  transition: 0.25s all;
 }
 
 .alert {
   border-radius: 0;
 }
 
+.devise-view .new_user input {
+  padding: 0.25rem;
+}
+
+.new_user p {
+  padding: 0 1rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.card-user {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.user-pic {
+  background-color: var(--color-primary);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  position: relative;
+  transition: 0.25s all;
+}
+
+.user-info > div {
+  padding: 1rem 0;
+}
+
+.user-info > div:not(:last-child) {
+  border-bottom: 1px var(--color-primary) solid;
+}
+
+.user-pic:hover{
+  opacity: 0.8;
+}
+
+.user-info {
+  display: grid;
+  gap: 1rem;
+}
+
+.cw-manager {
+  margin-bottom: 1rem;
+}
 
 @media (max-width:1183px){
   .city-div {
       max-width: 20rem;
+  }
+}
+
+@media (max-width:879px){
+  .devise-view {
+    grid-template-columns: 1fr;
+  }
+
+  .devise-left-background-image {
+    display: none;
   }
 }
 
